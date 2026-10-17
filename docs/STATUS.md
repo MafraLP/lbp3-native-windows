@@ -20,3 +20,7 @@
 O projeto não oferece downloads de jogo/firmware, instalador para jogadores nem instruções de aquisição de cópias. Registre qualquer nova afirmação de compatibilidade com configuração, commit, evidência reproduzível e limitações.
 
 For details in English, see the same verified scope above; this document intentionally records milestones conservatively.
+
+## Latest first-use diagnostic (2026-10-17)
+
+A run with a separate, initially empty save directory stopped at `Important Information`. Its gated trace observed `sceNpGetNpId`, `sceNpSetNpTitleId`, and `sceNpRegisterStateCallback`, followed by repeated `sceNpCheckCallback` polling and another NP ID query. It did not call `sceNpGetState` or the network APIs during the captured interval. A separate 30-second filesystem trace found `/app0/gamedata/data/craftworld.ini` missing, then successfully opened `ratings.xml` and streamed `intro_001.farc`; the title continued rendering, so the missing INI is not yet proven fatal. The earlier run using persisted save data reached the online-connection screen; these are distinct startup states, so no specific network shim is identified as the cause of the first-use screen yet.

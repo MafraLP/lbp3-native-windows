@@ -3,20 +3,28 @@
 #include <Windows.h>
 #include <array>
 #include <atomic>
+#include <cstdio>
 #include <cstring>
 #include <stdexcept>
 
 namespace lbp3::hle {
 namespace {
-// This process has no PSN session. With no locally queued callback, polling
-// succeeds and reports no work, as the API's callback pump contract requires.
-std::int32_t LBP3_GUEST_ABI check_callback() noexcept {return 0;}
 constexpr std::int32_t signed_out=static_cast<std::int32_t>(0x80550006u);
 constexpr std::int32_t invalid_argument=static_cast<std::int32_t>(0x80550003u);
 constexpr std::int32_t np_state_signed_out=1;
 std::atomic<std::int32_t> next_callback{1};
-std::int32_t LBP3_GUEST_ABI get_np_id(void*) noexcept {return signed_out;}
-std::int32_t LBP3_GUEST_ABI get_np_state(std::int32_t, std::int32_t* state) noexcept {
+std::atomic<unsigned> np_trace_count{};
+void trace_np(const char* name,std::int32_t a=0,std::uintptr_t b=0) noexcept {
+    static const bool enabled=[] {wchar_t value[2]{};return GetEnvironmentVariableW(L"LBP3_NP_TRACE",value,static_cast<DWORD>(std::size(value)))>0;}();
+    if(enabled){const auto n=np_trace_count.fetch_add(1,std::memory_order_relaxed);if(n<128)
+        std::fprintf(stderr,"[LBP3_NP_TRACE] #%u %s %d 0x%llx\n",n+1,name,a,static_cast<unsigned long long>(b));}
+}
+// This process has no PSN session. With no locally queued callback, polling
+// succeeds and reports no work, as the API's callback pump contract requires.
+std::int32_t LBP3_GUEST_ABI check_callback() noexcept {trace_np("sceNpCheckCallback");return 0;}
+std::int32_t LBP3_GUEST_ABI get_np_id(void* output) noexcept {trace_np("sceNpGetNpId",0,reinterpret_cast<std::uintptr_t>(output));return signed_out;}
+std::int32_t LBP3_GUEST_ABI get_np_state(std::int32_t user_id, std::int32_t* state) noexcept {
+    trace_np("sceNpGetState",user_id,reinterpret_cast<std::uintptr_t>(state));
     if(!state)return invalid_argument;
     const std::int32_t value=np_state_signed_out;
     SIZE_T written{};
@@ -24,12 +32,12 @@ std::int32_t LBP3_GUEST_ABI get_np_state(std::int32_t, std::int32_t* state) noex
         return invalid_argument;
     return 0;
 }
-std::int32_t LBP3_GUEST_ABI set_np_title_id(const char*) noexcept {return 0;}
+std::int32_t LBP3_GUEST_ABI set_np_title_id(const char* title) noexcept {trace_np("sceNpSetNpTitleId",0,reinterpret_cast<std::uintptr_t>(title));return 0;}
 // The title uses this only to announce its content-rating policy to NP
 // services. The ISS offline compatibility layer treats it as a no-op; there
 // is no PSN account or network policy service in this host process.
 std::int32_t LBP3_GUEST_ABI set_content_restriction(const void*) noexcept {return 0;}
-std::int32_t LBP3_GUEST_ABI register_state_callback(void*,void*) noexcept {return next_callback.fetch_add(1,std::memory_order_relaxed);}
+std::int32_t LBP3_GUEST_ABI register_state_callback(void* callback,void* user) noexcept {trace_np("sceNpRegisterStateCallback",static_cast<std::int32_t>(reinterpret_cast<std::uintptr_t>(callback)&0x7fffffff),reinterpret_cast<std::uintptr_t>(user));return next_callback.fetch_add(1,std::memory_order_relaxed);}
 std::int32_t LBP3_GUEST_ABI webapi_initialize() noexcept {return next_callback.fetch_add(1,std::memory_order_relaxed);}
 std::int32_t LBP3_GUEST_ABI webapi_terminate(std::int32_t) noexcept {return 0;}
 std::int32_t LBP3_GUEST_ABI signaling_ok() noexcept {return 0;}
