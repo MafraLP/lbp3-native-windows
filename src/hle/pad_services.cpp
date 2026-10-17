@@ -74,8 +74,8 @@ std::uint8_t axis_keys(std::uint32_t keys,KeyboardKey negative,KeyboardKey posit
     return n==p?128:static_cast<std::uint8_t>(n?0:255);
 }
 void apply_keyboard(PadData& data,std::uint32_t keys) noexcept {
-    if(!keys)return;
     data.connected=1;data.connected_count=1;
+    if(!keys)return;
     data.left_x=axis_keys(keys,key_a,key_d);data.left_y=axis_keys(keys,key_w,key_s);
     data.right_x=axis_keys(keys,key_left,key_right);data.right_y=axis_keys(keys,key_up,key_down_arrow);
     if(keys&key_space)data.buttons|=btn_cross;if(keys&key_lshift)data.buttons|=btn_circle;
@@ -87,7 +87,7 @@ void apply_keyboard(PadData& data,std::uint32_t keys) noexcept {
     if(keys&key_i)data.buttons|=btn_up;if(keys&key_l)data.buttons|=btn_right;
     if(keys&key_k)data.buttons|=btn_down;if(keys&key_j)data.buttons|=btn_left;
 }
-std::uint8_t connected_count() noexcept {std::uint8_t count{};for(DWORD i=0;i<XUSER_MAX_COUNT;++i){XINPUT_STATE s{};if(XInputGetState(i,&s)==ERROR_SUCCESS)++count;}if(!count&&keyboard_state())return 1;return count;}
+std::uint8_t connected_count() noexcept {std::uint8_t count{};for(DWORD i=0;i<XUSER_MAX_COUNT;++i){XINPUT_STATE s{};if(XInputGetState(i,&s)==ERROR_SUCCESS)++count;}return count?count:1;}
 void sample(PadData& data) noexcept {
     data.left_x=data.left_y=data.right_x=data.right_y=128;data.timestamp=static_cast<std::uint64_t>(std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::steady_clock::now().time_since_epoch()).count());
     XINPUT_STATE state{};if(XInputGetState(0,&state)!=ERROR_SUCCESS){apply_keyboard(data,keyboard_state());return;}
@@ -166,6 +166,10 @@ void pad_services_self_test(std::ostream& output){
     PadData data{};if(read(handle,&data)||data.left_x!=128||data.left_y!=128||data.right_x!=128||data.right_y!=128||data.touch_count>2||data.connected>1)
         throw std::runtime_error("Pad state ABI layout or neutral state failed.");
     PadData keyboard{};keyboard.left_x=keyboard.left_y=keyboard.right_x=keyboard.right_y=128;
+    apply_keyboard(keyboard,0);
+    if(!keyboard.connected||keyboard.connected_count!=1||keyboard.buttons||keyboard.left_x!=128||keyboard.left_y!=128)
+        throw std::runtime_error("Idle keyboard fallback must remain connected with a neutral state.");
+    keyboard={};keyboard.left_x=keyboard.left_y=keyboard.right_x=keyboard.right_y=128;
     apply_keyboard(keyboard,key_space|key_w|key_d|key_up|key_i);
     if(!keyboard.connected||keyboard.connected_count!=1||keyboard.left_x!=255||keyboard.left_y!=0||
        keyboard.right_x!=128||keyboard.right_y!=0||(keyboard.buttons&(btn_cross|btn_up))!=(btn_cross|btn_up))

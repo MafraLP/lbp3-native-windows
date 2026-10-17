@@ -25,6 +25,10 @@ Este repositório é um port/reimplementação nativo em estágio inicial. A met
 
 O backend GPU é uma integração experimental opcional baseada numa árvore externa associada ao projeto [HayatoG/iss_pc](https://github.com/HayatoG/iss_pc). O upstream declara o código em `port/` sob GPL v2 ou posterior, o que permite reutilização cumprindo os termos da licença. As dependências listadas em `port/gpu/VENDOR.txt` mantêm termos próprios. O diretório local de desenvolvimento sob `out/iss-audit` é ignorado pelo Git; se for redistribuir seu conteúdo, mantenha o código-fonte e todos os avisos/licenças aplicáveis. Código/documentação do ISS servem como referência técnica; correções específicas de inFAMOUS não devem ser aplicadas ao LBP3 sem evidência reproduzível.
 
+## Controles locais
+
+Quando nenhum controle XInput está conectado, o host expõe o teclado como um controle virtual conectado. O mapeamento atual é WASD para o analógico esquerdo, setas para o analógico direito, I/J/K/L para o direcional, Espaço para Cross, Shift esquerdo para Circle, E/Q para Square/Triangle, 1/3 para L1/R1, R/F para L2/R2, Z/C para L3/R3 e Enter para Options. Esse caminho já foi observado chegando a `scePadReadState`; ainda não há confirmação de que o jogo avance da tela inicial com esses controles.
+
 ## Relatórios
 
 Inclua Windows/build/compiler, preset e comando, resultado de CTest e erro mínimo reproduzível. Não anexe executáveis, dumps, saves ou capturas com conteúdo protegido. Para o estado conhecido, veja [STATUS.md](STATUS.md); para questões legais e proveniência, veja [LEGAL.md](LEGAL.md).

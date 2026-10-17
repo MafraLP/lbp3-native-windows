@@ -6,7 +6,7 @@
 
 - O host Windows x64 compila com `clang-cl` e CMake; os testes automatizados cobrem loader ELF, ABI guest/host, memória, TLS, threads e serviços HLE em fixtures.
 - Em uma configuração local com o backend GPU Vulkan experimental do ISS, o entry do eboot chegou à apresentação gráfica e uma captura mostrou o texto “Health Warning”. Isso é evidência de que um caminho de renderização executou; não prova que a entrada de controle avance a tela.
-- `scePadReadState` foi observado em chamadas repetidas durante essa tela. Ainda não confirmamos entrada pressionada chegando ao guest nem a transição para o menu.
+- `scePadReadState` foi observado em chamadas repetidas durante essa tela. Um teste local posterior confirmou que o fallback de teclado permanece conectado em repouso e que Espaço chega ao guest como Cross (`buttons=0x4000`). A transição para o menu ainda não foi confirmada.
 - A verificação mais recente deste workspace passou 49/49 testes CTest. São testes de componentes e fixtures, não um teste de compatibilidade do jogo completo.
 
 ## O que ainda não foi demonstrado
