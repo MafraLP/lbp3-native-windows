@@ -1,0 +1,25 @@
+﻿
+out/modules/lbp3/libc.elf:	file format elf64-x86-64
+
+Disassembly of section PT_LOAD#0:
+
+0000000000000000 <PT_LOAD#0>:
+    2400: 74 43                        	je	0x2445 <PT_LOAD#0+0x2445>
+    2402: 48 8d 7d c0                  	leaq	-0x40(%rbp), %rdi
+    2406: e8 15 dd ff ff               	callq	0x120 <PT_LOAD#0+0x120>
+    240b: 45 31 f6                     	xorl	%r14d, %r14d
+    240e: 85 c0                        	testl	%eax, %eax
+    2410: 75 57                        	jne	0x2469 <PT_LOAD#0+0x2469>
+    2412: 4b 8d 9c 25 88 03 00 00      	leaq	0x388(%r13,%r12), %rbx
+    241a: 48 8d 75 c0                  	leaq	-0x40(%rbp), %rsi
+    241e: 48 89 df                     	movq	%rbx, %rdi
+    2421: 48 8b 55 b8                  	movq	-0x48(%rbp), %rdx
+    2425: e8 06 dd ff ff               	callq	0x130 <PT_LOAD#0+0x130>
+    242a: 85 c0                        	testl	%eax, %eax
+    242c: 75 3b                        	jne	0x2469 <PT_LOAD#0+0x2469>
+    242e: 48 8b 03                     	movq	(%rbx), %rax
+    2431: 81 48 20 00 01 00 00         	orl	$0x100, 0x20(%rax)      # imm = 0x100
+    2438: 48 8d 7d c0                  	leaq	-0x40(%rbp), %rdi
+    243c: e8 ff dc ff ff               	callq	0x140 <PT_LOAD#0+0x140>
+    2441: 85 c0                        	testl	%eax, %eax
+    2443: 75 24                        	jne	0x2469 <PT_LOAD#0+0x2469>

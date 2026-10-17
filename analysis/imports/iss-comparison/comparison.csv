@@ -1,0 +1,601 @@
+﻿symbol_index,nid,library,module,kind,name,status,evidence
+2,wycAbBCjLI4,FMODExtInput,FMODExtInput,function,,not_found,
+3,iO5jJEuFaSo,FMODSmsReverb,FMODSmsReverb,function,,not_found,
+4,-UZ0JwaglR8,FMODSmsWaveHammer,FMODSmsWaveHammer,function,,not_found,
+5,Kx23RuISciY,FMODVoIPMixer,FMODVoIPMixer,function,,not_found,
+6,xnd8BJzAxmk,libSceAppContent,libSceAppContentUtil,function,sceAppContentGetAddcontInfoList,candidate_found,port/src/runtime_content.c:86 -> addon_list [body_present_semantics_unverified]
+7,XTWR0UXvcgs,libSceAppContent,libSceAppContentUtil,function,sceAppContentGetEntitlementKey,candidate_found,port/src/runtime_gr2.c:372 -> appcontent_entitlement_key [constant_or_trivial_return_review_required]
+8,99b82IKXpH4,libSceAppContent,libSceAppContentUtil,function,sceAppContentAppParamGetInt,candidate_found,port/src/runtime_content.c:85 -> param_int [body_present_semantics_unverified]
+9,R9lA82OraNs,libSceAppContent,libSceAppContentUtil,function,sceAppContentInitialize,candidate_found,port/src/runtime_content.c:84 -> content_init [body_present_semantics_unverified]
+10,a5N7lAG0y2Q,libSceAppContent,libSceAppContentUtil,function,,not_found,
+11,SaKib2Ug0yI,libSceAppContent,libSceAppContentUtil,function,,not_found,
+12,buYbeLOGWmA,libSceAppContent,libSceAppContentUtil,function,sceAppContentTemporaryDataMount2,candidate_found,port/src/runtime_gr2.c:370 -> appcontent_temp_mount2 [body_present_semantics_unverified]
+13,5NE8Sjc7VC8,libSceAudioIn,libSceAudioIn,function,sceAudioInOpen,candidate_found,port/src/runtime_services.c:773 -> audio_in_open [constant_or_trivial_return_review_required]
+14,LozEOU8+anM,libSceAudioIn,libSceAudioIn,function,sceAudioInInput,candidate_found,port/src/runtime_services.c:741 -> audio_in_open [constant_or_trivial_return_review_required]
+15,JfEPXVxhFqA,libSceAudioOut,libSceAudioOut,function,sceAudioOutInit,candidate_found,port/src/runtime_audio.c:309 -> audio_init [body_present_semantics_unverified]
+16,ekNvsT22rsY,libSceAudioOut,libSceAudioOut,function,sceAudioOutOpen,candidate_found,port/src/runtime_audio.c:309 -> audio_open [body_present_semantics_unverified]
+17,b+uAV89IlxE,libSceAudioOut,libSceAudioOut,function,sceAudioOutSetVolume,candidate_found,port/src/runtime_audio.c:311 -> audio_volume [body_present_semantics_unverified]
+18,QOQtbeDqsT4,libSceAudioOut,libSceAudioOut,function,sceAudioOutOutput,candidate_found,port/src/runtime_audio.c:310 -> audio_output [constant_or_trivial_return_review_required]
+19,s1--uE9mBFw,libSceAudioOut,libSceAudioOut,function,sceAudioOutClose,candidate_found,port/src/runtime_audio.c:309 -> audio_close [body_present_semantics_unverified]
+20,hdTyRzCXQeQ,libSceAvPlayer,libSceAvPlayer,function,sceAvPlayerStreamCount,candidate_found,port/gpu/shadps4/core/libraries/avplayer/avplayer.cpp:285 -> sceAvPlayerStreamCount [body_present_semantics_unverified]
+21,d8FcbzfAdQw,libSceAvPlayer,libSceAvPlayer,function,sceAvPlayerGetStreamInfo,candidate_found,port/gpu/shadps4/core/libraries/avplayer/avplayer.cpp:268 -> sceAvPlayerGetStreamInfo [body_present_semantics_unverified]
+22,ODJK2sn9w4A,libSceAvPlayer,libSceAvPlayer,function,sceAvPlayerEnableStream,candidate_found,port/gpu/shadps4/core/libraries/avplayer/avplayer.cpp:266 -> sceAvPlayerEnableStream [body_present_semantics_unverified]
+23,ET4Gr-Uu07s,libSceAvPlayer,libSceAvPlayer,function,sceAvPlayerStart,candidate_found,port/gpu/shadps4/core/libraries/avplayer/avplayer.cpp:283 -> sceAvPlayerStart [body_present_semantics_unverified]
+24,NkJwDzKmIlw,libSceAvPlayer,libSceAvPlayer,function,sceAvPlayerClose,candidate_found,port/gpu/shadps4/core/libraries/avplayer/avplayer.cpp:263 -> sceAvPlayerClose [body_present_semantics_unverified]
+25,aS66RI0gGgo,libSceAvPlayer,libSceAvPlayer,function,sceAvPlayerInit,candidate_found,port/gpu/shadps4/core/libraries/avplayer/avplayer.cpp:271 -> sceAvPlayerInit [body_present_semantics_unverified]
+26,KMcEa+rHsIo,libSceAvPlayer,libSceAvPlayer,function,sceAvPlayerAddSource,candidate_found,port/gpu/shadps4/core/libraries/avplayer/avplayer.cpp:260 -> sceAvPlayerAddSource [body_present_semantics_unverified]
+27,OVths0xGfho,libSceAvPlayer,libSceAvPlayer,function,sceAvPlayerSetLooping,candidate_found,port/gpu/shadps4/core/libraries/avplayer/avplayer.cpp:281 -> sceAvPlayerSetLooping [body_present_semantics_unverified]
+28,JdksQu8pNdQ,libSceAvPlayer,libSceAvPlayer,function,sceAvPlayerGetVideoDataEx,candidate_found,port/gpu/shadps4/core/libraries/avplayer/avplayer.cpp:270 -> sceAvPlayerGetVideoDataEx [body_present_semantics_unverified]
+29,Wnp1OVcrZgk,libSceAvPlayer,libSceAvPlayer,function,sceAvPlayerGetAudioData,candidate_found,port/gpu/shadps4/core/libraries/avplayer/avplayer.cpp:267 -> sceAvPlayerGetAudioData [body_present_semantics_unverified]
+30,UbQoYawOsfY,libSceAvPlayer,libSceAvPlayer,function,sceAvPlayerIsActive,candidate_found,port/gpu/shadps4/core/libraries/avplayer/avplayer.cpp:273 -> sceAvPlayerIsActive [body_present_semantics_unverified]
+31,wwM99gjFf1Y,libSceAvPlayer,libSceAvPlayer,function,sceAvPlayerCurrentTime,candidate_found,port/gpu/shadps4/core/libraries/avplayer/avplayer.cpp:264 -> sceAvPlayerCurrentTime [body_present_semantics_unverified]
+32,w5moABNwnRY,libSceAvPlayer,libSceAvPlayer,function,sceAvPlayerResume,candidate_found,port/gpu/shadps4/core/libraries/avplayer/avplayer.cpp:278 -> sceAvPlayerResume [body_present_semantics_unverified]
+33,9y5v+fGN4Wk,libSceAvPlayer,libSceAvPlayer,function,sceAvPlayerPause,candidate_found,port/gpu/shadps4/core/libraries/avplayer/avplayer.cpp:275 -> sceAvPlayerPause [body_present_semantics_unverified]
+34,XC9wM+xULz8,libSceAvPlayer,libSceAvPlayer,function,sceAvPlayerJumpToTime,candidate_found,port/gpu/shadps4/core/libraries/avplayer/avplayer.cpp:274 -> sceAvPlayerJumpToTime [stub_marker_review_required]
+35,p6n3Npi3YY4,libSceCamera,libSceCamera,function,,not_found,
+36,2G2C0nmd++M,libSceCamera,libSceCamera,function,,not_found,
+37,OMS9LlcrvBo,libSceCamera,libSceCamera,function,,not_found,
+38,BHn83xrF92E,libSceCamera,libSceCamera,function,,not_found,
+39,VQ+5kAqsE2Q,libSceCamera,libSceCamera,function,,not_found,
+40,9EpRYMy7rHU,libSceCamera,libSceCamera,function,,not_found,
+41,doPlf33ab-U,libSceCamera,libSceCamera,function,,not_found,
+42,ZaqmGEtYuL0,libSceCamera,libSceCamera,function,,not_found,
+43,mxgMmR+1Kr0,libSceCamera,libSceCamera,function,,not_found,
+44,uoUpLGNkygk,libSceCommonDialog,libSceCommonDialog,function,sceCommonDialogInitialize,candidate_found,port/src/runtime_services.c:746 -> common_init [constant_or_trivial_return_review_required]
+45,8pWltDG7h6A,libSceCompanionHttpd,libSceCompanionHttpd,function,,not_found,
+46,w7oz0AWHpT4,libSceCompanionHttpd,libSceCompanionHttpd,function,,not_found,
+47,r-2-a0c7Kfc,libSceCompanionHttpd,libSceCompanionHttpd,function,,not_found,
+48,ykNpWs3ktLY,libSceCompanionHttpd,libSceCompanionHttpd,function,,not_found,
+49,OaWw+IVEdbI,libSceCompanionHttpd,libSceCompanionHttpd,function,,not_found,
+50,k7F0FcDM-Xc,libSceCompanionHttpd,libSceCompanionHttpd,function,,not_found,
+51,0SCgzfVQHpo,libSceCompanionHttpd,libSceCompanionHttpd,function,,not_found,
+52,dPj4ZtRcIWk,libSceContentSearch,libSceContentSearch,function,sceContentSearchInit,candidate_found,port/src/runtime_gr2.c:373 -> content_ok [body_present_semantics_unverified]
+53,PD5bnBTsv6Y,libSceContentSearch,libSceContentSearch,function,,not_found,
+54,FRT4EYtZU1Y,libSceContentSearch,libSceContentSearch,function,sceContentSearchGetMyApplicationIndex,candidate_found,port/src/runtime_gr2.c:376 -> content_search_my_index [body_present_semantics_unverified]
+55,1xSZodB2geA,libSceContentSearch,libSceContentSearch,function,sceContentSearchTerm,candidate_found,port/src/runtime_gr2.c:373 -> content_ok [body_present_semantics_unverified]
+56,TEW3IKxYfXc,libSceContentSearch,libSceContentSearch,function,sceContentSearchSearchContent,candidate_found,port/src/runtime_gr2.c:375 -> content_search_search [body_present_semantics_unverified]
+57,I88KChlynSs,libSceErrorDialog,libSceErrorDialog,function,sceErrorDialogInitialize,candidate_found,port/src/runtime_gr2.c:385 -> error_dialog_init [body_present_semantics_unverified]
+58,M2ZF-ClLhgY,libSceErrorDialog,libSceErrorDialog,function,sceErrorDialogOpen,candidate_found,port/src/runtime_gr2.c:385 -> error_dialog_open [body_present_semantics_unverified]
+59,WWiGuh9XfgQ,libSceErrorDialog,libSceErrorDialog,function,sceErrorDialogUpdateStatus,candidate_found,port/src/runtime_gr2.c:386 -> error_dialog_status_get [constant_or_trivial_return_review_required]
+60,9XAxK2PMwk8,libSceErrorDialog,libSceErrorDialog,function,sceErrorDialogTerminate,candidate_found,port/src/runtime_gr2.c:387 -> error_dialog_term [body_present_semantics_unverified]
+61,a0LLrZWac0M,libSceFiber,libSceFiber,function,sceFiberRun,candidate_found,port/src/runtime_gr2.c:368 -> fiber_run [body_present_semantics_unverified]
+62,JeNX5F-NzQU,libSceFiber,libSceFiber,function,sceFiberFinalize,candidate_found,port/src/runtime_gr2.c:367 -> fiber_finalize [body_present_semantics_unverified]
+63,asjUJJ+aa8s,libSceFiber,libSceFiber,function,,not_found,
+64,hVYD7Ou2pCQ,libSceFiber,libSceFiber,function,_sceFiberInitializeImpl,candidate_found,port/src/runtime_gr2.c:367 -> fiber_initialize [body_present_semantics_unverified]
+65,B0ZX2hx9DMw,libSceFiber,libSceFiber,function,sceFiberReturnToThread,candidate_found,port/src/runtime_gr2.c:369 -> fiber_return_to_thread [body_present_semantics_unverified]
+66,p+zLIOg27zU,libSceFiber,libSceFiber,function,,not_found,
+67,uq2Y5BFz0PE,libSceFiber,libSceFiber,function,,not_found,
+68,wAKZ-det+yo,libSceFios2,libSceFios2,function,,not_found,
+69,G-39lsdSgXo,libSceFios2,libSceFios2,function,sceFiosRenameSync,name_only,
+70,KsVTc04kN9k,libSceFios2,libSceFios2,function,sceFiosDeleteSync,name_only,
+71,jayvY07C5dk,libSceFios2,libSceFios2,function,sceFiosStatSync,name_only,
+72,xP45eIntEis,libSceFios2,libSceFios2,function,,not_found,
+73,b44anV2D7K0,libSceFios2,libSceFios2,function,sceFiosFHOpenSync,name_only,
+74,gMcfOtHW6zk,libSceFios2,libSceFios2,function,,not_found,
+75,tWS4uYFTU0M,libSceFios2,libSceFios2,function,,not_found,
+76,AOujSGqU+ms,libSceFios2,libSceFios2,function,sceFiosFHCloseSync,name_only,
+77,Bn2ZF4ZjeuQ,libSceFios2,libSceFios2,function,sceFiosFHReadSync,name_only,
+78,Kl-TbrDU9YM,libSceFios2,libSceFios2,function,sceFiosFHWriteSync,name_only,
+79,xReSebwKApA,libSceFios2,libSceFios2,function,sceFiosFHSeek,name_only,
+80,EzzSJz6yuMc,libSceFios2,libSceFios2,function,sceFiosFHSyncSync,name_only,
+81,FdjoqFQOlt0,libSceFios2,libSceFios2,function,,not_found,
+82,OOuvHKTu4Oc,libSceFios2,libSceFios2,function,,not_found,
+83,U6Qhv-QWXTc,libSceFios2,libSceFios2,function,,not_found,
+84,GGqucL9F+YI,libSceFios2,libSceFios2,function,sceFiosDHOpenSync,name_only,
+85,odjOGg8harg,libSceFios2,libSceFios2,function,sceFiosDHReadSync,name_only,
+86,0-p4O8FINmU,libSceFios2,libSceFios2,function,sceFiosDHCloseSync,name_only,
+87,n5TUlwdhGSA,libSceFios2,libSceFios2,function,,not_found,
+88,uCkgJOrYUL4,libSceFios2,libSceFios2,function,sceFiosDHOpen,name_only,
+89,oT68xenFqSY,libSceFios2,libSceFios2,function,,not_found,
+90,SnoQQWnGK9I,libSceFios2,libSceFios2,function,sceFiosOpWait,name_only,
+91,5cyEcilO-J0,libSceFios2,libSceFios2,function,sceFiosOpDelete,name_only,
+92,+FRvKknUj1I,libSceFios2,libSceFios2,function,sceFiosOpGetActualCount,name_only,
+93,NwOHMRM2Ppw,libSceFios2,libSceFios2,function,,not_found,
+94,kvYEw2lBndk,libSceGameLiveStreaming,libSceGameLiveStreaming,function,,not_found,
+95,dWM80AX39o4,libSceGameLiveStreaming,libSceGameLiveStreaming,function,,not_found,
+96,CoPMx369EqM,libSceGameLiveStreaming,libSceGameLiveStreaming,function,,not_found,
+97,lZ2Sd0uEvpo,libSceGameLiveStreaming,libSceGameLiveStreaming,function,,not_found,
+98,ycodiP2I0xo,libSceGameLiveStreaming,libSceGameLiveStreaming,function,,not_found,
+99,x6deXUpQbBo,libSceGameLiveStreaming,libSceGameLiveStreaming,function,,not_found,
+100,9yK6Fk8mKOQ,libSceGameLiveStreaming,libSceGameLiveStreaming,function,,not_found,
+101,yeQKjHETi40,libSceGameLiveStreaming,libSceGameLiveStreaming,function,,not_found,
+102,PMx7N4WqNdo,libSceGameLiveStreaming,libSceGameLiveStreaming,function,,not_found,
+103,OIIm19xu+NM,libSceGameLiveStreaming,libSceGameLiveStreaming,function,,not_found,
+104,Idffwf3yh8s,libSceGnmDriver,libSceGnmDriver,function,sceGnmDrawInitDefaultHardwareState,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:2992 -> sceGnmDrawInitDefaultHardwareState [body_present_semantics_unverified]
+105,bQVd5YzCal0,libSceGnmDriver,libSceGnmDriver,function,sceGnmSetPsShader,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3128 -> sceGnmSetPsShader [body_present_semantics_unverified]
+106,gAhCn6UiU4Y,libSceGnmDriver,libSceGnmDriver,function,sceGnmSetVsShader,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3139 -> sceGnmSetVsShader [body_present_semantics_unverified]
+107,FUHG8sQ3R58,libSceGnmDriver,libSceGnmDriver,function,sceGnmSetEsShader,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3123 -> sceGnmSetEsShader [body_present_semantics_unverified]
+108,VJNjFtqiF5w,libSceGnmDriver,libSceGnmDriver,function,sceGnmSetHsShader,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3126 -> sceGnmSetHsShader [body_present_semantics_unverified]
+109,vckdzbQ46SI,libSceGnmDriver,libSceGnmDriver,function,sceGnmSetLsShader,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3127 -> sceGnmSetLsShader [body_present_semantics_unverified]
+110,KXltnCwEJHQ,libSceGnmDriver,libSceGnmDriver,function,sceGnmSetCsShader,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3118 -> sceGnmSetCsShader [body_present_semantics_unverified]
+111,UJwNuMBcUAk,libSceGnmDriver,libSceGnmDriver,function,sceGnmSetGsShader,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3125 -> sceGnmSetGsShader [body_present_semantics_unverified]
+112,jiItzS6+22g,libSceGnmDriver,libSceGnmDriver,function,sceGnmInsertSetMarker,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3074 -> sceGnmInsertSetMarker [body_present_semantics_unverified]
+113,aj3L-iaFmyk,libSceGnmDriver,libSceGnmDriver,function,sceGnmInsertSetColorMarker,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3072 -> sceGnmInsertSetColorMarker [stub_marker_review_required]
+114,W1Etj-jlW7Y,libSceGnmDriver,libSceGnmDriver,function,sceGnmInsertPushMarker,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3071 -> sceGnmInsertPushMarker [body_present_semantics_unverified]
+115,aPIZJTXC+cU,libSceGnmDriver,libSceGnmDriver,function,sceGnmInsertPushColorMarker,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3069 -> sceGnmInsertPushColorMarker [body_present_semantics_unverified]
+116,7qZVNgEu+SY,libSceGnmDriver,libSceGnmDriver,function,sceGnmInsertPopMarker,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3068 -> sceGnmInsertPopMarker [body_present_semantics_unverified]
+117,1qXLHIpROPE,libSceGnmDriver,libSceGnmDriver,function,sceGnmInsertWaitFlipDone,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3077 -> sceGnmInsertWaitFlipDone [body_present_semantics_unverified]
+118,26PM5Mzl8zc,libSceGnmDriver,libSceGnmDriver,function,sceGnmLogicalCuIndexToPhysicalCuIndex,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3080 -> sceGnmLogicalCuIndexToPhysicalCuIndex [body_present_semantics_unverified]
+119,RU74kek-N0c,libSceGnmDriver,libSceGnmDriver,function,sceGnmLogicalCuMaskToPhysicalCuMask,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3082 -> sceGnmLogicalCuMaskToPhysicalCuMask [body_present_semantics_unverified]
+120,zwY0YV91TTI,libSceGnmDriver,libSceGnmDriver,function,sceGnmSubmitCommandBuffers,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3190 -> sceGnmSubmitCommandBuffers [constant_or_trivial_return_review_required]
+121,xbxNatawohc,libSceGnmDriver,libSceGnmDriver,function,sceGnmSubmitAndFlipCommandBuffers,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3186 -> sceGnmSubmitAndFlipCommandBuffers [constant_or_trivial_return_review_required]
+122,iCO804ZgzdA,libSceGnmDriver,libSceGnmDriver,function,sceGnmValidateCommandBuffers,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3206 -> sceGnmValidateCommandBuffers [body_present_semantics_unverified]
+123,b0xyllnVY-I,libSceGnmDriver,libSceGnmDriver,function,sceGnmAddEqEvent,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:2939 -> sceGnmAddEqEvent [body_present_semantics_unverified]
+124,PVT+fuoS9gU,libSceGnmDriver,libSceGnmDriver,function,sceGnmDeleteEqEvent,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:2965 -> sceGnmDeleteEqEvent [body_present_semantics_unverified]
+125,UoYY0DWMC0U,libSceGnmDriver,libSceGnmDriver,function,sceGnmGetEqEventType,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3036 -> sceGnmGetEqEventType [body_present_semantics_unverified]
+126,H7-fgvEutM0,libSceGnmDriver,libSceGnmDriver,function,sceGnmGetEqTimeStamp,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3037 -> sceGnmGetEqTimeStamp [stub_marker_review_required]
+127,29oKvKXzEZo,libSceGnmDriver,libSceGnmDriver,function,sceGnmMapComputeQueue,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3086 -> sceGnmMapComputeQueue [body_present_semantics_unverified]
+128,ArSg-TGinhk,libSceGnmDriver,libSceGnmDriver,function,sceGnmUnmapComputeQueue,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3195 -> sceGnmUnmapComputeQueue [body_present_semantics_unverified]
+129,bX5IbRvECXk,libSceGnmDriver,libSceGnmDriver,function,sceGnmDingDong,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:2968 -> sceGnmDingDong [body_present_semantics_unverified]
+130,iBt3Oe00Kvc,libSceGnmDriver,libSceGnmDriver,function,sceGnmFlushGarlic,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3029 -> sceGnmFlushGarlic [stub_marker_review_required]
+131,qpGITzPE+Zc,libSceGnmDriver,libSceGnmDriver,function,sceGnmDebugHardwareStatus,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:2964 -> sceGnmDebugHardwareStatus [stub_marker_review_required]
+132,yvZ73uQUqrk,libSceGnmDriver,libSceGnmDriver,function,sceGnmSubmitDone,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3194 -> sceGnmSubmitDone [body_present_semantics_unverified]
+133,b08AgtPlHPg,libSceGnmDriver,libSceGnmDriver,function,sceGnmAreSubmitsAllowed,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:2940 -> sceGnmAreSubmitsAllowed [body_present_semantics_unverified]
+134,gObODli-OH8,libSceGnmDriver,libSceGnmDriver,function,sceGnmRequestFlipAndSubmitDone,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3103 -> sceGnmRequestFlipAndSubmitDone [stub_marker_review_required]
+135,+xuDhxlWRPg,libSceGnmDriver,libSceGnmDriver,function,sceGnmSetupMipStatsReport,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3137 -> sceGnmSetupMipStatsReport [stub_marker_review_required]
+136,f85orjx7qts,libSceGnmDriver,libSceGnmDriver,function,sceGnmRequestMipStatsReportAndReset,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3107 -> sceGnmRequestMipStatsReportAndReset [stub_marker_review_required]
+137,HHo1BAljZO8,libSceGnmDriver,libSceGnmDriver,function,sceGnmDisableMipStatsReport,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:2970 -> sceGnmDisableMipStatsReport [stub_marker_review_required]
+138,jtkqXpAOY6w,libSceGnmDriver,libSceGnmDriver,function,sceGnmSetGsRingSizes,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3124 -> sceGnmSetGsRingSizes [stub_marker_review_required]
+139,ln33zjBrfjk,libSceGnmDriver,libSceGnmDriver,function,sceGnmGetTheTessellationFactorRingBufferBaseAddress,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3062 -> sceGnmGetTheTessellationFactorRingBufferBaseAddress [body_present_semantics_unverified]
+140,f33OrruQYbM,libSceGnmDriver,libSceGnmDriver,function,sceRazorIsLoaded,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3233 -> sceRazorIsLoaded [body_present_semantics_unverified]
+141,u9YKpRRHe-M,libSceGnmDriver,libSceGnmDriver,function,sceRazorCaptureImmediate,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3230 -> sceRazorCaptureImmediate [body_present_semantics_unverified]
+142,4UFagYlfuAM,libSceGnmDriver,libSceGnmDriver,function,sceRazorCaptureSinceLastFlip,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3231 -> sceRazorCaptureSinceLastFlip [body_present_semantics_unverified]
+143,xeTLfxVIQO4,libSceGnmDriver,libSceGnmDriver,function,sceRazorCaptureCommandBuffersOnlyImmediate,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3226 -> sceRazorCaptureCommandBuffersOnlyImmediate [body_present_semantics_unverified]
+144,9thMn+uB1is,libSceGnmDriver,libSceGnmDriver,function,sceRazorCaptureCommandBuffersOnlySinceLastFlip,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3228 -> sceRazorCaptureCommandBuffersOnlySinceLastFlip [body_present_semantics_unverified]
+145,d88anrgNoKY,libSceGnmDriver,libSceGnmDriver,function,sceGnmDriverTriggerCapture,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3025 -> sceGnmDriverTriggerCapture [body_present_semantics_unverified]
+146,TLV4mswiZ4A,libSceGnmDriver,libSceGnmDriver,function,sceGnmDriverCaptureInProgress,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3005 -> sceGnmDriverCaptureInProgress [body_present_semantics_unverified]
+147,jg33rEKLfVs,libSceGnmDriver,libSceGnmDriver,function,sceGnmIsUserPaEnabled,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:3079 -> sceGnmIsUserPaEnabled [body_present_semantics_unverified]
+148,nF6bFRUBRAU,libSceGnmDriver,libSceGnmDriver,function,sceGnmDispatchInitDefaultHardwareState,candidate_found,port/gpu/shadps4/core/libraries/gnmdriver/gnmdriver.cpp:2976 -> sceGnmDispatchInitDefaultHardwareState [body_present_semantics_unverified]
+149,0gYjPTR-6cY,libSceHttp,libSceHttp,function,sceHttpCreateTemplate,candidate_found,port/src/runtime_services.c:679 -> http_object [constant_or_trivial_return_review_required]
+150,T-mGo9f3Pu4,libSceHttp,libSceHttp,function,sceHttpSetAutoRedirect,candidate_found,port/src/runtime_gr2_np.c:467 -> ok [constant_or_trivial_return_review_required]
+151,XNUoD2B9a6A,libSceHttp,libSceHttp,function,,not_found,
+152,xegFfZKBVlw,libSceHttp,libSceHttp,function,sceHttpSetSendTimeOut,candidate_found,port/src/runtime_gr2_np.c:468 -> ok [constant_or_trivial_return_review_required]
+153,yigr4V0-HTM,libSceHttp,libSceHttp,function,sceHttpSetRecvTimeOut,candidate_found,port/src/runtime_gr2_np.c:467 -> ok [constant_or_trivial_return_review_required]
+154,htyBOoWeS58,libSceHttp,libSceHttp,function,sceHttpsSetSslCallback,candidate_found,port/src/runtime_gr2_np.c:469 -> ok [constant_or_trivial_return_review_required]
+155,4I8vEpuEhZ8,libSceHttp,libSceHttp,function,sceHttpDeleteTemplate,candidate_found,port/src/runtime_services.c:679 -> ok_void [constant_or_trivial_return_review_required]
+156,A9cVMUtEp4Y,libSceHttp,libSceHttp,function,sceHttpInit,candidate_found,port/src/runtime_services.c:678 -> lib_init_id [constant_or_trivial_return_review_required]
+157,DK+GoXCNT04,libSceHttp,libSceHttp,function,sceHttpsLoadCert,candidate_found,port/src/runtime_infamous.c:52 -> ok [constant_or_trivial_return_review_required]
+158,Ik-KpLTlf7Q,libSceHttp,libSceHttp,function,sceHttpTerm,candidate_found,port/src/runtime_services.c:678 -> ok_void [constant_or_trivial_return_review_required]
+159,zXqcE0fizz0,libSceHttp,libSceHttp,function,,not_found,
+160,hvG6GfBMXg8,libSceHttp,libSceHttp,function,sceHttpAbortRequest,candidate_found,port/src/runtime_gr2_np.c:465 -> ok [constant_or_trivial_return_review_required]
+161,EY28T2bkN7k,libSceHttp,libSceHttp,function,sceHttpAddRequestHeader,candidate_found,port/src/runtime_services.c:684 -> ok_void [constant_or_trivial_return_review_required]
+162,Kiwv9r4IZCc,libSceHttp,libSceHttp,function,,not_found,
+163,tsGVru3hCe8,libSceHttp,libSceHttp,function,,not_found,
+164,PTiFIUxCpJc,libSceHttp,libSceHttp,function,sceHttpSetRequestContentLength,candidate_found,port/src/runtime_services.c:684 -> ok_void [constant_or_trivial_return_review_required]
+165,1e2BNwI-XzE,libSceHttp,libSceHttp,function,sceHttpSendRequest,candidate_found,port/src/runtime_services.c:681 -> http_fail [constant_or_trivial_return_review_required]
+166,0a2TBNfE3BU,libSceHttp,libSceHttp,function,sceHttpGetStatusCode,candidate_found,port/src/runtime_services.c:688 -> http_fail [constant_or_trivial_return_review_required]
+167,aCYPMSUIaP8,libSceHttp,libSceHttp,function,sceHttpGetAllResponseHeaders,candidate_found,port/src/runtime_gr2_np.c:465 -> http_all_headers [body_present_semantics_unverified]
+168,hPTXo3bICzI,libSceHttp,libSceHttp,function,sceHttpParseResponseHeader,candidate_found,port/src/runtime_gr2_np.c:466 -> http_parse_header [body_present_semantics_unverified]
+169,yuO2H2Uvnos,libSceHttp,libSceHttp,function,sceHttpGetResponseContentLength,candidate_found,port/src/runtime_services.c:688 -> http_fail [constant_or_trivial_return_review_required]
+170,P5pdoykPYTk,libSceHttp,libSceHttp,function,sceHttpReadData,candidate_found,port/src/runtime_services.c:689 -> http_fail [constant_or_trivial_return_review_required]
+171,qe7oZ+v4PWA,libSceHttp,libSceHttp,function,sceHttpDeleteRequest,candidate_found,port/src/runtime_services.c:685 -> ok_void [constant_or_trivial_return_review_required]
+172,P6A3ytpsiYc,libSceHttp,libSceHttp,function,sceHttpDeleteConnection,candidate_found,port/src/runtime_services.c:685 -> ok_void [constant_or_trivial_return_review_required]
+173,qgxDBjorUxs,libSceHttp,libSceHttp,function,sceHttpCreateConnectionWithURL,candidate_found,port/src/runtime_services.c:680 -> http_object [constant_or_trivial_return_review_required]
+174,Aeu5wVKkF9w,libSceHttp,libSceHttp,function,sceHttpCreateRequestWithURL,candidate_found,port/src/runtime_services.c:680 -> http_object [constant_or_trivial_return_review_required]
+175,0onIrKx9NIE,libSceHttp,libSceHttp,function,sceHttpGetLastErrno,candidate_found,port/src/runtime_gr2_np.c:466 -> http_last_errno [body_present_semantics_unverified]
+176,zNGh-zoQTD0,libSceHttp,libSceHttp,function,,not_found,
+177,qFg2SuyTJJY,libSceHttp,libSceHttp,function,sceHttpSetAuthEnabled,candidate_found,port/src/runtime_gr2_np.c:467 -> ok [constant_or_trivial_return_review_required]
+178,9m8EcOGzcIQ,libSceHttp,libSceHttp,function,,not_found,
+179,mmLexUbtnfY,libSceHttp,libSceHttp,function,,not_found,
+180,0S9tTH0uqTU,libSceHttp,libSceHttp,function,sceHttpSetConnectTimeOut,candidate_found,port/src/runtime_services.c:682 -> ok_void [constant_or_trivial_return_review_required]
+181,h9wmFZX4i-4,libSceHttp,libSceHttp,function,,not_found,
+182,GnVDzYfy-KI,libSceHttp,libSceHttp,function,,not_found,
+183,Kh6bS2HQKbo,libSceHttp,libSceHttp,function,,not_found,
+184,iSZjWw1TGiA,libSceHttp,libSceHttp,function,,not_found,
+185,mNan6QSnpeY,libSceHttp,libSceHttp,function,,not_found,
+186,seCvUt91WHY,libSceHttp,libSceHttp,function,,not_found,
+187,NUeBrN7hzf0,libSceImeDialog,libSceImeDialog,function,sceImeDialogInit,candidate_found,port/src/runtime_services.c:761 -> ime_init [body_present_semantics_unverified]
+188,oBmw4xrmfKs,libSceImeDialog,libSceImeDialog,function,sceImeDialogAbort,candidate_found,port/src/runtime_services.c:762 -> ime_term [body_present_semantics_unverified]
+189,IADmD4tScBY,libSceImeDialog,libSceImeDialog,function,sceImeDialogGetStatus,candidate_found,port/src/runtime_services.c:761 -> ime_status [body_present_semantics_unverified]
+190,x01jxu+vxlc,libSceImeDialog,libSceImeDialog,function,sceImeDialogGetResult,candidate_found,port/src/runtime_services.c:761 -> ime_result [body_present_semantics_unverified]
+191,gyTyVn+bXMw,libSceImeDialog,libSceImeDialog,function,sceImeDialogTerm,candidate_found,port/src/runtime_services.c:762 -> ime_term [body_present_semantics_unverified]
+192,LSinoSQH790,libSceJpegDec,libSceJpegDec,function,sceJpegDecParseHeader,candidate_found,port/src/runtime_gr2.c:393 -> jpeg_dec_unsupported [body_present_semantics_unverified]
+193,uNAUmANZMEw,libSceJpegDec,libSceJpegDec,function,sceJpegDecQueryMemorySize,candidate_found,port/src/runtime_gr2.c:392 -> jpeg_dec_unsupported [body_present_semantics_unverified]
+194,JPh3Zgg0Zwc,libSceJpegDec,libSceJpegDec,function,sceJpegDecCreate,candidate_found,port/src/runtime_gr2.c:392 -> jpeg_dec_unsupported [body_present_semantics_unverified]
+195,1kzQRoWEgSA,libSceJpegDec,libSceJpegDec,function,sceJpegDecDecode,candidate_found,port/src/runtime_gr2.c:393 -> jpeg_dec_unsupported [body_present_semantics_unverified]
+196,Hwh11+m5KoI,libSceJpegDec,libSceJpegDec,function,sceJpegDecDelete,candidate_found,port/src/runtime_gr2.c:394 -> jpeg_dec_unsupported [body_present_semantics_unverified]
+197,j1ITE-EoJmE,libSceMove,libSceMove,function,,not_found,
+198,XX6wlxpHyeo,libSceMove,libSceMove,function,,not_found,
+199,HzC60MfjJxU,libSceMove,libSceMove,function,,not_found,
+200,GWXTyxs4QbE,libSceMove,libSceMove,function,,not_found,
+201,f2bcpK6kJfg,libSceMove,libSceMove,function,,not_found,
+202,gg1d4KsyVVs,libSceMoveTracker,libSceMoveTracker,function,,not_found,
+203,F4w2atwG428,libSceMoveTracker,libSceMoveTracker,function,,not_found,
+204,YV2CtE7qX8M,libSceMoveTracker,libSceMoveTracker,function,,not_found,
+205,3tiBWhkHH3A,libSceMoveTracker,libSceMoveTracker,function,,not_found,
+206,-Y8hlMgBsr4,libSceMoveTracker,libSceMoveTracker,function,,not_found,
+207,BjsreFAfJzo,libSceMoveTracker,libSceMoveTracker,function,,not_found,
+208,lDqxaY1UbEo,libSceMsgDialog,libSceMsgDialog,function,sceMsgDialogInitialize,candidate_found,port/src/runtime_services.c:747 -> msg_init [constant_or_trivial_return_review_required]
+209,b06Hh0DPEaE,libSceMsgDialog,libSceMsgDialog,function,sceMsgDialogOpen,candidate_found,port/src/runtime_services.c:747 -> msg_open [body_present_semantics_unverified]
+210,6fIC3XKt2k0,libSceMsgDialog,libSceMsgDialog,function,sceMsgDialogUpdateStatus,candidate_found,port/src/runtime_services.c:748 -> msg_status [constant_or_trivial_return_review_required]
+211,ePw-kqZmelo,libSceMsgDialog,libSceMsgDialog,function,sceMsgDialogTerminate,candidate_found,port/src/runtime_services.c:748 -> msg_term [constant_or_trivial_return_review_required]
+212,dgJBaeJnGpo,libSceNet,libSceNet,function,sceNetPoolCreate,candidate_found,port/src/runtime_services.c:661 -> net_pool_create [constant_or_trivial_return_review_required]
+213,K7RlrTkI-mw,libSceNet,libSceNet,function,sceNetPoolDestroy,candidate_found,port/src/runtime_services.c:661 -> net_pool_destroy [constant_or_trivial_return_review_required]
+214,2mKX2Spso7I,libSceNet,libSceNet,function,sceNetSetsockopt,candidate_found,port/src/runtime_services.c:669 -> net_unreachable [body_present_semantics_unverified]
+215,45ggEzakPJQ,libSceNet,libSceNet,function,sceNetSocketClose,candidate_found,port/src/runtime_services.c:671 -> net_unreachable [body_present_semantics_unverified]
+216,HQOwnfMGipQ,libSceNet,libSceNet,function,sceNetErrnoLoc,candidate_found,port/src/runtime_services.c:660 -> net_errno_loc [constant_or_trivial_return_review_required]
+217,9vA2aW+CHuA,libSceNet,libSceNet,function,sceNetInetNtop,candidate_found,port/src/runtime_services.c:665 -> net_ntop [body_present_semantics_unverified]
+218,C4UgDHHPvdw,libSceNet,libSceNet,function,sceNetResolverCreate,candidate_found,port/src/runtime_services.c:663 -> net_resolver_create [constant_or_trivial_return_review_required]
+219,Nd91WaWmG2w,libSceNet,libSceNet,function,sceNetResolverStartNtoa,candidate_found,port/src/runtime_services.c:673 -> net_unreachable [body_present_semantics_unverified]
+220,kJlYH5uMAWI,libSceNet,libSceNet,function,sceNetResolverDestroy,candidate_found,port/src/runtime_services.c:663 -> net_resolver_destroy [constant_or_trivial_return_review_required]
+221,Nlev7Lg8k3A,libSceNet,libSceNet,function,sceNetInit,candidate_found,port/src/runtime_services.c:660 -> net_init [constant_or_trivial_return_review_required]
+222,cTGkc6-TBlI,libSceNet,libSceNet,function,sceNetTerm,candidate_found,port/src/runtime_services.c:660 -> net_term [constant_or_trivial_return_review_required]
+223,SF47kB2MNTo,libSceNet,libSceNet,function,sceNetEpollCreate,candidate_found,port/src/runtime_services.c:662 -> net_epoll_create [constant_or_trivial_return_review_required]
+224,ZVw46bsasAk,libSceNet,libSceNet,function,sceNetEpollControl,candidate_found,port/src/runtime_services.c:672 -> net_unreachable [body_present_semantics_unverified]
+225,drjIbDbA7UQ,libSceNet,libSceNet,function,sceNetEpollWait,candidate_found,port/src/runtime_services.c:672 -> net_unreachable [body_present_semantics_unverified]
+226,Inp1lfL+Jdw,libSceNet,libSceNet,function,sceNetEpollDestroy,candidate_found,port/src/runtime_services.c:662 -> net_epoll_destroy [constant_or_trivial_return_review_required]
+227,Q4qBuN-c0ZM,libSceNet,libSceNet,function,sceNetSocket,candidate_found,port/src/runtime_services.c:666 -> net_unreachable [body_present_semantics_unverified]
+228,iWQWrwiSt8A,libSceNet,libSceNet,function,sceNetHtons,candidate_found,port/src/runtime_services.c:664 -> net_htons [constant_or_trivial_return_review_required]
+229,8Kcp5d-q1Uo,libSceNet,libSceNet,function,sceNetInetPton,candidate_found,port/src/runtime_services.c:665 -> net_pton [body_present_semantics_unverified]
+230,OXXX4mUk3uk,libSceNet,libSceNet,function,sceNetConnect,candidate_found,port/src/runtime_services.c:666 -> net_unreachable [body_present_semantics_unverified]
+231,bErx49PgxyY,libSceNet,libSceNet,function,sceNetBind,candidate_found,port/src/runtime_services.c:666 -> net_unreachable [body_present_semantics_unverified]
+232,kOj1HiAGE54,libSceNet,libSceNet,function,sceNetListen,candidate_found,port/src/runtime_services.c:667 -> net_unreachable [body_present_semantics_unverified]
+233,PIWqhn9oSxc,libSceNet,libSceNet,function,sceNetAccept,candidate_found,port/src/runtime_services.c:667 -> net_unreachable [body_present_semantics_unverified]
+234,beRjXBn-z+o,libSceNet,libSceNet,function,sceNetSend,candidate_found,port/src/runtime_services.c:667 -> net_unreachable [body_present_semantics_unverified]
+235,9wO9XrMsNhc,libSceNet,libSceNet,function,sceNetRecv,candidate_found,port/src/runtime_services.c:668 -> net_unreachable [body_present_semantics_unverified]
+236,iQw3iQPhvUQ,libSceNetCtl,libSceNetCtl,function,sceNetCtlCheckCallback,candidate_found,port/src/runtime_services.c:675 -> netctl_check [constant_or_trivial_return_review_required]
+237,UJ+Z7Q+4ck0,libSceNetCtl,libSceNetCtl,function,sceNetCtlRegisterCallback,candidate_found,port/src/runtime_services.c:675 -> netctl_register [body_present_semantics_unverified]
+238,Rqm2OnZMCz0,libSceNetCtl,libSceNetCtl,function,sceNetCtlUnregisterCallback,candidate_found,port/src/runtime_services.c:676 -> netctl_unregister [constant_or_trivial_return_review_required]
+239,uBPlr0lbuiI,libSceNetCtl,libSceNetCtl,function,sceNetCtlGetState,candidate_found,port/src/runtime_services.c:674 -> netctl_state [body_present_semantics_unverified]
+240,obuxdTiwkF8,libSceNetCtl,libSceNetCtl,function,sceNetCtlGetInfo,candidate_found,port/src/runtime_services.c:674 -> netctl_info [constant_or_trivial_return_review_required]
+241,JO4yuTuMoKI,libSceNetCtl,libSceNetCtl,function,sceNetCtlGetNatInfo,candidate_found,port/src/runtime_services.c:676 -> netctl_nat [body_present_semantics_unverified]
+242,6bwFkosYRQg,libSceNpAuth,libSceNpAuth,function,,not_found,
+243,KxGkOrQJTqY,libSceNpAuth,libSceNpAuth,function,sceNpAuthGetAuthorizationCode,candidate_found,port/src/runtime_services.c:701 -> np_signed_out [constant_or_trivial_return_review_required]
+244,H8wG9Bk-nPc,libSceNpAuth,libSceNpAuth,function,sceNpAuthDeleteRequest,candidate_found,port/src/runtime_services.c:700 -> ok_void [constant_or_trivial_return_review_required]
+245,0aR2aWmQal4,libSceNpCommerce,libSceNpCommerce,function,sceNpCommerceDialogInitialize,candidate_found,port/src/runtime_services.c:759 -> commerce_init [body_not_located_review_required]
+246,DfSCDRA3EjY,libSceNpCommerce,libSceNpCommerce,function,sceNpCommerceDialogOpen,candidate_found,port/src/runtime_services.c:759 -> commerce_open [body_not_located_review_required]
+247,m-I92Ab50W8,libSceNpCommerce,libSceNpCommerce,function,sceNpCommerceDialogTerminate,candidate_found,port/src/runtime_services.c:760 -> commerce_term [body_not_located_review_required]
+248,LR5cwFMMCVE,libSceNpCommerce,libSceNpCommerce,function,sceNpCommerceDialogUpdateStatus,candidate_found,port/src/runtime_services.c:760 -> commerce_status [body_not_located_review_required]
+249,r42bWcQbtZY,libSceNpCommerce,libSceNpCommerce,function,,not_found,
+250,DHmwsa6S8Tc,libSceNpCommerce,libSceNpCommerce,function,,not_found,
+251,dsqCVsNM0Zg,libSceNpCommerce,libSceNpCommerce,function,,not_found,
+252,dj+O5aD2a0Q,libSceNpCommon,libSceNpCommon,function,sceNpCmpOnlineId,candidate_found,port/src/runtime_services.c:699 -> np_compare [body_present_semantics_unverified]
+253,p-o74CnoNzY,libSceNpManager,libSceNpManager,function,sceNpGetNpId,candidate_found,port/src/runtime_services.c:690 -> np_signed_out [constant_or_trivial_return_review_required]
+254,3Zl8BePTh9Y,libSceNpManager,libSceNpManager,function,sceNpCheckCallback,candidate_found,port/src/runtime_services.c:693 -> ok_void [constant_or_trivial_return_review_required]
+255,GpLQDNKICac,libSceNpManager,libSceNpManager,function,sceNpCreateRequest,candidate_found,port/src/runtime_gr2_np.c:459 -> np_create_request [constant_or_trivial_return_review_required]
+256,Ec63y59l9tw,libSceNpManager,libSceNpManager,function,sceNpSetNpTitleId,candidate_found,port/src/runtime_services.c:694 -> ok_void [constant_or_trivial_return_review_required]
+257,VfRSmPmj8Q8,libSceNpManager,libSceNpManager,function,sceNpRegisterStateCallback,candidate_found,port/src/runtime_services.c:691 -> np_register [constant_or_trivial_return_review_required]
+258,mjjTXh+NHWY,libSceNpManager,libSceNpManager,function,sceNpUnregisterStateCallback,candidate_found,port/src/runtime_services.c:691 -> ok_void [constant_or_trivial_return_review_required]
+259,A2CQ3kgSopQ,libSceNpManager,libSceNpManager,function,sceNpSetContentRestriction,candidate_found,port/src/runtime_services.c:694 -> ok_void [constant_or_trivial_return_review_required]
+260,Ghz9iWDUtC4,libSceNpManager,libSceNpManager,function,sceNpGetAccountCountry,candidate_found,port/src/runtime_gr2_np.c:460 -> np_account_country [body_present_semantics_unverified]
+261,eQH7nWPcAgc,libSceNpManager,libSceNpManager,function,sceNpGetState,candidate_found,port/src/runtime_services.c:690 -> np_state [body_present_semantics_unverified]
+262,XDncXQIJUSk,libSceNpManager,libSceNpManager,function,sceNpGetOnlineId,candidate_found,port/src/runtime_services.c:690 -> np_signed_out [constant_or_trivial_return_review_required]
+263,eiqMCt9UshI,libSceNpManager,libSceNpManager,function,sceNpCreateAsyncRequest,candidate_found,port/src/runtime_services.c:695 -> np_request [constant_or_trivial_return_review_required]
+264,2rsFmlGWleQ,libSceNpManager,libSceNpManager,function,sceNpCheckNpAvailability,candidate_found,port/src/runtime_services.c:696 -> np_signed_out [constant_or_trivial_return_review_required]
+265,uqcPJLWL08M,libSceNpManager,libSceNpManager,function,sceNpPollAsync,candidate_found,port/src/runtime_services.c:696 -> np_poll [body_present_semantics_unverified]
+266,OzKvTvg3ZYU,libSceNpManager,libSceNpManager,function,sceNpAbortRequest,candidate_found,port/src/runtime_services.c:695 -> ok_void [constant_or_trivial_return_review_required]
+267,S7QTn72PrDw,libSceNpManager,libSceNpManager,function,sceNpDeleteRequest,candidate_found,port/src/runtime_services.c:695 -> ok_void [constant_or_trivial_return_review_required]
+268,Gaxrp3EWY-M,libSceNpManager,libSceNpManager,function,sceNpNotifyPlusFeature,candidate_found,port/src/runtime_services.c:694 -> ok_void [constant_or_trivial_return_review_required]
+269,r6MyYJkryz8,libSceNpManager,libSceNpManager,function,sceNpCheckPlus,candidate_found,port/src/runtime_services.c:697 -> np_signed_out [constant_or_trivial_return_review_required]
+270,ilwLM4zOmu4,libSceNpManager,libSceNpManager,function,sceNpGetParentalControlInfo,candidate_found,port/src/runtime_services.c:697 -> np_signed_out [constant_or_trivial_return_review_required]
+271,s4UEa5iBJdc,libSceNpManager,libSceNpManager,function,,not_found,
+272,+anuSx2avHQ,libSceNpManager,libSceNpManager,function,,not_found,
+273,GFhVUpRmbHE,libSceNpManager,libSceNpManager,function,,not_found,
+274,Vh1bhUG6mSs,libSceNpManager,libSceNpManager,function,,not_found,
+275,ON7Sf5XEMmI,libSceNpManager,libSceNpManager,function,,not_found,
+276,bMG3cVmUmuk,libSceNpManager,libSceNpManager,function,,not_found,
+277,5yYjEdd4t8Y,libSceNpSignaling,libSceNpSignaling,function,sceNpSignalingCreateContext,candidate_found,port/src/runtime_services.c:745 -> np_signed_out [constant_or_trivial_return_review_required]
+278,hx+LIg-1koI,libSceNpSignaling,libSceNpSignaling,function,sceNpSignalingDeleteContext,candidate_found,port/src/runtime_services.c:730 -> ok_void [constant_or_trivial_return_review_required]
+279,AN3h0EBSX7A,libSceNpSignaling,libSceNpSignaling,function,,not_found,
+280,bD-JizUb3JM,libSceNpSignaling,libSceNpSignaling,function,sceNpSignalingGetConnectionStatus,candidate_found,port/src/runtime_services.c:731 -> np_signed_out [constant_or_trivial_return_review_required]
+281,0UvTFeomAUM,libSceNpSignaling,libSceNpSignaling,function,sceNpSignalingActivateConnection,candidate_found,port/src/runtime_services.c:730 -> np_signed_out [constant_or_trivial_return_review_required]
+282,b4qaXPzMJxo,libSceNpSignaling,libSceNpSignaling,function,,not_found,
+283,3KOuC4RmZZU,libSceNpSignaling,libSceNpSignaling,function,sceNpSignalingInitialize,candidate_found,port/src/runtime_services.c:744 -> ok_void [constant_or_trivial_return_review_required]
+284,TJCAxto9SEU,libSceNpTrophy,libSceNpTrophy,function,sceNpTrophyRegisterContext,candidate_found,port/src/runtime_services.c:764 -> trophy_register [constant_or_trivial_return_review_required]
+285,LHuSmO3SLd8,libSceNpTrophy,libSceNpTrophy,function,sceNpTrophyGetTrophyUnlockState,candidate_found,port/src/runtime_services.c:766 -> trophy_unlock_state [body_present_semantics_unverified]
+286,28xmRUFao68,libSceNpTrophy,libSceNpTrophy,function,sceNpTrophyUnlockTrophy,candidate_found,port/src/runtime_services.c:764 -> trophy_unlock [body_present_semantics_unverified]
+287,q7U6tEAQf7c,libSceNpTrophy,libSceNpTrophy,function,sceNpTrophyCreateHandle,candidate_found,port/src/runtime_services.c:763 -> trophy_handle [body_present_semantics_unverified]
+288,XbkjbobZlCY,libSceNpTrophy,libSceNpTrophy,function,sceNpTrophyCreateContext,candidate_found,port/src/runtime_services.c:763 -> trophy_context [body_present_semantics_unverified]
+289,GNcF4oidY0Y,libSceNpTrophy,libSceNpTrophy,function,sceNpTrophyDestroyHandle,candidate_found,port/src/runtime_services.c:767 -> trophy_release [constant_or_trivial_return_review_required]
+290,E1Wrwd07Lr8,libSceNpTrophy,libSceNpTrophy,function,sceNpTrophyDestroyContext,candidate_found,port/src/runtime_services.c:767 -> trophy_release [constant_or_trivial_return_review_required]
+291,iQr9UxPHUFs,libSceNpUtility,libSceNpUtility,function,,not_found,
+292,T6tnM1Uti4g,libSceNpUtility,libSceNpUtility,function,sceNpLookupNpId,candidate_found,port/src/runtime_services.c:704 -> np_signed_out [constant_or_trivial_return_review_required]
+293,wLaxchvEEnk,libSceNpUtility,libSceNpUtility,function,sceNpLookupDeleteRequest,candidate_found,port/src/runtime_services.c:703 -> ok_void [constant_or_trivial_return_review_required]
+294,8533Q+LU7EQ,libSceNpUtility,libSceNpUtility,function,sceNpLookupCreateTitleCtx,candidate_found,port/src/runtime_services.c:702 -> np_request [constant_or_trivial_return_review_required]
+295,mtqDK9zkoIE,libSceNpUtility,libSceNpUtility,function,sceNpLookupDeleteTitleCtx,candidate_found,port/src/runtime_services.c:702 -> ok_void [constant_or_trivial_return_review_required]
+296,BYIZGKm6bO4,libSceNpUtility,libSceNpUtility,function,,not_found,
+297,jktww3yJXnc,libSceNpUtility,libSceNpUtility,function,,not_found,
+298,pLr1fEQS1z8,libSceNpUtility,libSceNpUtility,function,,not_found,
+299,G3AnLNdRBjE,libSceNpWebApi,libSceNpWebApi,function,sceNpWebApiInitialize,candidate_found,port/src/runtime_services.c:707 -> lib_init_id [constant_or_trivial_return_review_required]
+300,asz3TtIqGF8,libSceNpWebApi,libSceNpWebApi,function,sceNpWebApiTerminate,candidate_found,port/src/runtime_services.c:707 -> ok_void [constant_or_trivial_return_review_required]
+301,x1Y7yiYSk7c,libSceNpWebApi,libSceNpWebApi,function,sceNpWebApiCreateContext,candidate_found,port/src/runtime_services.c:708 -> np_signed_out [constant_or_trivial_return_review_required]
+302,XUjdsSTTZ3U,libSceNpWebApi,libSceNpWebApi,function,sceNpWebApiDeleteContext,candidate_found,port/src/runtime_services.c:711 -> ok_void [constant_or_trivial_return_review_required]
+303,y5Ta5JCzQHY,libSceNpWebApi,libSceNpWebApi,function,sceNpWebApiCreatePushEventFilter,candidate_found,port/src/runtime_services.c:714 -> np_signed_out [constant_or_trivial_return_review_required]
+304,PfSTDCgNMgc,libSceNpWebApi,libSceNpWebApi,function,sceNpWebApiRegisterPushEventCallback,candidate_found,port/src/runtime_services.c:715 -> np_signed_out [constant_or_trivial_return_review_required]
+305,79M-JqvvGo0,libSceNpWebApi,libSceNpWebApi,function,,not_found,
+306,sIFx734+xys,libSceNpWebApi,libSceNpWebApi,function,,not_found,
+307,kJQJE0uKm5w,libSceNpWebApi,libSceNpWebApi,function,,not_found,
+308,PfQ+f6ws764,libSceNpWebApi,libSceNpWebApi,function,,not_found,
+309,5Mn7TYwpl30,libSceNpWebApi,libSceNpWebApi,function,,not_found,
+310,qK4o2656W4w,libSceNpWebApi,libSceNpWebApi,function,sceNpWebApiUnregisterPushEventCallback,candidate_found,port/src/runtime_services.c:715 -> ok_void [constant_or_trivial_return_review_required]
+311,CQtPRSF6Ds8,libSceNpWebApi,libSceNpWebApi,function,sceNpWebApiReadData,candidate_found,port/src/runtime_services.c:711 -> np_signed_out [constant_or_trivial_return_review_required]
+312,JzhYTP2fG18,libSceNpWebApi,libSceNpWebApi,function,sceNpWebApiAbortRequest,candidate_found,port/src/runtime_services.c:710 -> ok_void [constant_or_trivial_return_review_required]
+313,2qSZ0DgwTsc,libSceNpWebApi,libSceNpWebApi,function,,not_found,
+314,or0e885BlXo,libSceNpWebApi,libSceNpWebApi,function,sceNpWebApiUtilityParseNpId,candidate_found,port/src/runtime_services.c:716 -> np_signed_out [constant_or_trivial_return_review_required]
+315,rdgs5Z1MyFw,libSceNpWebApi,libSceNpWebApi,function,sceNpWebApiCreateRequest,candidate_found,port/src/runtime_services.c:709 -> np_signed_out [constant_or_trivial_return_review_required]
+316,kVbL4hL3K7w,libSceNpWebApi,libSceNpWebApi,function,sceNpWebApiSendRequest,candidate_found,port/src/runtime_services.c:709 -> np_signed_out [constant_or_trivial_return_review_required]
+317,k210oKgP80Y,libSceNpWebApi,libSceNpWebApi,function,sceNpWebApiGetHttpStatusCode,candidate_found,port/src/runtime_services.c:712 -> np_signed_out [constant_or_trivial_return_review_required]
+318,noQgleu+KLE,libSceNpWebApi,libSceNpWebApi,function,sceNpWebApiDeleteRequest,candidate_found,port/src/runtime_services.c:710 -> ok_void [constant_or_trivial_return_review_required]
+319,RR4novUEENY,libScePad,libScePad,function,scePadSetLightBar,candidate_found,port/src/runtime_pad.c:949 -> pad_light_bar [body_present_semantics_unverified]
+320,hv1luiJrqQM,libScePad,libScePad,function,scePadInit,candidate_found,port/src/runtime_pad.c:950 -> pad_init [body_present_semantics_unverified]
+321,6ncge5+l5Qs,libScePad,libScePad,function,scePadClose,candidate_found,port/src/runtime_pad.c:950 -> pad_close [body_present_semantics_unverified]
+322,xk0AcarP3V4,libScePad,libScePad,function,scePadOpen,candidate_found,port/src/runtime_pad.c:950 -> pad_open [body_present_semantics_unverified]
+323,YndgXqQVV7c,libScePad,libScePad,function,scePadReadState,candidate_found,port/src/runtime_pad.c:951 -> pad_read_state [body_present_semantics_unverified]
+324,gjP9-KQzoUk,libScePad,libScePad,function,scePadGetControllerInformation,candidate_found,port/src/runtime_pad.c:952 -> pad_info [body_present_semantics_unverified]
+325,yFVnOdGxvZY,libScePad,libScePad,function,scePadSetVibration,candidate_found,port/src/runtime_pad.c:952 -> pad_vibration [body_present_semantics_unverified]
+326,uWIYLFkkwqk,libScePlayGo,libScePlayGo,function,scePlayGoGetLocus,candidate_found,port/src/runtime_services.c:769 -> playgo_locus [body_present_semantics_unverified]
+327,4AAcTU9R3XM,libScePlayGo,libScePlayGo,function,scePlayGoSetInstallSpeed,candidate_found,port/src/runtime_services.c:769 -> playgo_speed [constant_or_trivial_return_review_required]
+328,Nn7zKwnA5q0,libScePlayGo,libScePlayGo,function,scePlayGoGetToDoList,candidate_found,port/src/runtime_infamous.c:54 -> playgo_todo [body_present_semantics_unverified]
+329,-RJWNMK3fC8,libScePlayGo,libScePlayGo,function,scePlayGoGetProgress,candidate_found,port/src/runtime_services.c:770 -> playgo_progress [body_present_semantics_unverified]
+330,ts6GlZOKRrE,libScePlayGo,libScePlayGo,function,scePlayGoInitialize,candidate_found,port/src/runtime_services.c:768 -> playgo_init [body_present_semantics_unverified]
+331,M1Gma1ocrGE,libScePlayGo,libScePlayGo,function,scePlayGoOpen,candidate_found,port/src/runtime_services.c:768 -> playgo_open [body_present_semantics_unverified]
+332,rvBSfTimejE,libScePlayGo,libScePlayGo,function,scePlayGoGetInstallSpeed,candidate_found,port/src/runtime_services.c:770 -> playgo_get_speed [body_present_semantics_unverified]
+333,Uco1I0dlDi8,libScePlayGo,libScePlayGo,function,scePlayGoClose,candidate_found,port/src/runtime_services.c:771 -> playgo_close [body_present_semantics_unverified]
+334,ZPD1YOKI+Kw,libSceRtc,libSceRtc,function,sceRtcGetCurrentClockLocalTime,candidate_found,port/src/runtime_rtc.c:202 -> rtc_current_local [body_present_semantics_unverified]
+335,bDEVVP4bTjQ,libSceRtc,libSceRtc,function,sceRtcSetTime_t,candidate_found,port/src/runtime_rtc.c:206 -> rtc_set_time_t [body_present_semantics_unverified]
+336,CyIK-i4XdgQ,libSceRtc,libSceRtc,function,sceRtcGetDayOfWeek,candidate_found,port/src/runtime_rtc.c:205 -> rtc_day_of_week [body_present_semantics_unverified]
+337,zO9UL3qIINQ,libSceRtc,libSceRtc,function,sceRtcGetCurrentNetworkTick,candidate_found,port/src/runtime_rtc.c:203 -> rtc_current_tick [body_present_semantics_unverified]
+338,18B2NS1y9UU,libSceRtc,libSceRtc,function,sceRtcGetCurrentTick,candidate_found,port/src/runtime_rtc.c:203 -> rtc_current_tick [body_present_semantics_unverified]
+339,8w-H19ip48I,libSceRtc,libSceRtc,function,sceRtcGetTick,candidate_found,port/src/runtime_rtc.c:205 -> rtc_get_tick [body_present_semantics_unverified]
+340,M1TvFst-jrM,libSceRtc,libSceRtc,function,sceRtcConvertUtcToLocalTime,candidate_found,port/src/runtime_rtc.c:204 -> rtc_utc_to_local [body_present_semantics_unverified]
+341,ueega6v3GUw,libSceRtc,libSceRtc,function,sceRtcSetTick,candidate_found,port/src/runtime_rtc.c:205 -> rtc_set_tick [body_present_semantics_unverified]
+342,dyIhnXq-0SM,libSceSaveData,libSceSaveData,function,sceSaveDataDirNameSearch,candidate_found,port/src/runtime_savedata.c:414 -> save_search [body_present_semantics_unverified]
+343,ZkZhskCPXFw,libSceSaveData,libSceSaveData,function,sceSaveDataInitialize,candidate_found,port/src/runtime_savedata.c:410 -> save_initialize [body_present_semantics_unverified]
+344,yKDy8S5yLA0,libSceSaveData,libSceSaveData,function,sceSaveDataTerminate,candidate_found,port/src/runtime_savedata.c:411 -> save_terminate [body_present_semantics_unverified]
+345,BMR4F-Uek3E,libSceSaveData,libSceSaveData,function,sceSaveDataUmount,candidate_found,port/src/runtime_savedata.c:412 -> save_umount [body_present_semantics_unverified]
+346,32HQAQdwM2o,libSceSaveData,libSceSaveData,function,sceSaveDataMount,candidate_found,port/src/runtime_savedata.c:412 -> save_mount [body_present_semantics_unverified]
+347,S1GkePI17zQ,libSceSaveData,libSceSaveData,function,sceSaveDataDelete,candidate_found,port/src/runtime_savedata.c:413 -> save_delete [body_present_semantics_unverified]
+348,c88Yy54Mx0w,libSceSaveData,libSceSaveData,function,sceSaveDataSaveIcon,candidate_found,port/src/runtime_savedata.c:413 -> save_icon [body_present_semantics_unverified]
+349,85zul--eGXs,libSceSaveData,libSceSaveData,function,sceSaveDataSetParam,candidate_found,port/src/runtime_savedata.c:413 -> save_set_param [body_present_semantics_unverified]
+350,4tPhsP6FpDI,libSceSaveDataDialog,libSceSaveDataDialog,function,sceSaveDataDialogOpen,candidate_found,port/src/runtime_services.c:751 -> save_open [body_present_semantics_unverified]
+351,KK3Bdg1RWK0,libSceSaveDataDialog,libSceSaveDataDialog,function,sceSaveDataDialogUpdateStatus,candidate_found,port/src/runtime_services.c:752 -> save_status [body_present_semantics_unverified]
+352,s9e3+YpRnzw,libSceSaveDataDialog,libSceSaveDataDialog,function,sceSaveDataDialogInitialize,candidate_found,port/src/runtime_services.c:751 -> save_init [constant_or_trivial_return_review_required]
+353,YuH2FA7azqQ,libSceSaveDataDialog,libSceSaveDataDialog,function,sceSaveDataDialogTerminate,candidate_found,port/src/runtime_services.c:752 -> save_term [body_present_semantics_unverified]
+354,yEiJ-qqr6Cg,libSceSaveDataDialog,libSceSaveDataDialog,function,sceSaveDataDialogGetResult,candidate_found,port/src/runtime_services.c:754 -> save_result [body_present_semantics_unverified]
+355,en7gNVnh878,libSceSaveDataDialog,libSceSaveDataDialog,function,sceSaveDataDialogIsReadyToDisplay,candidate_found,port/src/runtime_services.c:755 -> save_ready [constant_or_trivial_return_review_required]
+356,fH46Lag88XY,libSceSaveDataDialog,libSceSaveDataDialog,function,sceSaveDataDialogClose,candidate_found,port/src/runtime_services.c:753 -> save_close [body_present_semantics_unverified]
+357,hay1CfTmLyA,libSceSaveDataDialog,libSceSaveDataDialog,function,sceSaveDataDialogProgressBarSetValue,candidate_found,port/src/runtime_services.c:754 -> save_progress [body_present_semantics_unverified]
+358,hdpVEUDFW3s,libSceSsl,libSceSsl,function,sceSslInit,candidate_found,port/src/runtime_services.c:677 -> lib_init_id [constant_or_trivial_return_review_required]
+359,0K1yQ6Lv-Yc,libSceSsl,libSceSsl,function,sceSslTerm,candidate_found,port/src/runtime_services.c:677 -> ok_void [constant_or_trivial_return_review_required]
+360,DOwXL+FQMEY,libSceSsl,libSceSsl,function,sceSslGetSerialNumber,candidate_found,port/src/runtime_gr2_np.c:474 -> ssl_no_cert [constant_or_trivial_return_review_required]
+361,g8cM39EUZ6o,libSceSysmodule,libSceSysmodule,function,sceSysmoduleLoadModule,candidate_found,port/src/runtime_content.c:81 -> module_load [body_present_semantics_unverified]
+362,fMP5NHUOaMk,libSceSysmodule,libSceSysmodule,function,sceSysmoduleIsLoaded,candidate_found,port/src/runtime_content.c:82 -> module_loaded [body_present_semantics_unverified]
+363,rPo6tV8D9bM,libSceSystemService,libSceSystemService,function,sceSystemServiceGetStatus,candidate_found,port/src/runtime_services.c:656 -> system_status [body_present_semantics_unverified]
+364,1n37q1Bvc5Y,libSceSystemService,libSceSystemService,function,sceSystemServiceGetDisplaySafeAreaInfo,candidate_found,port/src/runtime_services.c:659 -> safe_area [body_present_semantics_unverified]
+365,656LMQSrg6U,libSceSystemService,libSceSystemService,function,sceSystemServiceReceiveEvent,candidate_found,port/src/runtime_services.c:657 -> system_event [constant_or_trivial_return_review_required]
+366,Vo5V8KAwCmk,libSceSystemService,libSceSystemService,function,sceSystemServiceHideSplashScreen,candidate_found,port/src/runtime_services.c:657 -> hide_splash [body_present_semantics_unverified]
+367,fZo48un7LK4,libSceSystemService,libSceSystemService,function,sceSystemServiceParamGetInt,candidate_found,port/src/runtime_services.c:656 -> system_param [body_present_semantics_unverified]
+368,1xxcMiGu2fo,libSceUserService,libSceUserService,function,sceUserServiceGetUserName,candidate_found,port/src/runtime_services.c:655 -> user_name [body_present_semantics_unverified]
+369,fPhymKNvK-A,libSceUserService,libSceUserService,function,sceUserServiceGetLoginUserIdList,candidate_found,port/src/runtime_services.c:654 -> user_list [body_present_semantics_unverified]
+370,yH17Q6NWtVg,libSceUserService,libSceUserService,function,sceUserServiceGetEvent,candidate_found,port/src/runtime_services.c:655 -> user_event [body_present_semantics_unverified]
+371,CdWp0oHWGr0,libSceUserService,libSceUserService,function,sceUserServiceGetInitialUser,candidate_found,port/src/runtime_services.c:654 -> user_initial [body_present_semantics_unverified]
+372,j3YMu1MVNNo,libSceUserService,libSceUserService,function,sceUserServiceInitialize,candidate_found,port/src/runtime_services.c:653 -> user_initialize [body_present_semantics_unverified]
+373,bwFjS+bX9mA,libSceUserService,libSceUserService,function,sceUserServiceTerminate,candidate_found,port/src/runtime_services.c:653 -> user_terminate [constant_or_trivial_return_review_required]
+374,Up36PTk687E,libSceVideoOut,libSceVideoOut,function,sceVideoOutOpen,candidate_found,port/gpu/shadps4/core/libraries/videoout/video_out.cpp:488 -> sceVideoOutOpen [body_present_semantics_unverified]
+375,CBiu4mCE1DA,libSceVideoOut,libSceVideoOut,function,sceVideoOutSetFlipRate,candidate_found,port/gpu/shadps4/core/libraries/videoout/video_out.cpp:479 -> sceVideoOutSetFlipRate [body_present_semantics_unverified]
+376,i6-sR91Wt-4,libSceVideoOut,libSceVideoOut,function,sceVideoOutSetBufferAttribute,candidate_found,port/gpu/shadps4/core/libraries/videoout/video_out.cpp:480 -> sceVideoOutSetBufferAttribute [body_present_semantics_unverified]
+377,w3BY+tAEiQY,libSceVideoOut,libSceVideoOut,function,sceVideoOutRegisterBuffers,candidate_found,port/gpu/shadps4/core/libraries/videoout/video_out.cpp:476 -> sceVideoOutRegisterBuffers [body_present_semantics_unverified]
+378,HXzjK9yI30k,libSceVideoOut,libSceVideoOut,function,sceVideoOutAddFlipEvent,candidate_found,port/gpu/shadps4/core/libraries/videoout/video_out.cpp:477 -> sceVideoOutAddFlipEvent [body_present_semantics_unverified]
+379,MTxxrOCeSig,libSceVideoOut,libSceVideoOut,function,sceVideoOutSetWindowModeMargins,candidate_found,port/gpu/shadps4/core/libraries/videoout/video_out.cpp:512 -> sceVideoOutSetWindowModeMargins [stub_marker_review_required]
+380,DYhhWbJSeRg,libSceVideoOut,libSceVideoOut,function,sceVideoOutColorSettingsSetGamma_,candidate_found,port/gpu/shadps4/core/libraries/videoout/video_out.cpp:503 -> sceVideoOutColorSettingsSetGamma [body_present_semantics_unverified]
+381,pv9CI5VC+R0,libSceVideoOut,libSceVideoOut,function,sceVideoOutAdjustColor_,candidate_found,port/gpu/shadps4/core/libraries/videoout/video_out.cpp:505 -> sceVideoOutAdjustColor [body_present_semantics_unverified]
+382,PDX01ziUz+4,libc,libc,function,_ZSt13_Syserror_mapi,name_only,
+383,j4ViWNHEgww,libc,libc,function,strlen,candidate_found,port/src/runtime.c:227 -> guest_strlen [constant_or_trivial_return_review_required]
+384,Q3VBxCXhUHs,libc,libc,function,memcpy,candidate_found,port/src/runtime.c:224 -> guest_memcpy [body_present_semantics_unverified]
+385,+P6FRGH4LfA,libc,libc,function,memmove,candidate_found,port/src/runtime.c:225 -> guest_memmove [body_present_semantics_unverified]
+386,tQIo+GIPklo,libc,libc,function,_ZSt14_Xlength_errorPKc,name_only,
+387,eT2UsmTewbU,libc,libc,function,_ZSt11_Xbad_allocv,name_only,
+388,ozMAr28BwSY,libc,libc,function,_ZSt14_Xout_of_rangePKc,name_only,
+389,zr094EQ39Ww,libc,libc,function,__cxa_pure_virtual,name_only,
+390,3GPpjQdAMTw,libc,libc,function,__cxa_guard_acquire,candidate_found,port/src/runtime.c:219 -> guard_acquire [body_present_semantics_unverified]
+391,tsvEmnenz48,libc,libc,function,__cxa_atexit,candidate_found,port/src/runtime.c:215 -> guest_cxa_atexit [body_present_semantics_unverified]
+392,9rAeANT2tyE,libc,libc,function,__cxa_guard_release,candidate_found,port/src/runtime.c:220 -> guard_release [body_present_semantics_unverified]
+393,DfivPArhucg,libc,libc,function,memcmp,candidate_found,port/src/runtime.c:226 -> guest_memcmp [body_present_semantics_unverified]
+394,nJz16JE1txM,libc,libc,function,swprintf,name_only,
+395,tcVi5SivF7Q,libc,libc,function,sprintf,name_only,
+396,jbz9I9vkqkk,libc,libc,function,vsprintf,name_only,
+397,pKwslsMUmSk,libc,libc,function,fmod,name_only,
+398,ZtjspkJQ+vw,libc,libc,function,_FSin,name_only,
+399,EH-x713A99c,libc,libc,function,atan2f,name_only,
+400,bzQExy189ZI,libc,libc,function,_init_env,candidate_found,port/src/runtime.c:213 -> init_env [body_present_semantics_unverified]
+401,8G2LB+A3rzg,libc,libc,function,atexit,candidate_found,port/src/runtime.c:214 -> guest_atexit [body_present_semantics_unverified]
+402,XKRegsFpEpk,libc,libc,function,catchReturnFromMain,name_only,
+403,uMei1W9uyNo,libc,libc,function,exit,candidate_found,port/src/runtime.c:216 -> guest_libc_exit [body_present_semantics_unverified]
+404,P330P3dFF68,libc,libc,object,Need_sceLibc,name_only,
+405,aesyjrHVWy4,libc,libc,function,strncmp,name_only,
+406,1uJgoVq3bQU,libc,libc,function,_Getptolower,name_only,
+407,kiZSXIWd9vg,libc,libc,function,strcpy,name_only,
+408,6sJWiWSRuqk,libc,libc,function,strncpy,name_only,
+409,9yDWMxEFdJU,libc,libc,function,strrchr,name_only,
+410,Ovb2dSJOAuE,libc,libc,function,strcmp,name_only,
+411,viiwFMaNamA,libc,libc,function,strstr,name_only,
+412,GMpvxPFW924,libc,libc,function,vprintf,name_only,
+413,YQ0navp+YIc,libc,libc,function,puts,name_only,
+414,c41UEHVtiEA,libc,libc,function,_Stod,name_only,
+415,zlfEH8FmyUA,libc,libc,function,_Stoul,name_only,
+416,1Pk0qZQGeWo,libc,libc,function,sscanf,name_only,
+417,gQX+4GDQjpM,libc,libc,function,malloc,name_only,
+418,Y7aJ1uydPMo,libc,libc,function,realloc,name_only,
+419,tIhsqj0qsFE,libc,libc,function,free,name_only,
+420,Ujf3KzMvRmI,libc,libc,function,memalign,name_only,
+421,OGybVuPAhAY,libc,libc,function,,not_found,
+422,wZi5ly2guNw,libc,libc,function,,not_found,
+423,8zTFvBIAIN8,libc,libc,function,memset,candidate_found,port/src/runtime.c:223 -> guest_memset [body_present_semantics_unverified]
+424,WkkeywLJcgU,libc,libc,function,wcslen,name_only,
+425,pNtJdE3x49E,libc,libc,function,wcscmp,name_only,
+426,E8wCoUEbfzk,libc,libc,function,wcsncmp,name_only,
+427,AV6ipCNa4Rw,libc,libc,function,strcasecmp,name_only,
+428,pXvbDfchu6k,libc,libc,function,strncasecmp,name_only,
+429,ob5xAW4ln-0,libc,libc,function,strchr,name_only,
+430,Ezzq78ZgHPs,libc,libc,function,wcschr,name_only,
+431,WDpobjImAb4,libc,libc,function,wcsstr,name_only,
+432,Q2V+iqvjgC0,libc,libc,function,vsnprintf,name_only,
+433,u0XOsuOmOzc,libc,libc,function,,not_found,
+434,sUP1hBaouOw,libc,libc,function,_Getpctype,name_only,
+435,mXlxhmLNMPg,libc,libc,function,strtol,name_only,
+436,-kU6bB4M-+k,libc,libc,function,strspn,name_only,
+437,q0F6yS-rCms,libc,libc,function,strcspn,name_only,
+438,8u8lPzUEq+U,libc,libc,function,memchr,name_only,
+439,eLdDw6l0-bU,libc,libc,function,snprintf,name_only,
+440,q+9E0X3aWpU,libc,libc,function,_Stoull,name_only,
+441,7pNKcscKrf8,libc,libc,function,_Stoll,name_only,
+442,cpCOXWMgha0,libc,libc,function,rand,name_only,
+443,88Vv-AzHVj8,libc,libc,function,fmodf,name_only,
+444,NesIgTmfF0Q,libc,libc,function,,not_found,
+445,-VVn74ZyhEs,libc,libc,function,difftime,name_only,
+446,Ls4tzzhimqQ,libc,libc,function,strcat,name_only,
+447,efhK-YSUYYQ,libc,libc,function,localtime,name_only,
+448,jjjRS7l1MPM,libc,libc,function,_FLog,name_only,
+449,xeYO4u7uyJ0,libc,libc,function,fopen,name_only,
+450,uodLYyUip20,libc,libc,function,fclose,name_only,
+451,QI-x0SL8jhw,libc,libc,function,acosf,name_only,
+452,MpxhMh8QFro,libc,libc,function,fwrite,name_only,
+453,fffwELXNVFA,libc,libc,function,fprintf,name_only,
+454,JrwFIMzKNr0,libc,libc,function,ldexp,name_only,
+455,fiOgmWkP+Xc,libc,libc,function,,not_found,
+456,9LCjpWyQ5Zc,libc,libc,function,pow,name_only,
+457,iU0z6SdUNbI,libc,libc,function,,not_found,
+458,-hn1tcVHq5Q,libc,libc,function,,not_found,
+459,iF1iQHzxBJU,libc,libc,function,,not_found,
+460,Vla-Z+eXlxo,libc,libc,function,,not_found,
+461,W6SiVSiCDtI,libc,libc,function,,not_found,
+462,ZE6RNL+eLbk,libc,libc,function,tanf,name_only,
+463,3+UPM-9E6xY,libc,libc,function,modff,name_only,
+464,1D0H2KNjshE,libc,libc,function,powf,name_only,
+465,weDug8QD-lE,libc,libc,function,atanf,name_only,
+466,mnufPlYbnN0,libc,libc,function,,not_found,
+467,rQFVBXp-Cxg,libc,libc,function,fseek,name_only,
+468,Qazy8LmXTvw,libc,libc,function,ftell,name_only,
+469,lbB+UlZqVG0,libc,libc,function,fread,name_only,
+470,wLlFkwG9UcQ,libc,libc,function,time,candidate_found,port/src/runtime_kernel.c:351 -> posix_time [body_present_semantics_unverified]
+471,NLwJ3q+64bY,libc,libc,object,_ZSt7nothrow,name_only,
+472,AEJdIVZTEmo,libc,libc,function,qsort,name_only,
+473,GZWjF-YIFFk,libc,libc,function,asinf,name_only,
+474,sqWytnhYdEg,libc,libc,function,_ZNSt8ios_base4InitC1Ev,name_only,
+475,kxXCvcat1cM,libc,libc,function,_ZNSt8ios_base4InitD1Ev,name_only,
+476,-Bl9-SZ2noc,libc,libc,function,_ZNSt6_WinitC1Ev,name_only,
+477,Uw3OTZFPNt4,libc,libc,function,_ZNSt6_WinitD1Ev,name_only,
+478,kALvdgEv5ME,libc,libc,function,_Locksyslock,name_only,
+479,9nf8joUTSaQ,libc,libc,function,_Unlocksyslock,name_only,
+480,wuAQt-j+p4o,libc,libc,function,exp2f,name_only,
+481,8zsu04XNsZ4,libc,libc,function,expf,name_only,
+482,NVadfnzQhHQ,libc,libc,function,exp,name_only,
+483,lKEN2IebgJ0,libc,libc,function,longjmp,name_only,
+484,gNQ1V2vfXDE,libc,libc,function,setjmp,name_only,
+485,VPbJwTCgME0,libc,libc,function,srand,name_only,
+486,rcQCUr0EaRU,libc,libc,function,_Getptoupper,name_only,
+487,xEszJVGpybs,libc,libc,function,sprintf_s,name_only,
+488,H8AprKeZtNg,libc,libc,object,_Stderr,name_only,
+489,oVkZ8W8-Q8A,libc,libc,function,strtok,name_only,
+490,m5wN+SwZOR4,libc,libc,function,putchar,name_only,
+491,2sWzhYqFH4E,libc,libc,object,_Stdout,name_only,
+492,QrZZdJ8XsX0,libc,libc,function,fputs,name_only,
+493,aZK8lNei-Qw,libc,libc,function,fputc,name_only,
+494,L1SBTkC+Cvw,libc,libc,function,abort,name_only,
+495,MUjC4lbHrK4,libc,libc,function,fflush,name_only,
+496,1mecP7RgI2A,libc,libc,function,gmtime,name_only,
+497,zXCi78bYrEI,libc,libc,function,_Log,name_only,
+498,9ByRMdo7ywg,libc,libc,object,_ZTVN10__cxxabiv121__vmi_class_type_infoE,name_only,
+499,byV+FWlAnB4,libc,libc,object,_ZTVN10__cxxabiv117__class_type_infoE,name_only,
+500,pZ9WXcClPO8,libc,libc,object,_ZTVN10__cxxabiv120__si_class_type_infoE,name_only,
+501,kn0yiYeExgA,libc,libc,function,ldexpf,name_only,
+502,2X5agFjKxMc,libc,libc,function,,not_found,
+503,1TDo-ImqkJc,libc,libc,object,_Stdin,name_only,
+504,AHxyhN96dy4,libc,libc,function,ferror,name_only,
+505,pkYiKw09PRA,libc,libc,function,,not_found,
+506,5qP1iVQkdck,libc,libc,function,,not_found,
+507,Fm-dmyywH9Q,libc,libc,function,,not_found,
+508,LxcEU+ICu8U,libc,libc,function,feof,name_only,
+509,cCXjU72Z0Ow,libc,libc,function,_Sin,name_only,
+510,HUbZmOnT-Dg,libc,libc,function,atan2,name_only,
+511,kA-TdiOCsaY,libc,libc,function,frexp,name_only,
+512,TU-d9PfIHPM,libScePosix,libkernel,function,socket,candidate_found,port/src/runtime_gr2.c:365 -> socket_down [body_present_semantics_unverified]
+513,Ez8xjo9UF4E,libScePosix,libkernel,function,recv,candidate_found,port/src/runtime_gr2.c:366 -> socket_down [body_present_semantics_unverified]
+514,KuOmgKoqCdY,libScePosix,libkernel,function,bind,candidate_found,port/src/runtime_gr2.c:365 -> socket_down [body_present_semantics_unverified]
+515,lUk6wrGXyMw,libScePosix,libkernel,function,,not_found,
+516,oBr313PppNE,libScePosix,libkernel,function,,not_found,
+517,fZOeZIOEmLw,libScePosix,libkernel,function,send,candidate_found,port/src/runtime_gr2.c:366 -> socket_down [body_present_semantics_unverified]
+518,fFxGkxF2bVo,libScePosix,libkernel,function,,not_found,
+519,XVL8So3QJUk,libScePosix,libkernel,function,,not_found,
+520,TUuiYS2kE8s,libScePosix,libkernel,function,shutdown,candidate_found,port/src/runtime_gr2.c:366 -> socket_down [body_present_semantics_unverified]
+521,mqQMh1zPPT8,libScePosix,libkernel,function,fstat,candidate_found,port/src/runtime_file.c:684 -> posix_fstat [body_not_located_review_required]
+522,lLMT9vJAck0,libScePosix,libkernel,function,clock_gettime,candidate_found,port/src/runtime_kernel.c:342 -> posix_clock_gettime [body_present_semantics_unverified]
+523,Xs9hdiD7sAA,libScePosix,libkernel,function,,not_found,
+524,cDW233RAwWo,libScePosix,libkernel,function,,not_found,
+525,pDuPEf3m4fI,libScePosix,libkernel,function,,not_found,
+526,IKP8typ0QUk,libScePosix,libkernel,function,,not_found,
+527,w5IHyvahg-o,libScePosix,libkernel,function,,not_found,
+528,YCV5dGGBcCo,libScePosix,libkernel,function,,not_found,
+529,f7uOxY9mM1U,libkernel,libkernel,object,__stack_chk_guard,candidate_found,port/src/runtime.c:206 -> &stack_canary [data_export_review_required]
+530,Ou3iL1abvng,libkernel,libkernel,function,__stack_chk_fail,candidate_found,port/src/runtime.c:222 -> stack_fail [body_present_semantics_unverified]
+531,F8bUHwAG284,libkernel,libkernel,function,scePthreadMutexattrInit,candidate_found,port/src/runtime_mutex.c:287 -> attr_init [body_present_semantics_unverified]
+532,iMp8QpE+XO4,libkernel,libkernel,function,scePthreadMutexattrSettype,candidate_found,port/src/runtime_mutex.c:288 -> attr_type [body_present_semantics_unverified]
+533,cmo1RIYva9o,libkernel,libkernel,function,scePthreadMutexInit,candidate_found,port/src/runtime_mutex.c:291 -> mutex_init [body_present_semantics_unverified]
+534,smWEktiyyG0,libkernel,libkernel,function,scePthreadMutexattrDestroy,candidate_found,port/src/runtime_mutex.c:289 -> attr_destroy [body_present_semantics_unverified]
+535,2Of0f+3mhhE,libkernel,libkernel,function,scePthreadMutexDestroy,candidate_found,port/src/runtime_mutex.c:295 -> mutex_destroy [body_present_semantics_unverified]
+536,vNe1w4diLCs,libkernel,libkernel,function,__tls_get_addr,candidate_found,port/src/runtime.c:228 -> guest_tls_get_addr [body_present_semantics_unverified]
+537,nsYoNRywwNg,libkernel,libkernel,function,scePthreadAttrInit,name_only,
+538,DzES9hQF4f4,libkernel,libkernel,function,scePthreadAttrSetschedparam,name_only,
+539,UTXzJbWhhTE,libkernel,libkernel,function,scePthreadAttrSetstacksize,name_only,
+540,eXbUSpEaTsA,libkernel,libkernel,function,scePthreadAttrSetinheritsched,name_only,
+541,-Wreprtu0Qs,libkernel,libkernel,function,scePthreadAttrSetdetachstate,name_only,
+542,6UgtwV+0zb4,libkernel,libkernel,function,scePthreadCreate,name_only,
+543,62KCwEMmzcM,libkernel,libkernel,function,scePthreadAttrDestroy,name_only,
+544,bt3CTBKmGyI,libkernel,libkernel,function,scePthreadSetaffinity,name_only,
+545,aI+OeCz8xrQ,libkernel,libkernel,function,scePthreadSelf,name_only,
+546,W0Hpm2X0uPE,libkernel,libkernel,function,scePthreadSetprio,name_only,
+547,onNY9Byn-W8,libkernel,libkernel,function,scePthreadJoin,name_only,
+548,3kg7rT0NQIs,libkernel,libkernel,function,scePthreadExit,name_only,
+549,1jfXLRVzisc,libkernel,libkernel,function,sceKernelUsleep,candidate_found,port/src/runtime_kernel.c:347 -> kernel_usleep [body_present_semantics_unverified]
+550,T72hz6ffq08,libkernel,libkernel,function,scePthreadYield,name_only,
+551,IafI2PxcPnQ,libkernel,libkernel,function,scePthreadMutexTimedlock,candidate_found,port/src/runtime_mutex.c:278 -> mutex_timedlock [body_present_semantics_unverified]
+552,tn3VlD0hG60,libkernel,libkernel,function,scePthreadMutexUnlock,candidate_found,port/src/runtime_mutex.c:294 -> mutex_unlock [body_present_semantics_unverified]
+553,pO96TwzOm5E,libkernel,libkernel,function,sceKernelGetDirectMemorySize,candidate_found,port/src/runtime_memory.c:698 -> direct_size [constant_or_trivial_return_review_required]; port/src/runtime_memory.c:709 -> direct_size [constant_or_trivial_return_review_required]
+554,rTXw65xmLIA,libkernel,libkernel,function,sceKernelAllocateDirectMemory,candidate_found,port/src/runtime_memory.c:698 -> direct_allocate [body_present_semantics_unverified]; port/src/runtime_memory.c:710 -> direct_allocate [body_present_semantics_unverified]
+555,NcaWUxfMNIQ,libkernel,libkernel,function,,not_found,
+556,QBi7HCK03hw,libkernel,libkernel,function,sceKernelClockGettime,candidate_found,port/src/runtime_kernel.c:342 -> kernel_clock_gettime [body_present_semantics_unverified]
+557,188x57JYp0g,libkernel,libkernel,function,sceKernelCreateSema,candidate_found,port/src/runtime_sema.c:185 -> sem_create [stub_marker_review_required]
+558,R1Jvn8bSCW8,libkernel,libkernel,function,sceKernelDeleteSema,candidate_found,port/src/runtime_sema.c:190 -> sem_delete [body_present_semantics_unverified]
+559,4czppHBiriw,libkernel,libkernel,function,sceKernelSignalSema,candidate_found,port/src/runtime_sema.c:187 -> sem_signal [body_present_semantics_unverified]
+560,12wOHk8ywb0,libkernel,libkernel,function,sceKernelPollSema,candidate_found,port/src/runtime_sema.c:188 -> sem_poll [constant_or_trivial_return_review_required]
+561,Zxa0VhQVTsk,libkernel,libkernel,function,sceKernelWaitSema,candidate_found,port/src/runtime_sema.c:186 -> sem_wait [constant_or_trivial_return_review_required]
+562,D0OdFMjp46I,libkernel,libkernel,function,sceKernelCreateEqueue,candidate_found,port/gpu/shadps4/core/libraries/kernel/equeue.cpp:655 -> sceKernelCreateEqueue [body_present_semantics_unverified]
+563,jpFjmgAC5AE,libkernel,libkernel,function,sceKernelDeleteEqueue,candidate_found,port/gpu/shadps4/core/libraries/kernel/equeue.cpp:656 -> sceKernelDeleteEqueue [body_present_semantics_unverified]
+564,57ZK+ODEXWY,libkernel,libkernel,function,sceKernelAddTimerEvent,candidate_found,port/gpu/shadps4/core/libraries/kernel/equeue.cpp:663 -> sceKernelAddTimerEvent [body_present_semantics_unverified]
+565,fzyMKs9kim0,libkernel,libkernel,function,sceKernelWaitEqueue,candidate_found,port/gpu/shadps4/core/libraries/kernel/equeue.cpp:657 -> sceKernelWaitEqueue [body_present_semantics_unverified]
+566,9BcDykPmo1I,libkernel,libkernel,function,__error,name_only,
+567,9UK1vLZQft4,libkernel,libkernel,function,scePthreadMutexLock,candidate_found,port/src/runtime_mutex.c:292 -> mutex_lock [constant_or_trivial_return_review_required]
+568,1-LFLmRFxxM,libkernel,libkernel,function,sceKernelMkdir,candidate_found,port/src/runtime_file.c:692 -> sce_mkdir [constant_or_trivial_return_review_required]
+569,rVjRvHJ0X6c,libkernel,libkernel,function,sceKernelVirtualQuery,candidate_found,port/src/runtime_memory.c:704 -> virtual_query [body_present_semantics_unverified]
+570,4R6-OvI2cEA,libkernel,libkernel,function,sceKernelAddUserEvent,candidate_found,port/gpu/shadps4/core/libraries/kernel/equeue.cpp:659 -> sceKernelAddUserEvent [body_present_semantics_unverified]
+571,YWQFUyXIVdU,libkernel,libkernel,function,sceKernelDeleteTimerEvent,candidate_found,port/gpu/shadps4/core/libraries/kernel/equeue.cpp:664 -> sceKernelDeleteTimerEvent [body_present_semantics_unverified]
+572,23CPPI1tyBY,libkernel,libkernel,function,sceKernelGetEventFilter,candidate_found,port/gpu/shadps4/core/libraries/kernel/equeue.cpp:668 -> sceKernelGetEventFilter [constant_or_trivial_return_review_required]
+573,mJ7aghmgvfc,libkernel,libkernel,function,sceKernelGetEventId,candidate_found,port/gpu/shadps4/core/libraries/kernel/equeue.cpp:667 -> sceKernelGetEventId [constant_or_trivial_return_review_required]
+574,wzvqT4UqKX8,libkernel,libkernel,function,sceKernelLoadStartModule,candidate_found,port/src/runtime_gr2.c:363 -> kernel_load_start_module [body_present_semantics_unverified]
+575,MBuItvba6z8,libkernel,libkernel,function,sceKernelReleaseDirectMemory,candidate_found,port/src/runtime_memory.c:700 -> direct_release [body_present_semantics_unverified]; port/src/runtime_memory.c:712 -> direct_release [body_present_semantics_unverified]
+576,1G3lF1Gg1k8,libkernel,libkernel,function,sceKernelOpen,candidate_found,port/src/runtime_file.c:677 -> sce_open [body_not_located_review_required]
+577,kBwCPsYX-m4,libkernel,libkernel,function,sceKernelFstat,candidate_found,port/src/runtime_file.c:684 -> sce_fstat [body_not_located_review_required]
+578,Cg4srZ6TKbU,libkernel,libkernel,function,sceKernelRead,candidate_found,port/src/runtime_file.c:679 -> sce_read [body_not_located_review_required]
+579,UK2Tl2DWUns,libkernel,libkernel,function,sceKernelClose,candidate_found,port/src/runtime_file.c:678 -> sce_close [body_not_located_review_required]
+580,BpFoboUJoZU,libkernel,libkernel,function,sceKernelCreateEventFlag,candidate_found,port/src/runtime_tlg.c:323 -> ef_create [body_present_semantics_unverified]
+581,3qxgM4ezETA,libkernel,libkernel,function,scePthreadAttrSetaffinity,name_only,
+582,JTvBflhYazQ,libkernel,libkernel,function,sceKernelWaitEventFlag,candidate_found,port/src/runtime_tlg.c:325 -> ef_wait [body_present_semantics_unverified]
+583,IOnSvHzqu6A,libkernel,libkernel,function,sceKernelSetEventFlag,candidate_found,port/src/runtime_tlg.c:324 -> ef_set [body_present_semantics_unverified]
+584,Bvn74vj6oLo,libkernel,libkernel,function,,not_found,
+585,1j3S3n-tTW4,libkernel,libkernel,function,sceKernelGetTscFrequency,candidate_found,port/src/runtime_kernel.c:346 -> tsc_frequency [body_present_semantics_unverified]
+586,-2IRUCO--PM,libkernel,libkernel,function,sceKernelReadTsc,candidate_found,port/src/runtime_kernel.c:346 -> read_tsc [constant_or_trivial_return_review_required]
+587,2Tb92quprl0,libkernel,libkernel,function,scePthreadCondInit,candidate_found,port/src/runtime_mutex.c:272 -> cond_init [body_present_semantics_unverified]
+588,g+PZd2hiacg,libkernel,libkernel,function,scePthreadCondDestroy,candidate_found,port/src/runtime_mutex.c:273 -> cond_destroy [body_present_semantics_unverified]
+589,JGgj7Uvrl+A,libkernel,libkernel,function,scePthreadCondBroadcast,candidate_found,port/src/runtime_mutex.c:277 -> cond_broadcast [body_present_semantics_unverified]
+590,L-Q3LEjIbgA,libkernel,libkernel,function,sceKernelMapDirectMemory,candidate_found,port/src/runtime_memory.c:699 -> direct_map [body_present_semantics_unverified]; port/src/runtime_memory.c:711 -> direct_map [body_present_semantics_unverified]
+591,oib76F-12fk,libkernel,libkernel,function,sceKernelLseek,candidate_found,port/src/runtime_file.c:683 -> sce_lseek [body_not_located_review_required]
+592,4+h9EzwKF4I,libkernel,libkernel,function,scePthreadAttrSetschedpolicy,name_only,
+593,eoht7mQOCmo,libkernel,libkernel,function,scePthreadGetspecific,candidate_found,port/src/runtime_kernel.c:367 -> key_get [constant_or_trivial_return_review_required]
+594,geDaqgH9lTg,libkernel,libkernel,function,scePthreadKeyCreate,candidate_found,port/src/runtime_kernel.c:366 -> key_create [body_present_semantics_unverified]
+595,P41kTWUS3EI,libkernel,libkernel,function,,not_found,
+596,oIRFTjoILbg,libkernel,libkernel,function,,not_found,
+597,+BzXYkqYeLE,libkernel,libkernel,function,scePthreadSetspecific,candidate_found,port/src/runtime_kernel.c:367 -> key_set [body_present_semantics_unverified]
+598,4qGrR6eoP9Y,libkernel,libkernel,function,scePthreadDetach,name_only,
+599,upoVrzMHFeE,libkernel,libkernel,function,scePthreadMutexTrylock,candidate_found,port/src/runtime_mutex.c:293 -> mutex_trylock [body_present_semantics_unverified]
+600,ejekcaNQNq0,libkernel,libkernel,function,sceKernelGettimeofday,candidate_found,port/src/runtime_kernel.c:350 -> kernel_gettimeofday [body_present_semantics_unverified]
+601,KMWt8qkp+0A,spu,spu,function,,not_found,

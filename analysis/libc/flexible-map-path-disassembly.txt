@@ -1,0 +1,57 @@
+﻿
+out/modules/lbp3/libc.elf:	file format elf64-x86-64
+
+Disassembly of section PT_LOAD#0:
+
+0000000000000000 <PT_LOAD#0>:
+    14e0: 55                           	pushq	%rbp
+    14e1: 48 89 e5                     	movq	%rsp, %rbp
+    14e4: 41 57                        	pushq	%r15
+    14e6: 41 56                        	pushq	%r14
+    14e8: 53                           	pushq	%rbx
+    14e9: 48 83 ec 18                  	subq	$0x18, %rsp
+    14ed: 48 89 d0                     	movq	%rdx, %rax
+    14f0: 49 89 f6                     	movq	%rsi, %r14
+    14f3: 48 89 fb                     	movq	%rdi, %rbx
+    14f6: 4c 8b 3d 9b 2f 0b 00         	movq	0xb2f9b(%rip), %r15     # 0xb4498 <PT_LOAD#0+0xb4498>
+    14fd: 49 8b 0f                     	movq	(%r15), %rcx
+    1500: 48 89 4d e0                  	movq	%rcx, -0x20(%rbp)
+    1504: 48 c7 45 d8 00 00 00 00      	movq	$0x0, -0x28(%rbp)
+    150c: 48 8b 0d 25 9a 0b 00         	movq	0xb9a25(%rip), %rcx     # 0xbaf38 <PT_LOAD#0+0xbaf38>
+    1513: 48 85 c9                     	testq	%rcx, %rcx
+    1516: 74 07                        	je	0x151f <PT_LOAD#0+0x151f>
+    1518: 49 89 0e                     	movq	%rcx, (%r14)
+    151b: 31 c0                        	xorl	%eax, %eax
+    151d: eb 44                        	jmp	0x1563 <PT_LOAD#0+0x1563>
+    151f: 48 8d 7d d8                  	leaq	-0x28(%rbp), %rdi
+    1523: 48 89 de                     	movq	%rbx, %rsi
+    1526: ba 03 00 00 00               	movl	$0x3, %edx
+    152b: 31 c9                        	xorl	%ecx, %ecx
+    152d: 49 89 c0                     	movq	%rax, %r8
+    1530: e8 1b ec ff ff               	callq	0x150 <PT_LOAD#0+0x150>
+    1535: 85 c0                        	testl	%eax, %eax
+    1537: 75 19                        	jne	0x1552 <PT_LOAD#0+0x1552>
+    1539: 83 3d 0c 9a 0b 00 00         	cmpl	$0x0, 0xb9a0c(%rip)     # 0xbaf4c <PT_LOAD#0+0xbaf4c>
+    1540: 74 35                        	je	0x1577 <PT_LOAD#0+0x1577>
+    1542: 48 8b 7d d8                  	movq	-0x28(%rbp), %rdi
+    1546: 48 89 de                     	movq	%rbx, %rsi
+    1549: e8 12 ec ff ff               	callq	0x160 <PT_LOAD#0+0x160>
+    154e: 85 c0                        	testl	%eax, %eax
+    1550: 74 25                        	je	0x1577 <PT_LOAD#0+0x1577>
+    1552: 48 8b 7d d8                  	movq	-0x28(%rbp), %rdi
+    1556: 48 89 de                     	movq	%rbx, %rsi
+    1559: e8 12 ec ff ff               	callq	0x170 <PT_LOAD#0+0x170>
+    155e: b8 ff ff ff ff               	movl	$0xffffffff, %eax       # imm = 0xFFFFFFFF
+    1563: 49 8b 0f                     	movq	(%r15), %rcx
+    1566: 48 3b 4d e0                  	cmpq	-0x20(%rbp), %rcx
+    156a: 75 14                        	jne	0x1580 <PT_LOAD#0+0x1580>
+    156c: 48 83 c4 18                  	addq	$0x18, %rsp
+    1570: 5b                           	popq	%rbx
+    1571: 41 5e                        	popq	%r14
+    1573: 41 5f                        	popq	%r15
+    1575: 5d                           	popq	%rbp
+    1576: c3                           	retq
+    1577: 48 8b 45 d8                  	movq	-0x28(%rbp), %rax
+    157b: 49 89 06                     	movq	%rax, (%r14)
+    157e: eb 9b                        	jmp	0x151b <PT_LOAD#0+0x151b>
+    1580: e8 8b eb ff ff               	callq	0x110 <PT_LOAD#0+0x110>

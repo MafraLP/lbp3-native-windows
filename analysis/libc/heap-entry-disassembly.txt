@@ -1,0 +1,12 @@
+﻿
+out/modules/lbp3/libc.elf:	file format elf64-x86-64
+
+Disassembly of section PT_LOAD#0:
+
+0000000000000000 <PT_LOAD#0>:
+     ad0: 48 8d 3d 41 9f 0b 00         	leaq	0xb9f41(%rip), %rdi     # 0xbaa18 <PT_LOAD#0+0xbaa18>
+     ad7: e9 e4 04 00 00               	jmp	0xfc0 <PT_LOAD#0+0xfc0>
+     adc: 90                           	nop
+     add: 90                           	nop
+     ade: 90                           	nop
+     adf: 90                           	nop

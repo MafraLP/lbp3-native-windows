@@ -1,0 +1,814 @@
+﻿requester,symbol_index,nid,library,module,status,function_name,iss_static_status,providers
+eboot.elf,2,wycAbBCjLI4,FMODExtInput,FMODExtInput,guest_candidate,,not_found,"[{""file"": ""fmodextinput.elf"", ""symbol_index"": 11, ""guest_va"": ""0x170""}]"
+eboot.elf,3,iO5jJEuFaSo,FMODSmsReverb,FMODSmsReverb,guest_candidate,,not_found,"[{""file"": ""fmodsmsreverb.elf"", ""symbol_index"": 10, ""guest_va"": ""0x1f70""}]"
+eboot.elf,4,-UZ0JwaglR8,FMODSmsWaveHammer,FMODSmsWaveHammer,guest_candidate,,not_found,"[{""file"": ""fmodsmswavehammer.elf"", ""symbol_index"": 12, ""guest_va"": ""0x19c0""}]"
+eboot.elf,5,Kx23RuISciY,FMODVoIPMixer,FMODVoIPMixer,guest_candidate,,not_found,"[{""file"": ""fmodvoipmixer.elf"", ""symbol_index"": 5, ""guest_va"": ""0x120""}]"
+eboot.elf,6,xnd8BJzAxmk,libSceAppContent,libSceAppContentUtil,external_unresolved,sceAppContentGetAddcontInfoList,candidate_found,[]
+eboot.elf,7,XTWR0UXvcgs,libSceAppContent,libSceAppContentUtil,external_unresolved,sceAppContentGetEntitlementKey,candidate_found,[]
+eboot.elf,8,99b82IKXpH4,libSceAppContent,libSceAppContentUtil,external_unresolved,sceAppContentAppParamGetInt,candidate_found,[]
+eboot.elf,9,R9lA82OraNs,libSceAppContent,libSceAppContentUtil,external_unresolved,sceAppContentInitialize,candidate_found,[]
+eboot.elf,10,a5N7lAG0y2Q,libSceAppContent,libSceAppContentUtil,external_unresolved,,not_found,[]
+eboot.elf,11,SaKib2Ug0yI,libSceAppContent,libSceAppContentUtil,external_unresolved,,not_found,[]
+eboot.elf,12,buYbeLOGWmA,libSceAppContent,libSceAppContentUtil,external_unresolved,sceAppContentTemporaryDataMount2,candidate_found,[]
+eboot.elf,13,5NE8Sjc7VC8,libSceAudioIn,libSceAudioIn,external_unresolved,sceAudioInOpen,candidate_found,[]
+eboot.elf,14,LozEOU8+anM,libSceAudioIn,libSceAudioIn,external_unresolved,sceAudioInInput,candidate_found,[]
+eboot.elf,15,JfEPXVxhFqA,libSceAudioOut,libSceAudioOut,external_unresolved,sceAudioOutInit,candidate_found,[]
+eboot.elf,16,ekNvsT22rsY,libSceAudioOut,libSceAudioOut,external_unresolved,sceAudioOutOpen,candidate_found,[]
+eboot.elf,17,b+uAV89IlxE,libSceAudioOut,libSceAudioOut,external_unresolved,sceAudioOutSetVolume,candidate_found,[]
+eboot.elf,18,QOQtbeDqsT4,libSceAudioOut,libSceAudioOut,external_unresolved,sceAudioOutOutput,candidate_found,[]
+eboot.elf,19,s1--uE9mBFw,libSceAudioOut,libSceAudioOut,external_unresolved,sceAudioOutClose,candidate_found,[]
+eboot.elf,20,hdTyRzCXQeQ,libSceAvPlayer,libSceAvPlayer,external_unresolved,sceAvPlayerStreamCount,candidate_found,[]
+eboot.elf,21,d8FcbzfAdQw,libSceAvPlayer,libSceAvPlayer,external_unresolved,sceAvPlayerGetStreamInfo,candidate_found,[]
+eboot.elf,22,ODJK2sn9w4A,libSceAvPlayer,libSceAvPlayer,external_unresolved,sceAvPlayerEnableStream,candidate_found,[]
+eboot.elf,23,ET4Gr-Uu07s,libSceAvPlayer,libSceAvPlayer,external_unresolved,sceAvPlayerStart,candidate_found,[]
+eboot.elf,24,NkJwDzKmIlw,libSceAvPlayer,libSceAvPlayer,external_unresolved,sceAvPlayerClose,candidate_found,[]
+eboot.elf,25,aS66RI0gGgo,libSceAvPlayer,libSceAvPlayer,external_unresolved,sceAvPlayerInit,candidate_found,[]
+eboot.elf,26,KMcEa+rHsIo,libSceAvPlayer,libSceAvPlayer,external_unresolved,sceAvPlayerAddSource,candidate_found,[]
+eboot.elf,27,OVths0xGfho,libSceAvPlayer,libSceAvPlayer,external_unresolved,sceAvPlayerSetLooping,candidate_found,[]
+eboot.elf,28,JdksQu8pNdQ,libSceAvPlayer,libSceAvPlayer,external_unresolved,sceAvPlayerGetVideoDataEx,candidate_found,[]
+eboot.elf,29,Wnp1OVcrZgk,libSceAvPlayer,libSceAvPlayer,external_unresolved,sceAvPlayerGetAudioData,candidate_found,[]
+eboot.elf,30,UbQoYawOsfY,libSceAvPlayer,libSceAvPlayer,external_unresolved,sceAvPlayerIsActive,candidate_found,[]
+eboot.elf,31,wwM99gjFf1Y,libSceAvPlayer,libSceAvPlayer,external_unresolved,sceAvPlayerCurrentTime,candidate_found,[]
+eboot.elf,32,w5moABNwnRY,libSceAvPlayer,libSceAvPlayer,external_unresolved,sceAvPlayerResume,candidate_found,[]
+eboot.elf,33,9y5v+fGN4Wk,libSceAvPlayer,libSceAvPlayer,external_unresolved,sceAvPlayerPause,candidate_found,[]
+eboot.elf,34,XC9wM+xULz8,libSceAvPlayer,libSceAvPlayer,external_unresolved,sceAvPlayerJumpToTime,candidate_found,[]
+eboot.elf,35,p6n3Npi3YY4,libSceCamera,libSceCamera,external_unresolved,,not_found,[]
+eboot.elf,36,2G2C0nmd++M,libSceCamera,libSceCamera,external_unresolved,,not_found,[]
+eboot.elf,37,OMS9LlcrvBo,libSceCamera,libSceCamera,external_unresolved,,not_found,[]
+eboot.elf,38,BHn83xrF92E,libSceCamera,libSceCamera,external_unresolved,,not_found,[]
+eboot.elf,39,VQ+5kAqsE2Q,libSceCamera,libSceCamera,external_unresolved,,not_found,[]
+eboot.elf,40,9EpRYMy7rHU,libSceCamera,libSceCamera,external_unresolved,,not_found,[]
+eboot.elf,41,doPlf33ab-U,libSceCamera,libSceCamera,external_unresolved,,not_found,[]
+eboot.elf,42,ZaqmGEtYuL0,libSceCamera,libSceCamera,external_unresolved,,not_found,[]
+eboot.elf,43,mxgMmR+1Kr0,libSceCamera,libSceCamera,external_unresolved,,not_found,[]
+eboot.elf,44,uoUpLGNkygk,libSceCommonDialog,libSceCommonDialog,external_unresolved,sceCommonDialogInitialize,candidate_found,[]
+eboot.elf,45,8pWltDG7h6A,libSceCompanionHttpd,libSceCompanionHttpd,external_unresolved,,not_found,[]
+eboot.elf,46,w7oz0AWHpT4,libSceCompanionHttpd,libSceCompanionHttpd,external_unresolved,,not_found,[]
+eboot.elf,47,r-2-a0c7Kfc,libSceCompanionHttpd,libSceCompanionHttpd,external_unresolved,,not_found,[]
+eboot.elf,48,ykNpWs3ktLY,libSceCompanionHttpd,libSceCompanionHttpd,external_unresolved,,not_found,[]
+eboot.elf,49,OaWw+IVEdbI,libSceCompanionHttpd,libSceCompanionHttpd,external_unresolved,,not_found,[]
+eboot.elf,50,k7F0FcDM-Xc,libSceCompanionHttpd,libSceCompanionHttpd,external_unresolved,,not_found,[]
+eboot.elf,51,0SCgzfVQHpo,libSceCompanionHttpd,libSceCompanionHttpd,external_unresolved,,not_found,[]
+eboot.elf,52,dPj4ZtRcIWk,libSceContentSearch,libSceContentSearch,external_unresolved,sceContentSearchInit,candidate_found,[]
+eboot.elf,53,PD5bnBTsv6Y,libSceContentSearch,libSceContentSearch,external_unresolved,,not_found,[]
+eboot.elf,54,FRT4EYtZU1Y,libSceContentSearch,libSceContentSearch,external_unresolved,sceContentSearchGetMyApplicationIndex,candidate_found,[]
+eboot.elf,55,1xSZodB2geA,libSceContentSearch,libSceContentSearch,external_unresolved,sceContentSearchTerm,candidate_found,[]
+eboot.elf,56,TEW3IKxYfXc,libSceContentSearch,libSceContentSearch,external_unresolved,sceContentSearchSearchContent,candidate_found,[]
+eboot.elf,57,I88KChlynSs,libSceErrorDialog,libSceErrorDialog,external_unresolved,sceErrorDialogInitialize,candidate_found,[]
+eboot.elf,58,M2ZF-ClLhgY,libSceErrorDialog,libSceErrorDialog,external_unresolved,sceErrorDialogOpen,candidate_found,[]
+eboot.elf,59,WWiGuh9XfgQ,libSceErrorDialog,libSceErrorDialog,external_unresolved,sceErrorDialogUpdateStatus,candidate_found,[]
+eboot.elf,60,9XAxK2PMwk8,libSceErrorDialog,libSceErrorDialog,external_unresolved,sceErrorDialogTerminate,candidate_found,[]
+eboot.elf,61,a0LLrZWac0M,libSceFiber,libSceFiber,external_unresolved,sceFiberRun,candidate_found,[]
+eboot.elf,62,JeNX5F-NzQU,libSceFiber,libSceFiber,external_unresolved,sceFiberFinalize,candidate_found,[]
+eboot.elf,63,asjUJJ+aa8s,libSceFiber,libSceFiber,external_unresolved,,not_found,[]
+eboot.elf,64,hVYD7Ou2pCQ,libSceFiber,libSceFiber,external_unresolved,_sceFiberInitializeImpl,candidate_found,[]
+eboot.elf,65,B0ZX2hx9DMw,libSceFiber,libSceFiber,external_unresolved,sceFiberReturnToThread,candidate_found,[]
+eboot.elf,66,p+zLIOg27zU,libSceFiber,libSceFiber,external_unresolved,,not_found,[]
+eboot.elf,67,uq2Y5BFz0PE,libSceFiber,libSceFiber,external_unresolved,,not_found,[]
+eboot.elf,68,wAKZ-det+yo,libSceFios2,libSceFios2,guest_candidate,,not_found,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 191, ""guest_va"": ""0xfa0""}]"
+eboot.elf,69,G-39lsdSgXo,libSceFios2,libSceFios2,guest_candidate,sceFiosRenameSync,name_only,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 225, ""guest_va"": ""0x9a90""}]"
+eboot.elf,70,KsVTc04kN9k,libSceFios2,libSceFios2,guest_candidate,sceFiosDeleteSync,name_only,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 123, ""guest_va"": ""0x9e90""}]"
+eboot.elf,71,jayvY07C5dk,libSceFios2,libSceFios2,guest_candidate,sceFiosStatSync,name_only,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 234, ""guest_va"": ""0x9ce0""}]"
+eboot.elf,72,xP45eIntEis,libSceFios2,libSceFios2,guest_candidate,,not_found,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 157, ""guest_va"": ""0xa690""}]"
+eboot.elf,73,b44anV2D7K0,libSceFios2,libSceFios2,guest_candidate,sceFiosFHOpenSync,name_only,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 140, ""guest_va"": ""0xa5e0""}]"
+eboot.elf,74,gMcfOtHW6zk,libSceFios2,libSceFios2,guest_candidate,,not_found,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 148, ""guest_va"": ""0xb180""}]"
+eboot.elf,75,tWS4uYFTU0M,libSceFios2,libSceFios2,guest_candidate,,not_found,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 162, ""guest_va"": ""0xa850""}]"
+eboot.elf,76,AOujSGqU+ms,libSceFios2,libSceFios2,guest_candidate,sceFiosFHCloseSync,name_only,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 135, ""guest_va"": ""0xb750""}]"
+eboot.elf,77,Bn2ZF4ZjeuQ,libSceFios2,libSceFios2,guest_candidate,sceFiosFHReadSync,name_only,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 152, ""guest_va"": ""0xaa80""}]"
+eboot.elf,78,Kl-TbrDU9YM,libSceFios2,libSceFios2,guest_candidate,sceFiosFHWriteSync,name_only,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 164, ""guest_va"": ""0xabd0""}]"
+eboot.elf,79,xReSebwKApA,libSceFios2,libSceFios2,guest_candidate,sceFiosFHSeek,name_only,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 155, ""guest_va"": ""0xb620""}]"
+eboot.elf,80,EzzSJz6yuMc,libSceFios2,libSceFios2,guest_candidate,sceFiosFHSyncSync,name_only,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 159, ""guest_va"": ""0xa960""}]"
+eboot.elf,81,FdjoqFQOlt0,libSceFios2,libSceFios2,guest_candidate,,not_found,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 138, ""guest_va"": ""0x3f90""}]"
+eboot.elf,82,OOuvHKTu4Oc,libSceFios2,libSceFios2,guest_candidate,,not_found,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 131, ""guest_va"": ""0x9530""}]"
+eboot.elf,83,U6Qhv-QWXTc,libSceFios2,libSceFios2,guest_candidate,,not_found,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 127, ""guest_va"": ""0x9680""}]"
+eboot.elf,84,GGqucL9F+YI,libSceFios2,libSceFios2,guest_candidate,sceFiosDHOpenSync,name_only,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 109, ""guest_va"": ""0xb8b0""}]"
+eboot.elf,85,odjOGg8harg,libSceFios2,libSceFios2,guest_candidate,sceFiosDHReadSync,name_only,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 111, ""guest_va"": ""0xb9d0""}]"
+eboot.elf,86,0-p4O8FINmU,libSceFios2,libSceFios2,guest_candidate,sceFiosDHCloseSync,name_only,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 106, ""guest_va"": ""0xbae0""}]"
+eboot.elf,87,n5TUlwdhGSA,libSceFios2,libSceFios2,guest_candidate,,not_found,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 129, ""guest_va"": ""0x9840""}]"
+eboot.elf,88,uCkgJOrYUL4,libSceFios2,libSceFios2,guest_candidate,sceFiosDHOpen,name_only,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 108, ""guest_va"": ""0x26d0""}]"
+eboot.elf,89,oT68xenFqSY,libSceFios2,libSceFios2,guest_candidate,,not_found,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 105, ""guest_va"": ""0x2930""}]"
+eboot.elf,90,SnoQQWnGK9I,libSceFios2,libSceFios2,guest_candidate,sceFiosOpWait,name_only,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 211, ""guest_va"": ""0x5290""}]"
+eboot.elf,91,5cyEcilO-J0,libSceFios2,libSceFios2,guest_candidate,sceFiosOpDelete,name_only,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 197, ""guest_va"": ""0x5480""}]"
+eboot.elf,92,+FRvKknUj1I,libSceFios2,libSceFios2,guest_candidate,sceFiosOpGetActualCount,name_only,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 198, ""guest_va"": ""0x5c90""}]"
+eboot.elf,93,NwOHMRM2Ppw,libSceFios2,libSceFios2,guest_candidate,,not_found,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 170, ""guest_va"": ""0x9170""}]"
+eboot.elf,94,kvYEw2lBndk,libSceGameLiveStreaming,libSceGameLiveStreaming,external_unresolved,,not_found,[]
+eboot.elf,95,dWM80AX39o4,libSceGameLiveStreaming,libSceGameLiveStreaming,external_unresolved,,not_found,[]
+eboot.elf,96,CoPMx369EqM,libSceGameLiveStreaming,libSceGameLiveStreaming,external_unresolved,,not_found,[]
+eboot.elf,97,lZ2Sd0uEvpo,libSceGameLiveStreaming,libSceGameLiveStreaming,external_unresolved,,not_found,[]
+eboot.elf,98,ycodiP2I0xo,libSceGameLiveStreaming,libSceGameLiveStreaming,external_unresolved,,not_found,[]
+eboot.elf,99,x6deXUpQbBo,libSceGameLiveStreaming,libSceGameLiveStreaming,external_unresolved,,not_found,[]
+eboot.elf,100,9yK6Fk8mKOQ,libSceGameLiveStreaming,libSceGameLiveStreaming,external_unresolved,,not_found,[]
+eboot.elf,101,yeQKjHETi40,libSceGameLiveStreaming,libSceGameLiveStreaming,external_unresolved,,not_found,[]
+eboot.elf,102,PMx7N4WqNdo,libSceGameLiveStreaming,libSceGameLiveStreaming,external_unresolved,,not_found,[]
+eboot.elf,103,OIIm19xu+NM,libSceGameLiveStreaming,libSceGameLiveStreaming,external_unresolved,,not_found,[]
+eboot.elf,104,Idffwf3yh8s,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmDrawInitDefaultHardwareState,candidate_found,[]
+eboot.elf,105,bQVd5YzCal0,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmSetPsShader,candidate_found,[]
+eboot.elf,106,gAhCn6UiU4Y,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmSetVsShader,candidate_found,[]
+eboot.elf,107,FUHG8sQ3R58,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmSetEsShader,candidate_found,[]
+eboot.elf,108,VJNjFtqiF5w,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmSetHsShader,candidate_found,[]
+eboot.elf,109,vckdzbQ46SI,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmSetLsShader,candidate_found,[]
+eboot.elf,110,KXltnCwEJHQ,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmSetCsShader,candidate_found,[]
+eboot.elf,111,UJwNuMBcUAk,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmSetGsShader,candidate_found,[]
+eboot.elf,112,jiItzS6+22g,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmInsertSetMarker,candidate_found,[]
+eboot.elf,113,aj3L-iaFmyk,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmInsertSetColorMarker,candidate_found,[]
+eboot.elf,114,W1Etj-jlW7Y,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmInsertPushMarker,candidate_found,[]
+eboot.elf,115,aPIZJTXC+cU,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmInsertPushColorMarker,candidate_found,[]
+eboot.elf,116,7qZVNgEu+SY,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmInsertPopMarker,candidate_found,[]
+eboot.elf,117,1qXLHIpROPE,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmInsertWaitFlipDone,candidate_found,[]
+eboot.elf,118,26PM5Mzl8zc,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmLogicalCuIndexToPhysicalCuIndex,candidate_found,[]
+eboot.elf,119,RU74kek-N0c,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmLogicalCuMaskToPhysicalCuMask,candidate_found,[]
+eboot.elf,120,zwY0YV91TTI,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmSubmitCommandBuffers,candidate_found,[]
+eboot.elf,121,xbxNatawohc,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmSubmitAndFlipCommandBuffers,candidate_found,[]
+eboot.elf,122,iCO804ZgzdA,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmValidateCommandBuffers,candidate_found,[]
+eboot.elf,123,b0xyllnVY-I,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmAddEqEvent,candidate_found,[]
+eboot.elf,124,PVT+fuoS9gU,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmDeleteEqEvent,candidate_found,[]
+eboot.elf,125,UoYY0DWMC0U,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmGetEqEventType,candidate_found,[]
+eboot.elf,126,H7-fgvEutM0,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmGetEqTimeStamp,candidate_found,[]
+eboot.elf,127,29oKvKXzEZo,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmMapComputeQueue,candidate_found,[]
+eboot.elf,128,ArSg-TGinhk,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmUnmapComputeQueue,candidate_found,[]
+eboot.elf,129,bX5IbRvECXk,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmDingDong,candidate_found,[]
+eboot.elf,130,iBt3Oe00Kvc,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmFlushGarlic,candidate_found,[]
+eboot.elf,131,qpGITzPE+Zc,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmDebugHardwareStatus,candidate_found,[]
+eboot.elf,132,yvZ73uQUqrk,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmSubmitDone,candidate_found,[]
+eboot.elf,133,b08AgtPlHPg,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmAreSubmitsAllowed,candidate_found,[]
+eboot.elf,134,gObODli-OH8,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmRequestFlipAndSubmitDone,candidate_found,[]
+eboot.elf,135,+xuDhxlWRPg,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmSetupMipStatsReport,candidate_found,[]
+eboot.elf,136,f85orjx7qts,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmRequestMipStatsReportAndReset,candidate_found,[]
+eboot.elf,137,HHo1BAljZO8,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmDisableMipStatsReport,candidate_found,[]
+eboot.elf,138,jtkqXpAOY6w,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmSetGsRingSizes,candidate_found,[]
+eboot.elf,139,ln33zjBrfjk,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmGetTheTessellationFactorRingBufferBaseAddress,candidate_found,[]
+eboot.elf,140,f33OrruQYbM,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceRazorIsLoaded,candidate_found,[]
+eboot.elf,141,u9YKpRRHe-M,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceRazorCaptureImmediate,candidate_found,[]
+eboot.elf,142,4UFagYlfuAM,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceRazorCaptureSinceLastFlip,candidate_found,[]
+eboot.elf,143,xeTLfxVIQO4,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceRazorCaptureCommandBuffersOnlyImmediate,candidate_found,[]
+eboot.elf,144,9thMn+uB1is,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceRazorCaptureCommandBuffersOnlySinceLastFlip,candidate_found,[]
+eboot.elf,145,d88anrgNoKY,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmDriverTriggerCapture,candidate_found,[]
+eboot.elf,146,TLV4mswiZ4A,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmDriverCaptureInProgress,candidate_found,[]
+eboot.elf,147,jg33rEKLfVs,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmIsUserPaEnabled,candidate_found,[]
+eboot.elf,148,nF6bFRUBRAU,libSceGnmDriver,libSceGnmDriver,external_unresolved,sceGnmDispatchInitDefaultHardwareState,candidate_found,[]
+eboot.elf,149,0gYjPTR-6cY,libSceHttp,libSceHttp,external_unresolved,sceHttpCreateTemplate,candidate_found,[]
+eboot.elf,150,T-mGo9f3Pu4,libSceHttp,libSceHttp,external_unresolved,sceHttpSetAutoRedirect,candidate_found,[]
+eboot.elf,151,XNUoD2B9a6A,libSceHttp,libSceHttp,external_unresolved,,not_found,[]
+eboot.elf,152,xegFfZKBVlw,libSceHttp,libSceHttp,external_unresolved,sceHttpSetSendTimeOut,candidate_found,[]
+eboot.elf,153,yigr4V0-HTM,libSceHttp,libSceHttp,external_unresolved,sceHttpSetRecvTimeOut,candidate_found,[]
+eboot.elf,154,htyBOoWeS58,libSceHttp,libSceHttp,external_unresolved,sceHttpsSetSslCallback,candidate_found,[]
+eboot.elf,155,4I8vEpuEhZ8,libSceHttp,libSceHttp,external_unresolved,sceHttpDeleteTemplate,candidate_found,[]
+eboot.elf,156,A9cVMUtEp4Y,libSceHttp,libSceHttp,external_unresolved,sceHttpInit,candidate_found,[]
+eboot.elf,157,DK+GoXCNT04,libSceHttp,libSceHttp,external_unresolved,sceHttpsLoadCert,candidate_found,[]
+eboot.elf,158,Ik-KpLTlf7Q,libSceHttp,libSceHttp,external_unresolved,sceHttpTerm,candidate_found,[]
+eboot.elf,159,zXqcE0fizz0,libSceHttp,libSceHttp,external_unresolved,,not_found,[]
+eboot.elf,160,hvG6GfBMXg8,libSceHttp,libSceHttp,external_unresolved,sceHttpAbortRequest,candidate_found,[]
+eboot.elf,161,EY28T2bkN7k,libSceHttp,libSceHttp,external_unresolved,sceHttpAddRequestHeader,candidate_found,[]
+eboot.elf,162,Kiwv9r4IZCc,libSceHttp,libSceHttp,external_unresolved,,not_found,[]
+eboot.elf,163,tsGVru3hCe8,libSceHttp,libSceHttp,external_unresolved,,not_found,[]
+eboot.elf,164,PTiFIUxCpJc,libSceHttp,libSceHttp,external_unresolved,sceHttpSetRequestContentLength,candidate_found,[]
+eboot.elf,165,1e2BNwI-XzE,libSceHttp,libSceHttp,external_unresolved,sceHttpSendRequest,candidate_found,[]
+eboot.elf,166,0a2TBNfE3BU,libSceHttp,libSceHttp,external_unresolved,sceHttpGetStatusCode,candidate_found,[]
+eboot.elf,167,aCYPMSUIaP8,libSceHttp,libSceHttp,external_unresolved,sceHttpGetAllResponseHeaders,candidate_found,[]
+eboot.elf,168,hPTXo3bICzI,libSceHttp,libSceHttp,external_unresolved,sceHttpParseResponseHeader,candidate_found,[]
+eboot.elf,169,yuO2H2Uvnos,libSceHttp,libSceHttp,external_unresolved,sceHttpGetResponseContentLength,candidate_found,[]
+eboot.elf,170,P5pdoykPYTk,libSceHttp,libSceHttp,external_unresolved,sceHttpReadData,candidate_found,[]
+eboot.elf,171,qe7oZ+v4PWA,libSceHttp,libSceHttp,external_unresolved,sceHttpDeleteRequest,candidate_found,[]
+eboot.elf,172,P6A3ytpsiYc,libSceHttp,libSceHttp,external_unresolved,sceHttpDeleteConnection,candidate_found,[]
+eboot.elf,173,qgxDBjorUxs,libSceHttp,libSceHttp,external_unresolved,sceHttpCreateConnectionWithURL,candidate_found,[]
+eboot.elf,174,Aeu5wVKkF9w,libSceHttp,libSceHttp,external_unresolved,sceHttpCreateRequestWithURL,candidate_found,[]
+eboot.elf,175,0onIrKx9NIE,libSceHttp,libSceHttp,external_unresolved,sceHttpGetLastErrno,candidate_found,[]
+eboot.elf,176,zNGh-zoQTD0,libSceHttp,libSceHttp,external_unresolved,,not_found,[]
+eboot.elf,177,qFg2SuyTJJY,libSceHttp,libSceHttp,external_unresolved,sceHttpSetAuthEnabled,candidate_found,[]
+eboot.elf,178,9m8EcOGzcIQ,libSceHttp,libSceHttp,external_unresolved,,not_found,[]
+eboot.elf,179,mmLexUbtnfY,libSceHttp,libSceHttp,external_unresolved,,not_found,[]
+eboot.elf,180,0S9tTH0uqTU,libSceHttp,libSceHttp,external_unresolved,sceHttpSetConnectTimeOut,candidate_found,[]
+eboot.elf,181,h9wmFZX4i-4,libSceHttp,libSceHttp,external_unresolved,,not_found,[]
+eboot.elf,182,GnVDzYfy-KI,libSceHttp,libSceHttp,external_unresolved,,not_found,[]
+eboot.elf,183,Kh6bS2HQKbo,libSceHttp,libSceHttp,external_unresolved,,not_found,[]
+eboot.elf,184,iSZjWw1TGiA,libSceHttp,libSceHttp,external_unresolved,,not_found,[]
+eboot.elf,185,mNan6QSnpeY,libSceHttp,libSceHttp,external_unresolved,,not_found,[]
+eboot.elf,186,seCvUt91WHY,libSceHttp,libSceHttp,external_unresolved,,not_found,[]
+eboot.elf,187,NUeBrN7hzf0,libSceImeDialog,libSceImeDialog,external_unresolved,sceImeDialogInit,candidate_found,[]
+eboot.elf,188,oBmw4xrmfKs,libSceImeDialog,libSceImeDialog,external_unresolved,sceImeDialogAbort,candidate_found,[]
+eboot.elf,189,IADmD4tScBY,libSceImeDialog,libSceImeDialog,external_unresolved,sceImeDialogGetStatus,candidate_found,[]
+eboot.elf,190,x01jxu+vxlc,libSceImeDialog,libSceImeDialog,external_unresolved,sceImeDialogGetResult,candidate_found,[]
+eboot.elf,191,gyTyVn+bXMw,libSceImeDialog,libSceImeDialog,external_unresolved,sceImeDialogTerm,candidate_found,[]
+eboot.elf,192,LSinoSQH790,libSceJpegDec,libSceJpegDec,external_unresolved,sceJpegDecParseHeader,candidate_found,[]
+eboot.elf,193,uNAUmANZMEw,libSceJpegDec,libSceJpegDec,external_unresolved,sceJpegDecQueryMemorySize,candidate_found,[]
+eboot.elf,194,JPh3Zgg0Zwc,libSceJpegDec,libSceJpegDec,external_unresolved,sceJpegDecCreate,candidate_found,[]
+eboot.elf,195,1kzQRoWEgSA,libSceJpegDec,libSceJpegDec,external_unresolved,sceJpegDecDecode,candidate_found,[]
+eboot.elf,196,Hwh11+m5KoI,libSceJpegDec,libSceJpegDec,external_unresolved,sceJpegDecDelete,candidate_found,[]
+eboot.elf,197,j1ITE-EoJmE,libSceMove,libSceMove,external_unresolved,,not_found,[]
+eboot.elf,198,XX6wlxpHyeo,libSceMove,libSceMove,external_unresolved,,not_found,[]
+eboot.elf,199,HzC60MfjJxU,libSceMove,libSceMove,external_unresolved,,not_found,[]
+eboot.elf,200,GWXTyxs4QbE,libSceMove,libSceMove,external_unresolved,,not_found,[]
+eboot.elf,201,f2bcpK6kJfg,libSceMove,libSceMove,external_unresolved,,not_found,[]
+eboot.elf,202,gg1d4KsyVVs,libSceMoveTracker,libSceMoveTracker,external_unresolved,,not_found,[]
+eboot.elf,203,F4w2atwG428,libSceMoveTracker,libSceMoveTracker,external_unresolved,,not_found,[]
+eboot.elf,204,YV2CtE7qX8M,libSceMoveTracker,libSceMoveTracker,external_unresolved,,not_found,[]
+eboot.elf,205,3tiBWhkHH3A,libSceMoveTracker,libSceMoveTracker,external_unresolved,,not_found,[]
+eboot.elf,206,-Y8hlMgBsr4,libSceMoveTracker,libSceMoveTracker,external_unresolved,,not_found,[]
+eboot.elf,207,BjsreFAfJzo,libSceMoveTracker,libSceMoveTracker,external_unresolved,,not_found,[]
+eboot.elf,208,lDqxaY1UbEo,libSceMsgDialog,libSceMsgDialog,external_unresolved,sceMsgDialogInitialize,candidate_found,[]
+eboot.elf,209,b06Hh0DPEaE,libSceMsgDialog,libSceMsgDialog,external_unresolved,sceMsgDialogOpen,candidate_found,[]
+eboot.elf,210,6fIC3XKt2k0,libSceMsgDialog,libSceMsgDialog,external_unresolved,sceMsgDialogUpdateStatus,candidate_found,[]
+eboot.elf,211,ePw-kqZmelo,libSceMsgDialog,libSceMsgDialog,external_unresolved,sceMsgDialogTerminate,candidate_found,[]
+eboot.elf,212,dgJBaeJnGpo,libSceNet,libSceNet,external_unresolved,sceNetPoolCreate,candidate_found,[]
+eboot.elf,213,K7RlrTkI-mw,libSceNet,libSceNet,external_unresolved,sceNetPoolDestroy,candidate_found,[]
+eboot.elf,214,2mKX2Spso7I,libSceNet,libSceNet,external_unresolved,sceNetSetsockopt,candidate_found,[]
+eboot.elf,215,45ggEzakPJQ,libSceNet,libSceNet,external_unresolved,sceNetSocketClose,candidate_found,[]
+eboot.elf,216,HQOwnfMGipQ,libSceNet,libSceNet,external_unresolved,sceNetErrnoLoc,candidate_found,[]
+eboot.elf,217,9vA2aW+CHuA,libSceNet,libSceNet,external_unresolved,sceNetInetNtop,candidate_found,[]
+eboot.elf,218,C4UgDHHPvdw,libSceNet,libSceNet,external_unresolved,sceNetResolverCreate,candidate_found,[]
+eboot.elf,219,Nd91WaWmG2w,libSceNet,libSceNet,external_unresolved,sceNetResolverStartNtoa,candidate_found,[]
+eboot.elf,220,kJlYH5uMAWI,libSceNet,libSceNet,external_unresolved,sceNetResolverDestroy,candidate_found,[]
+eboot.elf,221,Nlev7Lg8k3A,libSceNet,libSceNet,external_unresolved,sceNetInit,candidate_found,[]
+eboot.elf,222,cTGkc6-TBlI,libSceNet,libSceNet,external_unresolved,sceNetTerm,candidate_found,[]
+eboot.elf,223,SF47kB2MNTo,libSceNet,libSceNet,external_unresolved,sceNetEpollCreate,candidate_found,[]
+eboot.elf,224,ZVw46bsasAk,libSceNet,libSceNet,external_unresolved,sceNetEpollControl,candidate_found,[]
+eboot.elf,225,drjIbDbA7UQ,libSceNet,libSceNet,external_unresolved,sceNetEpollWait,candidate_found,[]
+eboot.elf,226,Inp1lfL+Jdw,libSceNet,libSceNet,external_unresolved,sceNetEpollDestroy,candidate_found,[]
+eboot.elf,227,Q4qBuN-c0ZM,libSceNet,libSceNet,external_unresolved,sceNetSocket,candidate_found,[]
+eboot.elf,228,iWQWrwiSt8A,libSceNet,libSceNet,external_unresolved,sceNetHtons,candidate_found,[]
+eboot.elf,229,8Kcp5d-q1Uo,libSceNet,libSceNet,external_unresolved,sceNetInetPton,candidate_found,[]
+eboot.elf,230,OXXX4mUk3uk,libSceNet,libSceNet,external_unresolved,sceNetConnect,candidate_found,[]
+eboot.elf,231,bErx49PgxyY,libSceNet,libSceNet,external_unresolved,sceNetBind,candidate_found,[]
+eboot.elf,232,kOj1HiAGE54,libSceNet,libSceNet,external_unresolved,sceNetListen,candidate_found,[]
+eboot.elf,233,PIWqhn9oSxc,libSceNet,libSceNet,external_unresolved,sceNetAccept,candidate_found,[]
+eboot.elf,234,beRjXBn-z+o,libSceNet,libSceNet,external_unresolved,sceNetSend,candidate_found,[]
+eboot.elf,235,9wO9XrMsNhc,libSceNet,libSceNet,external_unresolved,sceNetRecv,candidate_found,[]
+eboot.elf,236,iQw3iQPhvUQ,libSceNetCtl,libSceNetCtl,external_unresolved,sceNetCtlCheckCallback,candidate_found,[]
+eboot.elf,237,UJ+Z7Q+4ck0,libSceNetCtl,libSceNetCtl,external_unresolved,sceNetCtlRegisterCallback,candidate_found,[]
+eboot.elf,238,Rqm2OnZMCz0,libSceNetCtl,libSceNetCtl,external_unresolved,sceNetCtlUnregisterCallback,candidate_found,[]
+eboot.elf,239,uBPlr0lbuiI,libSceNetCtl,libSceNetCtl,external_unresolved,sceNetCtlGetState,candidate_found,[]
+eboot.elf,240,obuxdTiwkF8,libSceNetCtl,libSceNetCtl,external_unresolved,sceNetCtlGetInfo,candidate_found,[]
+eboot.elf,241,JO4yuTuMoKI,libSceNetCtl,libSceNetCtl,external_unresolved,sceNetCtlGetNatInfo,candidate_found,[]
+eboot.elf,242,6bwFkosYRQg,libSceNpAuth,libSceNpAuth,external_unresolved,,not_found,[]
+eboot.elf,243,KxGkOrQJTqY,libSceNpAuth,libSceNpAuth,external_unresolved,sceNpAuthGetAuthorizationCode,candidate_found,[]
+eboot.elf,244,H8wG9Bk-nPc,libSceNpAuth,libSceNpAuth,external_unresolved,sceNpAuthDeleteRequest,candidate_found,[]
+eboot.elf,245,0aR2aWmQal4,libSceNpCommerce,libSceNpCommerce,external_unresolved,sceNpCommerceDialogInitialize,candidate_found,[]
+eboot.elf,246,DfSCDRA3EjY,libSceNpCommerce,libSceNpCommerce,external_unresolved,sceNpCommerceDialogOpen,candidate_found,[]
+eboot.elf,247,m-I92Ab50W8,libSceNpCommerce,libSceNpCommerce,external_unresolved,sceNpCommerceDialogTerminate,candidate_found,[]
+eboot.elf,248,LR5cwFMMCVE,libSceNpCommerce,libSceNpCommerce,external_unresolved,sceNpCommerceDialogUpdateStatus,candidate_found,[]
+eboot.elf,249,r42bWcQbtZY,libSceNpCommerce,libSceNpCommerce,external_unresolved,,not_found,[]
+eboot.elf,250,DHmwsa6S8Tc,libSceNpCommerce,libSceNpCommerce,external_unresolved,,not_found,[]
+eboot.elf,251,dsqCVsNM0Zg,libSceNpCommerce,libSceNpCommerce,external_unresolved,,not_found,[]
+eboot.elf,252,dj+O5aD2a0Q,libSceNpCommon,libSceNpCommon,external_unresolved,sceNpCmpOnlineId,candidate_found,[]
+eboot.elf,253,p-o74CnoNzY,libSceNpManager,libSceNpManager,external_unresolved,sceNpGetNpId,candidate_found,[]
+eboot.elf,254,3Zl8BePTh9Y,libSceNpManager,libSceNpManager,external_unresolved,sceNpCheckCallback,candidate_found,[]
+eboot.elf,255,GpLQDNKICac,libSceNpManager,libSceNpManager,external_unresolved,sceNpCreateRequest,candidate_found,[]
+eboot.elf,256,Ec63y59l9tw,libSceNpManager,libSceNpManager,external_unresolved,sceNpSetNpTitleId,candidate_found,[]
+eboot.elf,257,VfRSmPmj8Q8,libSceNpManager,libSceNpManager,external_unresolved,sceNpRegisterStateCallback,candidate_found,[]
+eboot.elf,258,mjjTXh+NHWY,libSceNpManager,libSceNpManager,external_unresolved,sceNpUnregisterStateCallback,candidate_found,[]
+eboot.elf,259,A2CQ3kgSopQ,libSceNpManager,libSceNpManager,external_unresolved,sceNpSetContentRestriction,candidate_found,[]
+eboot.elf,260,Ghz9iWDUtC4,libSceNpManager,libSceNpManager,external_unresolved,sceNpGetAccountCountry,candidate_found,[]
+eboot.elf,261,eQH7nWPcAgc,libSceNpManager,libSceNpManager,external_unresolved,sceNpGetState,candidate_found,[]
+eboot.elf,262,XDncXQIJUSk,libSceNpManager,libSceNpManager,external_unresolved,sceNpGetOnlineId,candidate_found,[]
+eboot.elf,263,eiqMCt9UshI,libSceNpManager,libSceNpManager,external_unresolved,sceNpCreateAsyncRequest,candidate_found,[]
+eboot.elf,264,2rsFmlGWleQ,libSceNpManager,libSceNpManager,external_unresolved,sceNpCheckNpAvailability,candidate_found,[]
+eboot.elf,265,uqcPJLWL08M,libSceNpManager,libSceNpManager,external_unresolved,sceNpPollAsync,candidate_found,[]
+eboot.elf,266,OzKvTvg3ZYU,libSceNpManager,libSceNpManager,external_unresolved,sceNpAbortRequest,candidate_found,[]
+eboot.elf,267,S7QTn72PrDw,libSceNpManager,libSceNpManager,external_unresolved,sceNpDeleteRequest,candidate_found,[]
+eboot.elf,268,Gaxrp3EWY-M,libSceNpManager,libSceNpManager,external_unresolved,sceNpNotifyPlusFeature,candidate_found,[]
+eboot.elf,269,r6MyYJkryz8,libSceNpManager,libSceNpManager,external_unresolved,sceNpCheckPlus,candidate_found,[]
+eboot.elf,270,ilwLM4zOmu4,libSceNpManager,libSceNpManager,external_unresolved,sceNpGetParentalControlInfo,candidate_found,[]
+eboot.elf,271,s4UEa5iBJdc,libSceNpManager,libSceNpManager,external_unresolved,,not_found,[]
+eboot.elf,272,+anuSx2avHQ,libSceNpManager,libSceNpManager,external_unresolved,,not_found,[]
+eboot.elf,273,GFhVUpRmbHE,libSceNpManager,libSceNpManager,external_unresolved,,not_found,[]
+eboot.elf,274,Vh1bhUG6mSs,libSceNpManager,libSceNpManager,external_unresolved,,not_found,[]
+eboot.elf,275,ON7Sf5XEMmI,libSceNpManager,libSceNpManager,external_unresolved,,not_found,[]
+eboot.elf,276,bMG3cVmUmuk,libSceNpManager,libSceNpManager,external_unresolved,,not_found,[]
+eboot.elf,277,5yYjEdd4t8Y,libSceNpSignaling,libSceNpSignaling,external_unresolved,sceNpSignalingCreateContext,candidate_found,[]
+eboot.elf,278,hx+LIg-1koI,libSceNpSignaling,libSceNpSignaling,external_unresolved,sceNpSignalingDeleteContext,candidate_found,[]
+eboot.elf,279,AN3h0EBSX7A,libSceNpSignaling,libSceNpSignaling,external_unresolved,,not_found,[]
+eboot.elf,280,bD-JizUb3JM,libSceNpSignaling,libSceNpSignaling,external_unresolved,sceNpSignalingGetConnectionStatus,candidate_found,[]
+eboot.elf,281,0UvTFeomAUM,libSceNpSignaling,libSceNpSignaling,external_unresolved,sceNpSignalingActivateConnection,candidate_found,[]
+eboot.elf,282,b4qaXPzMJxo,libSceNpSignaling,libSceNpSignaling,external_unresolved,,not_found,[]
+eboot.elf,283,3KOuC4RmZZU,libSceNpSignaling,libSceNpSignaling,external_unresolved,sceNpSignalingInitialize,candidate_found,[]
+eboot.elf,284,TJCAxto9SEU,libSceNpTrophy,libSceNpTrophy,external_unresolved,sceNpTrophyRegisterContext,candidate_found,[]
+eboot.elf,285,LHuSmO3SLd8,libSceNpTrophy,libSceNpTrophy,external_unresolved,sceNpTrophyGetTrophyUnlockState,candidate_found,[]
+eboot.elf,286,28xmRUFao68,libSceNpTrophy,libSceNpTrophy,external_unresolved,sceNpTrophyUnlockTrophy,candidate_found,[]
+eboot.elf,287,q7U6tEAQf7c,libSceNpTrophy,libSceNpTrophy,external_unresolved,sceNpTrophyCreateHandle,candidate_found,[]
+eboot.elf,288,XbkjbobZlCY,libSceNpTrophy,libSceNpTrophy,external_unresolved,sceNpTrophyCreateContext,candidate_found,[]
+eboot.elf,289,GNcF4oidY0Y,libSceNpTrophy,libSceNpTrophy,external_unresolved,sceNpTrophyDestroyHandle,candidate_found,[]
+eboot.elf,290,E1Wrwd07Lr8,libSceNpTrophy,libSceNpTrophy,external_unresolved,sceNpTrophyDestroyContext,candidate_found,[]
+eboot.elf,291,iQr9UxPHUFs,libSceNpUtility,libSceNpUtility,external_unresolved,,not_found,[]
+eboot.elf,292,T6tnM1Uti4g,libSceNpUtility,libSceNpUtility,external_unresolved,sceNpLookupNpId,candidate_found,[]
+eboot.elf,293,wLaxchvEEnk,libSceNpUtility,libSceNpUtility,external_unresolved,sceNpLookupDeleteRequest,candidate_found,[]
+eboot.elf,294,8533Q+LU7EQ,libSceNpUtility,libSceNpUtility,external_unresolved,sceNpLookupCreateTitleCtx,candidate_found,[]
+eboot.elf,295,mtqDK9zkoIE,libSceNpUtility,libSceNpUtility,external_unresolved,sceNpLookupDeleteTitleCtx,candidate_found,[]
+eboot.elf,296,BYIZGKm6bO4,libSceNpUtility,libSceNpUtility,external_unresolved,,not_found,[]
+eboot.elf,297,jktww3yJXnc,libSceNpUtility,libSceNpUtility,external_unresolved,,not_found,[]
+eboot.elf,298,pLr1fEQS1z8,libSceNpUtility,libSceNpUtility,external_unresolved,,not_found,[]
+eboot.elf,299,G3AnLNdRBjE,libSceNpWebApi,libSceNpWebApi,external_unresolved,sceNpWebApiInitialize,candidate_found,[]
+eboot.elf,300,asz3TtIqGF8,libSceNpWebApi,libSceNpWebApi,external_unresolved,sceNpWebApiTerminate,candidate_found,[]
+eboot.elf,301,x1Y7yiYSk7c,libSceNpWebApi,libSceNpWebApi,external_unresolved,sceNpWebApiCreateContext,candidate_found,[]
+eboot.elf,302,XUjdsSTTZ3U,libSceNpWebApi,libSceNpWebApi,external_unresolved,sceNpWebApiDeleteContext,candidate_found,[]
+eboot.elf,303,y5Ta5JCzQHY,libSceNpWebApi,libSceNpWebApi,external_unresolved,sceNpWebApiCreatePushEventFilter,candidate_found,[]
+eboot.elf,304,PfSTDCgNMgc,libSceNpWebApi,libSceNpWebApi,external_unresolved,sceNpWebApiRegisterPushEventCallback,candidate_found,[]
+eboot.elf,305,79M-JqvvGo0,libSceNpWebApi,libSceNpWebApi,external_unresolved,,not_found,[]
+eboot.elf,306,sIFx734+xys,libSceNpWebApi,libSceNpWebApi,external_unresolved,,not_found,[]
+eboot.elf,307,kJQJE0uKm5w,libSceNpWebApi,libSceNpWebApi,external_unresolved,,not_found,[]
+eboot.elf,308,PfQ+f6ws764,libSceNpWebApi,libSceNpWebApi,external_unresolved,,not_found,[]
+eboot.elf,309,5Mn7TYwpl30,libSceNpWebApi,libSceNpWebApi,external_unresolved,,not_found,[]
+eboot.elf,310,qK4o2656W4w,libSceNpWebApi,libSceNpWebApi,external_unresolved,sceNpWebApiUnregisterPushEventCallback,candidate_found,[]
+eboot.elf,311,CQtPRSF6Ds8,libSceNpWebApi,libSceNpWebApi,external_unresolved,sceNpWebApiReadData,candidate_found,[]
+eboot.elf,312,JzhYTP2fG18,libSceNpWebApi,libSceNpWebApi,external_unresolved,sceNpWebApiAbortRequest,candidate_found,[]
+eboot.elf,313,2qSZ0DgwTsc,libSceNpWebApi,libSceNpWebApi,external_unresolved,,not_found,[]
+eboot.elf,314,or0e885BlXo,libSceNpWebApi,libSceNpWebApi,external_unresolved,sceNpWebApiUtilityParseNpId,candidate_found,[]
+eboot.elf,315,rdgs5Z1MyFw,libSceNpWebApi,libSceNpWebApi,external_unresolved,sceNpWebApiCreateRequest,candidate_found,[]
+eboot.elf,316,kVbL4hL3K7w,libSceNpWebApi,libSceNpWebApi,external_unresolved,sceNpWebApiSendRequest,candidate_found,[]
+eboot.elf,317,k210oKgP80Y,libSceNpWebApi,libSceNpWebApi,external_unresolved,sceNpWebApiGetHttpStatusCode,candidate_found,[]
+eboot.elf,318,noQgleu+KLE,libSceNpWebApi,libSceNpWebApi,external_unresolved,sceNpWebApiDeleteRequest,candidate_found,[]
+eboot.elf,319,RR4novUEENY,libScePad,libScePad,external_unresolved,scePadSetLightBar,candidate_found,[]
+eboot.elf,320,hv1luiJrqQM,libScePad,libScePad,external_unresolved,scePadInit,candidate_found,[]
+eboot.elf,321,6ncge5+l5Qs,libScePad,libScePad,external_unresolved,scePadClose,candidate_found,[]
+eboot.elf,322,xk0AcarP3V4,libScePad,libScePad,external_unresolved,scePadOpen,candidate_found,[]
+eboot.elf,323,YndgXqQVV7c,libScePad,libScePad,external_unresolved,scePadReadState,candidate_found,[]
+eboot.elf,324,gjP9-KQzoUk,libScePad,libScePad,external_unresolved,scePadGetControllerInformation,candidate_found,[]
+eboot.elf,325,yFVnOdGxvZY,libScePad,libScePad,external_unresolved,scePadSetVibration,candidate_found,[]
+eboot.elf,326,uWIYLFkkwqk,libScePlayGo,libScePlayGo,external_unresolved,scePlayGoGetLocus,candidate_found,[]
+eboot.elf,327,4AAcTU9R3XM,libScePlayGo,libScePlayGo,external_unresolved,scePlayGoSetInstallSpeed,candidate_found,[]
+eboot.elf,328,Nn7zKwnA5q0,libScePlayGo,libScePlayGo,external_unresolved,scePlayGoGetToDoList,candidate_found,[]
+eboot.elf,329,-RJWNMK3fC8,libScePlayGo,libScePlayGo,external_unresolved,scePlayGoGetProgress,candidate_found,[]
+eboot.elf,330,ts6GlZOKRrE,libScePlayGo,libScePlayGo,external_unresolved,scePlayGoInitialize,candidate_found,[]
+eboot.elf,331,M1Gma1ocrGE,libScePlayGo,libScePlayGo,external_unresolved,scePlayGoOpen,candidate_found,[]
+eboot.elf,332,rvBSfTimejE,libScePlayGo,libScePlayGo,external_unresolved,scePlayGoGetInstallSpeed,candidate_found,[]
+eboot.elf,333,Uco1I0dlDi8,libScePlayGo,libScePlayGo,external_unresolved,scePlayGoClose,candidate_found,[]
+eboot.elf,334,ZPD1YOKI+Kw,libSceRtc,libSceRtc,external_unresolved,sceRtcGetCurrentClockLocalTime,candidate_found,[]
+eboot.elf,335,bDEVVP4bTjQ,libSceRtc,libSceRtc,external_unresolved,sceRtcSetTime_t,candidate_found,[]
+eboot.elf,336,CyIK-i4XdgQ,libSceRtc,libSceRtc,external_unresolved,sceRtcGetDayOfWeek,candidate_found,[]
+eboot.elf,337,zO9UL3qIINQ,libSceRtc,libSceRtc,external_unresolved,sceRtcGetCurrentNetworkTick,candidate_found,[]
+eboot.elf,338,18B2NS1y9UU,libSceRtc,libSceRtc,external_unresolved,sceRtcGetCurrentTick,candidate_found,[]
+eboot.elf,339,8w-H19ip48I,libSceRtc,libSceRtc,external_unresolved,sceRtcGetTick,candidate_found,[]
+eboot.elf,340,M1TvFst-jrM,libSceRtc,libSceRtc,external_unresolved,sceRtcConvertUtcToLocalTime,candidate_found,[]
+eboot.elf,341,ueega6v3GUw,libSceRtc,libSceRtc,external_unresolved,sceRtcSetTick,candidate_found,[]
+eboot.elf,342,dyIhnXq-0SM,libSceSaveData,libSceSaveData,external_unresolved,sceSaveDataDirNameSearch,candidate_found,[]
+eboot.elf,343,ZkZhskCPXFw,libSceSaveData,libSceSaveData,external_unresolved,sceSaveDataInitialize,candidate_found,[]
+eboot.elf,344,yKDy8S5yLA0,libSceSaveData,libSceSaveData,external_unresolved,sceSaveDataTerminate,candidate_found,[]
+eboot.elf,345,BMR4F-Uek3E,libSceSaveData,libSceSaveData,external_unresolved,sceSaveDataUmount,candidate_found,[]
+eboot.elf,346,32HQAQdwM2o,libSceSaveData,libSceSaveData,external_unresolved,sceSaveDataMount,candidate_found,[]
+eboot.elf,347,S1GkePI17zQ,libSceSaveData,libSceSaveData,external_unresolved,sceSaveDataDelete,candidate_found,[]
+eboot.elf,348,c88Yy54Mx0w,libSceSaveData,libSceSaveData,external_unresolved,sceSaveDataSaveIcon,candidate_found,[]
+eboot.elf,349,85zul--eGXs,libSceSaveData,libSceSaveData,external_unresolved,sceSaveDataSetParam,candidate_found,[]
+eboot.elf,350,4tPhsP6FpDI,libSceSaveDataDialog,libSceSaveDataDialog,external_unresolved,sceSaveDataDialogOpen,candidate_found,[]
+eboot.elf,351,KK3Bdg1RWK0,libSceSaveDataDialog,libSceSaveDataDialog,external_unresolved,sceSaveDataDialogUpdateStatus,candidate_found,[]
+eboot.elf,352,s9e3+YpRnzw,libSceSaveDataDialog,libSceSaveDataDialog,external_unresolved,sceSaveDataDialogInitialize,candidate_found,[]
+eboot.elf,353,YuH2FA7azqQ,libSceSaveDataDialog,libSceSaveDataDialog,external_unresolved,sceSaveDataDialogTerminate,candidate_found,[]
+eboot.elf,354,yEiJ-qqr6Cg,libSceSaveDataDialog,libSceSaveDataDialog,external_unresolved,sceSaveDataDialogGetResult,candidate_found,[]
+eboot.elf,355,en7gNVnh878,libSceSaveDataDialog,libSceSaveDataDialog,external_unresolved,sceSaveDataDialogIsReadyToDisplay,candidate_found,[]
+eboot.elf,356,fH46Lag88XY,libSceSaveDataDialog,libSceSaveDataDialog,external_unresolved,sceSaveDataDialogClose,candidate_found,[]
+eboot.elf,357,hay1CfTmLyA,libSceSaveDataDialog,libSceSaveDataDialog,external_unresolved,sceSaveDataDialogProgressBarSetValue,candidate_found,[]
+eboot.elf,358,hdpVEUDFW3s,libSceSsl,libSceSsl,external_unresolved,sceSslInit,candidate_found,[]
+eboot.elf,359,0K1yQ6Lv-Yc,libSceSsl,libSceSsl,external_unresolved,sceSslTerm,candidate_found,[]
+eboot.elf,360,DOwXL+FQMEY,libSceSsl,libSceSsl,external_unresolved,sceSslGetSerialNumber,candidate_found,[]
+eboot.elf,361,g8cM39EUZ6o,libSceSysmodule,libSceSysmodule,external_unresolved,sceSysmoduleLoadModule,candidate_found,[]
+eboot.elf,362,fMP5NHUOaMk,libSceSysmodule,libSceSysmodule,external_unresolved,sceSysmoduleIsLoaded,candidate_found,[]
+eboot.elf,363,rPo6tV8D9bM,libSceSystemService,libSceSystemService,external_unresolved,sceSystemServiceGetStatus,candidate_found,[]
+eboot.elf,364,1n37q1Bvc5Y,libSceSystemService,libSceSystemService,external_unresolved,sceSystemServiceGetDisplaySafeAreaInfo,candidate_found,[]
+eboot.elf,365,656LMQSrg6U,libSceSystemService,libSceSystemService,external_unresolved,sceSystemServiceReceiveEvent,candidate_found,[]
+eboot.elf,366,Vo5V8KAwCmk,libSceSystemService,libSceSystemService,external_unresolved,sceSystemServiceHideSplashScreen,candidate_found,[]
+eboot.elf,367,fZo48un7LK4,libSceSystemService,libSceSystemService,external_unresolved,sceSystemServiceParamGetInt,candidate_found,[]
+eboot.elf,368,1xxcMiGu2fo,libSceUserService,libSceUserService,external_unresolved,sceUserServiceGetUserName,candidate_found,[]
+eboot.elf,369,fPhymKNvK-A,libSceUserService,libSceUserService,external_unresolved,sceUserServiceGetLoginUserIdList,candidate_found,[]
+eboot.elf,370,yH17Q6NWtVg,libSceUserService,libSceUserService,external_unresolved,sceUserServiceGetEvent,candidate_found,[]
+eboot.elf,371,CdWp0oHWGr0,libSceUserService,libSceUserService,external_unresolved,sceUserServiceGetInitialUser,candidate_found,[]
+eboot.elf,372,j3YMu1MVNNo,libSceUserService,libSceUserService,external_unresolved,sceUserServiceInitialize,candidate_found,[]
+eboot.elf,373,bwFjS+bX9mA,libSceUserService,libSceUserService,external_unresolved,sceUserServiceTerminate,candidate_found,[]
+eboot.elf,374,Up36PTk687E,libSceVideoOut,libSceVideoOut,external_unresolved,sceVideoOutOpen,candidate_found,[]
+eboot.elf,375,CBiu4mCE1DA,libSceVideoOut,libSceVideoOut,external_unresolved,sceVideoOutSetFlipRate,candidate_found,[]
+eboot.elf,376,i6-sR91Wt-4,libSceVideoOut,libSceVideoOut,external_unresolved,sceVideoOutSetBufferAttribute,candidate_found,[]
+eboot.elf,377,w3BY+tAEiQY,libSceVideoOut,libSceVideoOut,external_unresolved,sceVideoOutRegisterBuffers,candidate_found,[]
+eboot.elf,378,HXzjK9yI30k,libSceVideoOut,libSceVideoOut,external_unresolved,sceVideoOutAddFlipEvent,candidate_found,[]
+eboot.elf,379,MTxxrOCeSig,libSceVideoOut,libSceVideoOut,external_unresolved,sceVideoOutSetWindowModeMargins,candidate_found,[]
+eboot.elf,380,DYhhWbJSeRg,libSceVideoOut,libSceVideoOut,external_unresolved,sceVideoOutColorSettingsSetGamma_,candidate_found,[]
+eboot.elf,381,pv9CI5VC+R0,libSceVideoOut,libSceVideoOut,external_unresolved,sceVideoOutAdjustColor_,candidate_found,[]
+eboot.elf,382,PDX01ziUz+4,libc,libc,guest_candidate,_ZSt13_Syserror_mapi,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 951, ""guest_va"": ""0x5c780""}]"
+eboot.elf,383,j4ViWNHEgww,libc,libc,guest_candidate,strlen,candidate_found,"[{""file"": ""libc.elf"", ""symbol_index"": 2026, ""guest_va"": ""0x30ae0""}]"
+eboot.elf,384,Q3VBxCXhUHs,libc,libc,guest_candidate,memcpy,candidate_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1896, ""guest_va"": ""0x31030""}]"
+eboot.elf,385,+P6FRGH4LfA,libc,libc,guest_candidate,memmove,candidate_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1898, ""guest_va"": ""0x31090""}]"
+eboot.elf,386,tQIo+GIPklo,libc,libc,guest_candidate,_ZSt14_Xlength_errorPKc,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 961, ""guest_va"": ""0x5fff0""}]"
+eboot.elf,387,eT2UsmTewbU,libc,libc,guest_candidate,_ZSt11_Xbad_allocv,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 946, ""guest_va"": ""0x5ff10""}]"
+eboot.elf,388,ozMAr28BwSY,libc,libc,guest_candidate,_ZSt14_Xout_of_rangePKc,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 962, ""guest_va"": ""0x60090""}]"
+eboot.elf,389,zr094EQ39Ww,libc,libc,guest_candidate,__cxa_pure_virtual,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1459, ""guest_va"": ""0x490d0""}]"
+eboot.elf,390,3GPpjQdAMTw,libc,libc,guest_candidate,__cxa_guard_acquire,candidate_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1456, ""guest_va"": ""0x4ab80""}]"
+eboot.elf,391,tsvEmnenz48,libc,libc,guest_candidate,__cxa_atexit,candidate_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1438, ""guest_va"": ""0x303c0""}]"
+eboot.elf,392,9rAeANT2tyE,libc,libc,guest_candidate,__cxa_guard_release,candidate_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1457, ""guest_va"": ""0x4abf0""}]"
+eboot.elf,393,DfivPArhucg,libc,libc,guest_candidate,memcmp,candidate_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1895, ""guest_va"": ""0x30fe0""}]"
+eboot.elf,394,nJz16JE1txM,libc,libc,guest_candidate,swprintf,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 2055, ""guest_va"": ""0x150e0""}]"
+eboot.elf,395,tcVi5SivF7Q,libc,libc,guest_candidate,sprintf,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 2000, ""guest_va"": ""0x147b0""}]"
+eboot.elf,396,jbz9I9vkqkk,libc,libc,guest_candidate,vsprintf,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 2097, ""guest_va"": ""0x167f0""}]"
+eboot.elf,397,pKwslsMUmSk,libc,libc,guest_candidate,fmod,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1736, ""guest_va"": ""0x34390""}]"
+eboot.elf,398,ZtjspkJQ+vw,libc,libc,guest_candidate,_FSin,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 168, ""guest_va"": ""0x411a0""}]"
+eboot.elf,399,EH-x713A99c,libc,libc,guest_candidate,atan2f,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1633, ""guest_va"": ""0x33680""}]"
+eboot.elf,400,bzQExy189ZI,libc,libc,guest_candidate,_init_env,candidate_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1603, ""guest_va"": ""0x30150""}]"
+eboot.elf,401,8G2LB+A3rzg,libc,libc,guest_candidate,atexit,candidate_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1640, ""guest_va"": ""0x301f0""}]"
+eboot.elf,402,XKRegsFpEpk,libc,libc,guest_candidate,catchReturnFromMain,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1655, ""guest_va"": ""0xa190""}]"
+eboot.elf,403,uMei1W9uyNo,libc,libc,guest_candidate,exit,candidate_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1688, ""guest_va"": ""0x30610""}]"
+eboot.elf,404,P330P3dFF68,libc,libc,guest_candidate,Need_sceLibc,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 75, ""guest_va"": ""0x7fd20""}]"
+eboot.elf,405,aesyjrHVWy4,libc,libc,guest_candidate,strncmp,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 2030, ""guest_va"": ""0x14c30""}]"
+eboot.elf,406,1uJgoVq3bQU,libc,libc,guest_candidate,_Getptolower,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 186, ""guest_va"": ""0x1c6b0""}]"
+eboot.elf,407,kiZSXIWd9vg,libc,libc,guest_candidate,strcpy,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 2015, ""guest_va"": ""0x31330""}]"
+eboot.elf,408,6sJWiWSRuqk,libc,libc,guest_candidate,strncpy,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 2031, ""guest_va"": ""0x14c70""}]"
+eboot.elf,409,9yDWMxEFdJU,libc,libc,guest_candidate,strrchr,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 2038, ""guest_va"": ""0x14d10""}]"
+eboot.elf,410,Ovb2dSJOAuE,libc,libc,guest_candidate,strcmp,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 2013, ""guest_va"": ""0x312a0""}]"
+eboot.elf,411,viiwFMaNamA,libc,libc,guest_candidate,strstr,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 2041, ""guest_va"": ""0x14d40""}]"
+eboot.elf,412,GMpvxPFW924,libc,libc,guest_candidate,vprintf,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 2090, ""guest_va"": ""0x16650""}]"
+eboot.elf,413,YQ0navp+YIc,libc,libc,guest_candidate,puts,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1935, ""guest_va"": ""0x134e0""}]"
+eboot.elf,414,c41UEHVtiEA,libc,libc,guest_candidate,_Stod,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 236, ""guest_va"": ""0x1a530""}]"
+eboot.elf,415,zlfEH8FmyUA,libc,libc,guest_candidate,_Stoul,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 245, ""guest_va"": ""0x1b590""}]"
+eboot.elf,416,1Pk0qZQGeWo,libc,libc,guest_candidate,sscanf,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 2007, ""guest_va"": ""0x148b0""}]"
+eboot.elf,417,gQX+4GDQjpM,libc,libc,guest_candidate,malloc,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1876, ""guest_va"": ""0x580""}]"
+eboot.elf,418,Y7aJ1uydPMo,libc,libc,guest_candidate,realloc,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1945, ""guest_va"": ""0x5b0""}]"
+eboot.elf,419,tIhsqj0qsFE,libc,libc,guest_candidate,free,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1748, ""guest_va"": ""0x590""}]"
+eboot.elf,420,Ujf3KzMvRmI,libc,libc,guest_candidate,memalign,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1893, ""guest_va"": ""0x5c0""}]"
+eboot.elf,421,OGybVuPAhAY,libc,libc,guest_candidate,,not_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1946, ""guest_va"": ""0x5e0""}]"
+eboot.elf,422,wZi5ly2guNw,libc,libc,guest_candidate,,not_found,"[{""file"": ""libc.elf"", ""symbol_index"": 154, ""guest_va"": ""0x308c0""}]"
+eboot.elf,423,8zTFvBIAIN8,libc,libc,guest_candidate,memset,candidate_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1900, ""guest_va"": ""0x310f0""}]"
+eboot.elf,424,WkkeywLJcgU,libc,libc,guest_candidate,wcslen,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 2120, ""guest_va"": ""0x17030""}]"
+eboot.elf,425,pNtJdE3x49E,libc,libc,guest_candidate,wcscmp,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 2114, ""guest_va"": ""0x16c30""}]"
+eboot.elf,426,E8wCoUEbfzk,libc,libc,guest_candidate,wcsncmp,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 2123, ""guest_va"": ""0x170c0""}]"
+eboot.elf,427,AV6ipCNa4Rw,libc,libc,guest_candidate,strcasecmp,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 2009, ""guest_va"": ""0x20450""}]"
+eboot.elf,428,pXvbDfchu6k,libc,libc,guest_candidate,strncasecmp,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 2027, ""guest_va"": ""0x20550""}]"
+eboot.elf,429,ob5xAW4ln-0,libc,libc,guest_candidate,strchr,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 2012, ""guest_va"": ""0x149b0""}]"
+eboot.elf,430,Ezzq78ZgHPs,libc,libc,guest_candidate,wcschr,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 2113, ""guest_va"": ""0x16c00""}]"
+eboot.elf,431,WDpobjImAb4,libc,libc,guest_candidate,wcsstr,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 2132, ""guest_va"": ""0x17420""}]"
+eboot.elf,432,Q2V+iqvjgC0,libc,libc,guest_candidate,vsnprintf,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 2094, ""guest_va"": ""0x16740""}]"
+eboot.elf,433,u0XOsuOmOzc,libc,libc,guest_candidate,,not_found,"[{""file"": ""libc.elf"", ""symbol_index"": 2101, ""guest_va"": ""0x168d0""}]"
+eboot.elf,434,sUP1hBaouOw,libc,libc,guest_candidate,_Getpctype,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 183, ""guest_va"": ""0x17e10""}]"
+eboot.elf,435,mXlxhmLNMPg,libc,libc,guest_candidate,strtol,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 2048, ""guest_va"": ""0x14e80""}]"
+eboot.elf,436,-kU6bB4M-+k,libc,libc,guest_candidate,strspn,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 2040, ""guest_va"": ""0x30d30""}]"
+eboot.elf,437,q0F6yS-rCms,libc,libc,guest_candidate,strcspn,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 2017, ""guest_va"": ""0x30940""}]"
+eboot.elf,438,8u8lPzUEq+U,libc,libc,guest_candidate,memchr,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1894, ""guest_va"": ""0x13170""}]"
+eboot.elf,439,eLdDw6l0-bU,libc,libc,guest_candidate,snprintf,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1997, ""guest_va"": ""0x14690""}]"
+eboot.elf,440,q+9E0X3aWpU,libc,libc,guest_candidate,_Stoull,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 246, ""guest_va"": ""0x1b7f0""}]"
+eboot.elf,441,7pNKcscKrf8,libc,libc,guest_candidate,_Stoll,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 242, ""guest_va"": ""0x1b130""}]"
+eboot.elf,442,cpCOXWMgha0,libc,libc,guest_candidate,rand,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1942, ""guest_va"": ""0x203b0""}]"
+eboot.elf,443,88Vv-AzHVj8,libc,libc,guest_candidate,fmodf,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1737, ""guest_va"": ""0x34660""}]"
+eboot.elf,444,NesIgTmfF0Q,libc,libc,guest_candidate,,not_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1648, ""guest_va"": ""0xab20""}]"
+eboot.elf,445,-VVn74ZyhEs,libc,libc,guest_candidate,difftime,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1676, ""guest_va"": ""0xf7b0""}]"
+eboot.elf,446,Ls4tzzhimqQ,libc,libc,guest_candidate,strcat,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 2010, ""guest_va"": ""0x31160""}]"
+eboot.elf,447,efhK-YSUYYQ,libc,libc,guest_candidate,localtime,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1851, ""guest_va"": ""0x12a20""}]"
+eboot.elf,448,jjjRS7l1MPM,libc,libc,guest_candidate,_FLog,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 165, ""guest_va"": ""0x39300""}]"
+eboot.elf,449,xeYO4u7uyJ0,libc,libc,guest_candidate,fopen,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1739, ""guest_va"": ""0x116a0""}]"
+eboot.elf,450,uodLYyUip20,libc,libc,guest_candidate,fclose,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1701, ""guest_va"": ""0x10c30""}]"
+eboot.elf,451,QI-x0SL8jhw,libc,libc,guest_candidate,acosf,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1616, ""guest_va"": ""0x326c0""}]"
+eboot.elf,452,MpxhMh8QFro,libc,libc,guest_candidate,fwrite,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1766, ""guest_va"": ""0x12250""}]"
+eboot.elf,453,fffwELXNVFA,libc,libc,guest_candidate,fprintf,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1741, ""guest_va"": ""0x116f0""}]"
+eboot.elf,454,JrwFIMzKNr0,libc,libc,guest_candidate,ldexp,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1833, ""guest_va"": ""0x294f0""}]"
+eboot.elf,455,fiOgmWkP+Xc,libc,libc,guest_candidate,,not_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1730, ""guest_va"": ""0x3ed90""}]"
+eboot.elf,456,9LCjpWyQ5Zc,libc,libc,guest_candidate,pow,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1926, ""guest_va"": ""0x39320""}]"
+eboot.elf,457,iU0z6SdUNbI,libc,libc,guest_candidate,,not_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1733, ""guest_va"": ""0x3ef80""}]"
+eboot.elf,458,-hn1tcVHq5Q,libc,libc,guest_candidate,,not_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1972, ""guest_va"": ""0x9780""}]"
+eboot.elf,459,iF1iQHzxBJU,libc,libc,guest_candidate,,not_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1980, ""guest_va"": ""0x9450""}]"
+eboot.elf,460,Vla-Z+eXlxo,libc,libc,guest_candidate,,not_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1974, ""guest_va"": ""0x97a0""}]"
+eboot.elf,461,W6SiVSiCDtI,libc,libc,guest_candidate,,not_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1973, ""guest_va"": ""0x9790""}]"
+eboot.elf,462,ZE6RNL+eLbk,libc,libc,guest_candidate,tanf,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 2060, ""guest_va"": ""0x41910""}]"
+eboot.elf,463,3+UPM-9E6xY,libc,libc,guest_candidate,modff,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1903, ""guest_va"": ""0x3fcd0""}]"
+eboot.elf,464,1D0H2KNjshE,libc,libc,guest_candidate,powf,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1927, ""guest_va"": ""0x39ae0""}]"
+eboot.elf,465,weDug8QD-lE,libc,libc,guest_candidate,atanf,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1635, ""guest_va"": ""0x3ae00""}]"
+eboot.elf,466,mnufPlYbnN0,libc,libc,guest_candidate,,not_found,"[{""file"": ""libc.elf"", ""symbol_index"": 161, ""guest_va"": ""0x2b040""}]"
+eboot.elf,467,rQFVBXp-Cxg,libc,libc,guest_candidate,fseek,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1756, ""guest_va"": ""0x11f60""}]"
+eboot.elf,468,Qazy8LmXTvw,libc,libc,guest_candidate,ftell,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1759, ""guest_va"": ""0x12040""}]"
+eboot.elf,469,lbB+UlZqVG0,libc,libc,guest_candidate,fread,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1747, ""guest_va"": ""0x11c60""}]"
+eboot.elf,470,wLlFkwG9UcQ,libc,libc,guest_candidate,time,candidate_found,"[{""file"": ""libc.elf"", ""symbol_index"": 2068, ""guest_va"": ""0x300d0""}]"
+eboot.elf,471,NLwJ3q+64bY,libc,libc,guest_candidate,_ZSt7nothrow,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 999, ""guest_va"": ""0x8b754""}]"
+eboot.elf,472,AEJdIVZTEmo,libc,libc,guest_candidate,qsort,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1939, ""guest_va"": ""0x135f0""}]"
+eboot.elf,473,GZWjF-YIFFk,libc,libc,guest_candidate,asinf,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1624, ""guest_va"": ""0x32fe0""}]"
+eboot.elf,474,sqWytnhYdEg,libc,libc,guest_candidate,_ZNSt8ios_base4InitC1Ev,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 876, ""guest_va"": ""0x59f10""}]"
+eboot.elf,475,kxXCvcat1cM,libc,libc,guest_candidate,_ZNSt8ios_base4InitD1Ev,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 878, ""guest_va"": ""0x5a320""}]"
+eboot.elf,476,-Bl9-SZ2noc,libc,libc,guest_candidate,_ZNSt6_WinitC1Ev,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 800, ""guest_va"": ""0x5ce20""}]"
+eboot.elf,477,Uw3OTZFPNt4,libc,libc,guest_candidate,_ZNSt6_WinitD1Ev,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 802, ""guest_va"": ""0x5cfd0""}]"
+eboot.elf,478,kALvdgEv5ME,libc,libc,guest_candidate,_Locksyslock,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 212, ""guest_va"": ""0x1c5d0""}]"
+eboot.elf,479,9nf8joUTSaQ,libc,libc,guest_candidate,_Unlocksyslock,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 297, ""guest_va"": ""0x1c610""}]"
+eboot.elf,480,wuAQt-j+p4o,libc,libc,guest_candidate,exp2f,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1691, ""guest_va"": ""0x3d6d0""}]"
+eboot.elf,481,8zsu04XNsZ4,libc,libc,guest_candidate,expf,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1693, ""guest_va"": ""0x341b0""}]"
+eboot.elf,482,NVadfnzQhHQ,libc,libc,guest_candidate,exp,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1689, ""guest_va"": ""0x33f90""}]"
+eboot.elf,483,lKEN2IebgJ0,libc,libc,guest_candidate,longjmp,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1868, ""guest_va"": ""0x30e70""}]"
+eboot.elf,484,gNQ1V2vfXDE,libc,libc,guest_candidate,setjmp,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1987, ""guest_va"": ""0x30e20""}]"
+eboot.elf,485,VPbJwTCgME0,libc,libc,guest_candidate,srand,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 2005, ""guest_va"": ""0x20440""}]"
+eboot.elf,486,rcQCUr0EaRU,libc,libc,guest_candidate,_Getptoupper,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 187, ""guest_va"": ""0x1c6c0""}]"
+eboot.elf,487,xEszJVGpybs,libc,libc,guest_candidate,sprintf_s,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 2001, ""guest_va"": ""0xd240""}]"
+eboot.elf,488,H8AprKeZtNg,libc,libc,guest_candidate,_Stderr,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 233, ""guest_va"": ""0xb5380""}]"
+eboot.elf,489,oVkZ8W8-Q8A,libc,libc,guest_candidate,strtok,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 2045, ""guest_va"": ""0x14df0""}]"
+eboot.elf,490,m5wN+SwZOR4,libc,libc,guest_candidate,putchar,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1933, ""guest_va"": ""0x134d0""}]"
+eboot.elf,491,2sWzhYqFH4E,libc,libc,guest_candidate,_Stdout,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 235, ""guest_va"": ""0xb51b8""}]"
+eboot.elf,492,QrZZdJ8XsX0,libc,libc,guest_candidate,fputs,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1744, ""guest_va"": ""0x11980""}]"
+eboot.elf,493,aZK8lNei-Qw,libc,libc,guest_candidate,fputc,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1743, ""guest_va"": ""0x11810""}]"
+eboot.elf,494,L1SBTkC+Cvw,libc,libc,guest_candidate,abort,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1612, ""guest_va"": ""0x28890""}]"
+eboot.elf,495,MUjC4lbHrK4,libc,libc,guest_candidate,fflush,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1711, ""guest_va"": ""0x10e60""}]"
+eboot.elf,496,1mecP7RgI2A,libc,libc,guest_candidate,gmtime,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1784, ""guest_va"": ""0x12750""}]"
+eboot.elf,497,zXCi78bYrEI,libc,libc,guest_candidate,_Log,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 213, ""guest_va"": ""0x38920""}]"
+eboot.elf,498,9ByRMdo7ywg,libc,libc,guest_candidate,_ZTVN10__cxxabiv121__vmi_class_type_infoE,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1314, ""guest_va"": ""0xb71b0""}]"
+eboot.elf,499,byV+FWlAnB4,libc,libc,guest_candidate,_ZTVN10__cxxabiv117__class_type_infoE,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1309, ""guest_va"": ""0xb6990""}]"
+eboot.elf,500,pZ9WXcClPO8,libc,libc,guest_candidate,_ZTVN10__cxxabiv120__si_class_type_infoE,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1313, ""guest_va"": ""0xb7160""}]"
+eboot.elf,501,kn0yiYeExgA,libc,libc,guest_candidate,ldexpf,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1834, ""guest_va"": ""0x42660""}]"
+eboot.elf,502,2X5agFjKxMc,libc,libc,guest_candidate,,not_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1654, ""guest_va"": ""0x5a0""}]"
+eboot.elf,503,1TDo-ImqkJc,libc,libc,guest_candidate,_Stdin,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 234, ""guest_va"": ""0xb4ff0""}]"
+eboot.elf,504,AHxyhN96dy4,libc,libc,guest_candidate,ferror,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1709, ""guest_va"": ""0x10e00""}]"
+eboot.elf,505,pkYiKw09PRA,libc,libc,guest_candidate,,not_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1757, ""guest_va"": ""0x11fb0""}]"
+eboot.elf,506,5qP1iVQkdck,libc,libc,guest_candidate,,not_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1760, ""guest_va"": ""0x12070""}]"
+eboot.elf,507,Fm-dmyywH9Q,libc,libc,guest_candidate,,not_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1718, ""guest_va"": ""0x11680""}]"
+eboot.elf,508,LxcEU+ICu8U,libc,libc,guest_candidate,feof,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1707, ""guest_va"": ""0x10d90""}]"
+eboot.elf,509,cCXjU72Z0Ow,libc,libc,guest_candidate,_Sin,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 230, ""guest_va"": ""0x40ea0""}]"
+eboot.elf,510,HUbZmOnT-Dg,libc,libc,guest_candidate,atan2,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1632, ""guest_va"": ""0x333f0""}]"
+eboot.elf,511,kA-TdiOCsaY,libc,libc,guest_candidate,frexp,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1751, ""guest_va"": ""0x3f170""}]"
+eboot.elf,512,TU-d9PfIHPM,libScePosix,libkernel,external_unresolved,socket,candidate_found,[]
+eboot.elf,513,Ez8xjo9UF4E,libScePosix,libkernel,external_unresolved,recv,candidate_found,[]
+eboot.elf,514,KuOmgKoqCdY,libScePosix,libkernel,external_unresolved,bind,candidate_found,[]
+eboot.elf,515,lUk6wrGXyMw,libScePosix,libkernel,external_unresolved,,not_found,[]
+eboot.elf,516,oBr313PppNE,libScePosix,libkernel,external_unresolved,,not_found,[]
+eboot.elf,517,fZOeZIOEmLw,libScePosix,libkernel,external_unresolved,send,candidate_found,[]
+eboot.elf,518,fFxGkxF2bVo,libScePosix,libkernel,external_unresolved,,not_found,[]
+eboot.elf,519,XVL8So3QJUk,libScePosix,libkernel,external_unresolved,,not_found,[]
+eboot.elf,520,TUuiYS2kE8s,libScePosix,libkernel,external_unresolved,shutdown,candidate_found,[]
+eboot.elf,521,mqQMh1zPPT8,libScePosix,libkernel,external_unresolved,fstat,candidate_found,[]
+eboot.elf,522,lLMT9vJAck0,libScePosix,libkernel,external_unresolved,clock_gettime,candidate_found,[]
+eboot.elf,523,Xs9hdiD7sAA,libScePosix,libkernel,external_unresolved,,not_found,[]
+eboot.elf,524,cDW233RAwWo,libScePosix,libkernel,external_unresolved,,not_found,[]
+eboot.elf,525,pDuPEf3m4fI,libScePosix,libkernel,external_unresolved,,not_found,[]
+eboot.elf,526,IKP8typ0QUk,libScePosix,libkernel,external_unresolved,,not_found,[]
+eboot.elf,527,w5IHyvahg-o,libScePosix,libkernel,external_unresolved,,not_found,[]
+eboot.elf,528,YCV5dGGBcCo,libScePosix,libkernel,external_unresolved,,not_found,[]
+eboot.elf,529,f7uOxY9mM1U,libkernel,libkernel,external_unresolved,__stack_chk_guard,candidate_found,[]
+eboot.elf,530,Ou3iL1abvng,libkernel,libkernel,external_unresolved,__stack_chk_fail,candidate_found,[]
+eboot.elf,531,F8bUHwAG284,libkernel,libkernel,external_unresolved,scePthreadMutexattrInit,candidate_found,[]
+eboot.elf,532,iMp8QpE+XO4,libkernel,libkernel,external_unresolved,scePthreadMutexattrSettype,candidate_found,[]
+eboot.elf,533,cmo1RIYva9o,libkernel,libkernel,external_unresolved,scePthreadMutexInit,candidate_found,[]
+eboot.elf,534,smWEktiyyG0,libkernel,libkernel,external_unresolved,scePthreadMutexattrDestroy,candidate_found,[]
+eboot.elf,535,2Of0f+3mhhE,libkernel,libkernel,external_unresolved,scePthreadMutexDestroy,candidate_found,[]
+eboot.elf,536,vNe1w4diLCs,libkernel,libkernel,external_unresolved,__tls_get_addr,candidate_found,[]
+eboot.elf,537,nsYoNRywwNg,libkernel,libkernel,external_unresolved,scePthreadAttrInit,name_only,[]
+eboot.elf,538,DzES9hQF4f4,libkernel,libkernel,external_unresolved,scePthreadAttrSetschedparam,name_only,[]
+eboot.elf,539,UTXzJbWhhTE,libkernel,libkernel,external_unresolved,scePthreadAttrSetstacksize,name_only,[]
+eboot.elf,540,eXbUSpEaTsA,libkernel,libkernel,external_unresolved,scePthreadAttrSetinheritsched,name_only,[]
+eboot.elf,541,-Wreprtu0Qs,libkernel,libkernel,external_unresolved,scePthreadAttrSetdetachstate,name_only,[]
+eboot.elf,542,6UgtwV+0zb4,libkernel,libkernel,external_unresolved,scePthreadCreate,name_only,[]
+eboot.elf,543,62KCwEMmzcM,libkernel,libkernel,external_unresolved,scePthreadAttrDestroy,name_only,[]
+eboot.elf,544,bt3CTBKmGyI,libkernel,libkernel,external_unresolved,scePthreadSetaffinity,name_only,[]
+eboot.elf,545,aI+OeCz8xrQ,libkernel,libkernel,external_unresolved,scePthreadSelf,name_only,[]
+eboot.elf,546,W0Hpm2X0uPE,libkernel,libkernel,external_unresolved,scePthreadSetprio,name_only,[]
+eboot.elf,547,onNY9Byn-W8,libkernel,libkernel,external_unresolved,scePthreadJoin,name_only,[]
+eboot.elf,548,3kg7rT0NQIs,libkernel,libkernel,external_unresolved,scePthreadExit,name_only,[]
+eboot.elf,549,1jfXLRVzisc,libkernel,libkernel,external_unresolved,sceKernelUsleep,candidate_found,[]
+eboot.elf,550,T72hz6ffq08,libkernel,libkernel,external_unresolved,scePthreadYield,name_only,[]
+eboot.elf,551,IafI2PxcPnQ,libkernel,libkernel,external_unresolved,scePthreadMutexTimedlock,candidate_found,[]
+eboot.elf,552,tn3VlD0hG60,libkernel,libkernel,external_unresolved,scePthreadMutexUnlock,candidate_found,[]
+eboot.elf,553,pO96TwzOm5E,libkernel,libkernel,external_unresolved,sceKernelGetDirectMemorySize,candidate_found,[]
+eboot.elf,554,rTXw65xmLIA,libkernel,libkernel,external_unresolved,sceKernelAllocateDirectMemory,candidate_found,[]
+eboot.elf,555,NcaWUxfMNIQ,libkernel,libkernel,external_unresolved,,not_found,[]
+eboot.elf,556,QBi7HCK03hw,libkernel,libkernel,external_unresolved,sceKernelClockGettime,candidate_found,[]
+eboot.elf,557,188x57JYp0g,libkernel,libkernel,external_unresolved,sceKernelCreateSema,candidate_found,[]
+eboot.elf,558,R1Jvn8bSCW8,libkernel,libkernel,external_unresolved,sceKernelDeleteSema,candidate_found,[]
+eboot.elf,559,4czppHBiriw,libkernel,libkernel,external_unresolved,sceKernelSignalSema,candidate_found,[]
+eboot.elf,560,12wOHk8ywb0,libkernel,libkernel,external_unresolved,sceKernelPollSema,candidate_found,[]
+eboot.elf,561,Zxa0VhQVTsk,libkernel,libkernel,external_unresolved,sceKernelWaitSema,candidate_found,[]
+eboot.elf,562,D0OdFMjp46I,libkernel,libkernel,external_unresolved,sceKernelCreateEqueue,candidate_found,[]
+eboot.elf,563,jpFjmgAC5AE,libkernel,libkernel,external_unresolved,sceKernelDeleteEqueue,candidate_found,[]
+eboot.elf,564,57ZK+ODEXWY,libkernel,libkernel,external_unresolved,sceKernelAddTimerEvent,candidate_found,[]
+eboot.elf,565,fzyMKs9kim0,libkernel,libkernel,external_unresolved,sceKernelWaitEqueue,candidate_found,[]
+eboot.elf,566,9BcDykPmo1I,libkernel,libkernel,external_unresolved,__error,name_only,[]
+eboot.elf,567,9UK1vLZQft4,libkernel,libkernel,external_unresolved,scePthreadMutexLock,candidate_found,[]
+eboot.elf,568,1-LFLmRFxxM,libkernel,libkernel,external_unresolved,sceKernelMkdir,candidate_found,[]
+eboot.elf,569,rVjRvHJ0X6c,libkernel,libkernel,external_unresolved,sceKernelVirtualQuery,candidate_found,[]
+eboot.elf,570,4R6-OvI2cEA,libkernel,libkernel,external_unresolved,sceKernelAddUserEvent,candidate_found,[]
+eboot.elf,571,YWQFUyXIVdU,libkernel,libkernel,external_unresolved,sceKernelDeleteTimerEvent,candidate_found,[]
+eboot.elf,572,23CPPI1tyBY,libkernel,libkernel,external_unresolved,sceKernelGetEventFilter,candidate_found,[]
+eboot.elf,573,mJ7aghmgvfc,libkernel,libkernel,external_unresolved,sceKernelGetEventId,candidate_found,[]
+eboot.elf,574,wzvqT4UqKX8,libkernel,libkernel,external_unresolved,sceKernelLoadStartModule,candidate_found,[]
+eboot.elf,575,MBuItvba6z8,libkernel,libkernel,external_unresolved,sceKernelReleaseDirectMemory,candidate_found,[]
+eboot.elf,576,1G3lF1Gg1k8,libkernel,libkernel,external_unresolved,sceKernelOpen,candidate_found,[]
+eboot.elf,577,kBwCPsYX-m4,libkernel,libkernel,external_unresolved,sceKernelFstat,candidate_found,[]
+eboot.elf,578,Cg4srZ6TKbU,libkernel,libkernel,external_unresolved,sceKernelRead,candidate_found,[]
+eboot.elf,579,UK2Tl2DWUns,libkernel,libkernel,external_unresolved,sceKernelClose,candidate_found,[]
+eboot.elf,580,BpFoboUJoZU,libkernel,libkernel,external_unresolved,sceKernelCreateEventFlag,candidate_found,[]
+eboot.elf,581,3qxgM4ezETA,libkernel,libkernel,external_unresolved,scePthreadAttrSetaffinity,name_only,[]
+eboot.elf,582,JTvBflhYazQ,libkernel,libkernel,external_unresolved,sceKernelWaitEventFlag,candidate_found,[]
+eboot.elf,583,IOnSvHzqu6A,libkernel,libkernel,external_unresolved,sceKernelSetEventFlag,candidate_found,[]
+eboot.elf,584,Bvn74vj6oLo,libkernel,libkernel,external_unresolved,,not_found,[]
+eboot.elf,585,1j3S3n-tTW4,libkernel,libkernel,external_unresolved,sceKernelGetTscFrequency,candidate_found,[]
+eboot.elf,586,-2IRUCO--PM,libkernel,libkernel,external_unresolved,sceKernelReadTsc,candidate_found,[]
+eboot.elf,587,2Tb92quprl0,libkernel,libkernel,external_unresolved,scePthreadCondInit,candidate_found,[]
+eboot.elf,588,g+PZd2hiacg,libkernel,libkernel,external_unresolved,scePthreadCondDestroy,candidate_found,[]
+eboot.elf,589,JGgj7Uvrl+A,libkernel,libkernel,external_unresolved,scePthreadCondBroadcast,candidate_found,[]
+eboot.elf,590,L-Q3LEjIbgA,libkernel,libkernel,external_unresolved,sceKernelMapDirectMemory,candidate_found,[]
+eboot.elf,591,oib76F-12fk,libkernel,libkernel,external_unresolved,sceKernelLseek,candidate_found,[]
+eboot.elf,592,4+h9EzwKF4I,libkernel,libkernel,external_unresolved,scePthreadAttrSetschedpolicy,name_only,[]
+eboot.elf,593,eoht7mQOCmo,libkernel,libkernel,external_unresolved,scePthreadGetspecific,candidate_found,[]
+eboot.elf,594,geDaqgH9lTg,libkernel,libkernel,external_unresolved,scePthreadKeyCreate,candidate_found,[]
+eboot.elf,595,P41kTWUS3EI,libkernel,libkernel,external_unresolved,,not_found,[]
+eboot.elf,596,oIRFTjoILbg,libkernel,libkernel,external_unresolved,,not_found,[]
+eboot.elf,597,+BzXYkqYeLE,libkernel,libkernel,external_unresolved,scePthreadSetspecific,candidate_found,[]
+eboot.elf,598,4qGrR6eoP9Y,libkernel,libkernel,external_unresolved,scePthreadDetach,name_only,[]
+eboot.elf,599,upoVrzMHFeE,libkernel,libkernel,external_unresolved,scePthreadMutexTrylock,candidate_found,[]
+eboot.elf,600,ejekcaNQNq0,libkernel,libkernel,external_unresolved,sceKernelGettimeofday,candidate_found,[]
+eboot.elf,601,KMWt8qkp+0A,spu,spu,guest_candidate,,not_found,"[{""file"": ""spu.elf"", ""symbol_index"": 20, ""guest_va"": ""0x43e0""}]"
+fmodextinput.elf,2,8zTFvBIAIN8,libc,libc,guest_candidate,memset,candidate_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1900, ""guest_va"": ""0x310f0""}]"
+fmodextinput.elf,3,H2e8t5ScQGc,libc,libc,guest_candidate,,candidate_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1449, ""guest_va"": ""0x30410""}]"
+fmodextinput.elf,4,P330P3dFF68,libc,libc,guest_candidate,Need_sceLibc,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 75, ""guest_va"": ""0x7fd20""}]"
+fmodextinput.elf,5,ZtjspkJQ+vw,libc,libc,guest_candidate,_FSin,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 168, ""guest_va"": ""0x411a0""}]"
+fmodextinput.elf,6,cpCOXWMgha0,libc,libc,guest_candidate,rand,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1942, ""guest_va"": ""0x203b0""}]"
+fmodextinput.elf,7,wuAQt-j+p4o,libc,libc,guest_candidate,exp2f,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1691, ""guest_va"": ""0x3d6d0""}]"
+fmodextinput.elf,8,Q3VBxCXhUHs,libc,libc,guest_candidate,memcpy,candidate_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1896, ""guest_va"": ""0x31030""}]"
+fmodextinput.elf,9,f7uOxY9mM1U,libkernel,libkernel,external_unresolved,__stack_chk_guard,candidate_found,[]
+fmodextinput.elf,10,Ou3iL1abvng,libkernel,libkernel,external_unresolved,__stack_chk_fail,candidate_found,[]
+fmodextinput.elf,12,module_stop,,,external_unresolved,,not_found,[]
+fmodextinput.elf,13,module_start,,,external_unresolved,,not_found,[]
+fmodsmsreverb.elf,2,Q3VBxCXhUHs,libc,libc,guest_candidate,memcpy,candidate_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1896, ""guest_va"": ""0x31030""}]"
+fmodsmsreverb.elf,3,8zsu04XNsZ4,libc,libc,guest_candidate,expf,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1693, ""guest_va"": ""0x341b0""}]"
+fmodsmsreverb.elf,4,1D0H2KNjshE,libc,libc,guest_candidate,powf,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1927, ""guest_va"": ""0x39ae0""}]"
+fmodsmsreverb.elf,5,8zTFvBIAIN8,libc,libc,guest_candidate,memset,candidate_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1900, ""guest_va"": ""0x310f0""}]"
+fmodsmsreverb.elf,6,H2e8t5ScQGc,libc,libc,guest_candidate,,candidate_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1449, ""guest_va"": ""0x30410""}]"
+fmodsmsreverb.elf,7,P330P3dFF68,libc,libc,guest_candidate,Need_sceLibc,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 75, ""guest_va"": ""0x7fd20""}]"
+fmodsmsreverb.elf,8,f7uOxY9mM1U,libkernel,libkernel,external_unresolved,__stack_chk_guard,candidate_found,[]
+fmodsmsreverb.elf,9,Ou3iL1abvng,libkernel,libkernel,external_unresolved,__stack_chk_fail,candidate_found,[]
+fmodsmsreverb.elf,11,module_stop,,,external_unresolved,,not_found,[]
+fmodsmsreverb.elf,12,module_start,,,external_unresolved,,not_found,[]
+fmodsmswavehammer.elf,2,8zTFvBIAIN8,libc,libc,guest_candidate,memset,candidate_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1900, ""guest_va"": ""0x310f0""}]"
+fmodsmswavehammer.elf,3,1D0H2KNjshE,libc,libc,guest_candidate,powf,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1927, ""guest_va"": ""0x39ae0""}]"
+fmodsmswavehammer.elf,4,Q3VBxCXhUHs,libc,libc,guest_candidate,memcpy,candidate_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1896, ""guest_va"": ""0x31030""}]"
+fmodsmswavehammer.elf,5,jjjRS7l1MPM,libc,libc,guest_candidate,_FLog,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 165, ""guest_va"": ""0x39300""}]"
+fmodsmswavehammer.elf,6,hcuQgD53UxM,libc,libc,guest_candidate,printf,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1929, ""guest_va"": ""0x13390""}]"
+fmodsmswavehammer.elf,7,YQ0navp+YIc,libc,libc,guest_candidate,puts,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1935, ""guest_va"": ""0x134e0""}]"
+fmodsmswavehammer.elf,8,H2e8t5ScQGc,libc,libc,guest_candidate,,candidate_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1449, ""guest_va"": ""0x30410""}]"
+fmodsmswavehammer.elf,9,P330P3dFF68,libc,libc,guest_candidate,Need_sceLibc,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 75, ""guest_va"": ""0x7fd20""}]"
+fmodsmswavehammer.elf,10,f7uOxY9mM1U,libkernel,libkernel,external_unresolved,__stack_chk_guard,candidate_found,[]
+fmodsmswavehammer.elf,11,Ou3iL1abvng,libkernel,libkernel,external_unresolved,__stack_chk_fail,candidate_found,[]
+fmodsmswavehammer.elf,13,module_stop,,,external_unresolved,,not_found,[]
+fmodsmswavehammer.elf,14,module_start,,,external_unresolved,,not_found,[]
+fmodvoipmixer.elf,2,8zTFvBIAIN8,libc,libc,guest_candidate,memset,candidate_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1900, ""guest_va"": ""0x310f0""}]"
+fmodvoipmixer.elf,3,H2e8t5ScQGc,libc,libc,guest_candidate,,candidate_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1449, ""guest_va"": ""0x30410""}]"
+fmodvoipmixer.elf,4,P330P3dFF68,libc,libc,guest_candidate,Need_sceLibc,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 75, ""guest_va"": ""0x7fd20""}]"
+fmodvoipmixer.elf,6,module_stop,,,external_unresolved,,not_found,[]
+fmodvoipmixer.elf,7,module_start,,,external_unresolved,,not_found,[]
+spu.elf,2,8zTFvBIAIN8,libc,libc,guest_candidate,memset,candidate_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1900, ""guest_va"": ""0x310f0""}]"
+spu.elf,3,Q3VBxCXhUHs,libc,libc,guest_candidate,memcpy,candidate_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1896, ""guest_va"": ""0x31030""}]"
+spu.elf,4,hcuQgD53UxM,libc,libc,guest_candidate,printf,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1929, ""guest_va"": ""0x13390""}]"
+spu.elf,5,+P6FRGH4LfA,libc,libc,guest_candidate,memmove,candidate_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1898, ""guest_va"": ""0x31090""}]"
+spu.elf,6,88Vv-AzHVj8,libc,libc,guest_candidate,fmodf,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1737, ""guest_va"": ""0x34660""}]"
+spu.elf,7,ZtjspkJQ+vw,libc,libc,guest_candidate,_FSin,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 168, ""guest_va"": ""0x411a0""}]"
+spu.elf,8,3GPpjQdAMTw,libc,libc,guest_candidate,__cxa_guard_acquire,candidate_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1456, ""guest_va"": ""0x4ab80""}]"
+spu.elf,9,9rAeANT2tyE,libc,libc,guest_candidate,__cxa_guard_release,candidate_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1457, ""guest_va"": ""0x4abf0""}]"
+spu.elf,10,1D0H2KNjshE,libc,libc,guest_candidate,powf,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 1927, ""guest_va"": ""0x39ae0""}]"
+spu.elf,11,H2e8t5ScQGc,libc,libc,guest_candidate,,candidate_found,"[{""file"": ""libc.elf"", ""symbol_index"": 1449, ""guest_va"": ""0x30410""}]"
+spu.elf,12,P330P3dFF68,libc,libc,guest_candidate,Need_sceLibc,name_only,"[{""file"": ""libc.elf"", ""symbol_index"": 75, ""guest_va"": ""0x7fd20""}]"
+spu.elf,13,9UK1vLZQft4,libkernel,libkernel,external_unresolved,scePthreadMutexLock,candidate_found,[]
+spu.elf,14,tn3VlD0hG60,libkernel,libkernel,external_unresolved,scePthreadMutexUnlock,candidate_found,[]
+spu.elf,15,f7uOxY9mM1U,libkernel,libkernel,external_unresolved,__stack_chk_guard,candidate_found,[]
+spu.elf,16,Ou3iL1abvng,libkernel,libkernel,external_unresolved,__stack_chk_fail,candidate_found,[]
+spu.elf,17,IOnSvHzqu6A,libkernel,libkernel,external_unresolved,sceKernelSetEventFlag,candidate_found,[]
+spu.elf,18,vNe1w4diLCs,libkernel,libkernel,external_unresolved,__tls_get_addr,candidate_found,[]
+spu.elf,19,JTvBflhYazQ,libkernel,libkernel,external_unresolved,sceKernelWaitEventFlag,candidate_found,[]
+spu.elf,21,module_stop,,,external_unresolved,,not_found,[]
+spu.elf,22,module_start,,,external_unresolved,,not_found,[]
+libc.elf,2,8IGjwtnvYwI,libSceFios2,libSceFios2,guest_candidate,sceFiosIsValidHandle,name_only,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 195, ""guest_va"": ""0x9090""}]"
+libc.elf,3,Bn2ZF4ZjeuQ,libSceFios2,libSceFios2,guest_candidate,sceFiosFHReadSync,name_only,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 152, ""guest_va"": ""0xaa80""}]"
+libc.elf,4,Kl-TbrDU9YM,libSceFios2,libSceFios2,guest_candidate,sceFiosFHWriteSync,name_only,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 164, ""guest_va"": ""0xabd0""}]"
+libc.elf,5,w13Ojm7ON9o,libSceFios2,libSceFios2,guest_candidate,sceFiosFHOpenWithModeSync,name_only,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 142, ""guest_va"": ""0xa430""}]"
+libc.elf,6,AOujSGqU+ms,libSceFios2,libSceFios2,guest_candidate,sceFiosFHCloseSync,name_only,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 135, ""guest_va"": ""0xb750""}]"
+libc.elf,7,xReSebwKApA,libSceFios2,libSceFios2,guest_candidate,sceFiosFHSeek,name_only,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 155, ""guest_va"": ""0xb620""}]"
+libc.elf,8,G-39lsdSgXo,libSceFios2,libSceFios2,guest_candidate,sceFiosRenameSync,name_only,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 225, ""guest_va"": ""0x9a90""}]"
+libc.elf,9,KsVTc04kN9k,libSceFios2,libSceFios2,guest_candidate,sceFiosDeleteSync,name_only,"[{""file"": ""libSceFios2.elf"", ""symbol_index"": 123, ""guest_va"": ""0x9e90""}]"
+libc.elf,10,959qrazPIrg,libkernel,libkernel,external_unresolved,sceKernelGetProcParam,candidate_found,[]
+libc.elf,11,p5EcQeEeJAE,libkernel,libkernel,external_unresolved,_sceKernelRtldSetApplicationHeapAPI,candidate_found,[]
+libc.elf,12,OMDRKKAZ8I4,libkernel,libkernel,external_unresolved,sceKernelDebugRaiseException,candidate_found,[]
+libc.elf,13,f7uOxY9mM1U,libkernel,libkernel,external_unresolved,__stack_chk_guard,candidate_found,[]
+libc.elf,14,Ou3iL1abvng,libkernel,libkernel,external_unresolved,__stack_chk_fail,candidate_found,[]
+libc.elf,15,F8bUHwAG284,libkernel,libkernel,external_unresolved,scePthreadMutexattrInit,candidate_found,[]
+libc.elf,16,cmo1RIYva9o,libkernel,libkernel,external_unresolved,scePthreadMutexInit,candidate_found,[]
+libc.elf,17,smWEktiyyG0,libkernel,libkernel,external_unresolved,scePthreadMutexattrDestroy,candidate_found,[]
+libc.elf,18,mL8NDH86iQI,libkernel,libkernel,external_unresolved,sceKernelMapNamedFlexibleMemory,candidate_found,[]
+libc.elf,19,3k6kx-zOOSQ,libkernel,libkernel,external_unresolved,sceKernelMlock,candidate_found,[]
+libc.elf,20,cQke9UuBQOk,libkernel,libkernel,external_unresolved,sceKernelMunmap,candidate_found,[]
+libc.elf,21,2Of0f+3mhhE,libkernel,libkernel,external_unresolved,scePthreadMutexDestroy,candidate_found,[]
+libc.elf,22,9UK1vLZQft4,libkernel,libkernel,external_unresolved,scePthreadMutexLock,candidate_found,[]
+libc.elf,23,tn3VlD0hG60,libkernel,libkernel,external_unresolved,scePthreadMutexUnlock,candidate_found,[]
+libc.elf,24,zE-wXIZjLoM,libkernel,libkernel,external_unresolved,sceKernelDebugRaiseExceptionOnReleaseMode,candidate_found,[]
+libc.elf,25,Cg4srZ6TKbU,libkernel,libkernel,external_unresolved,sceKernelRead,candidate_found,[]
+libc.elf,26,9BcDykPmo1I,libkernel,libkernel,external_unresolved,__error,name_only,[]
+libc.elf,27,4wSze92BhLI,libkernel,libkernel,external_unresolved,sceKernelWrite,candidate_found,[]
+libc.elf,28,vNe1w4diLCs,libkernel,libkernel,external_unresolved,__tls_get_addr,candidate_found,[]
+libc.elf,29,kOcnerypnQA,libkernel,libkernel,external_unresolved,sceKernelGettimezone,candidate_found,[]
+libc.elf,30,2Tb92quprl0,libkernel,libkernel,external_unresolved,scePthreadCondInit,candidate_found,[]
+libc.elf,31,g+PZd2hiacg,libkernel,libkernel,external_unresolved,scePthreadCondDestroy,candidate_found,[]
+libc.elf,32,WKAXJ4XBPQ4,libkernel,libkernel,external_unresolved,scePthreadCondWait,candidate_found,[]
+libc.elf,33,BmMjYxmew1w,libkernel,libkernel,external_unresolved,scePthreadCondTimedwait,candidate_found,[]
+libc.elf,34,kDh-NfxgMtE,libkernel,libkernel,external_unresolved,scePthreadCondSignal,candidate_found,[]
+libc.elf,35,JGgj7Uvrl+A,libkernel,libkernel,external_unresolved,scePthreadCondBroadcast,candidate_found,[]
+libc.elf,36,6UgtwV+0zb4,libkernel,libkernel,external_unresolved,scePthreadCreate,name_only,[]
+libc.elf,37,onNY9Byn-W8,libkernel,libkernel,external_unresolved,scePthreadJoin,name_only,[]
+libc.elf,38,4qGrR6eoP9Y,libkernel,libkernel,external_unresolved,scePthreadDetach,name_only,[]
+libc.elf,39,3kg7rT0NQIs,libkernel,libkernel,external_unresolved,scePthreadExit,name_only,[]
+libc.elf,40,yS8U2TGCe1A,libkernel,libkernel,external_unresolved,nanosleep,candidate_found,[]
+libc.elf,41,T72hz6ffq08,libkernel,libkernel,external_unresolved,scePthreadYield,name_only,[]
+libc.elf,42,3PtV6p3QNX4,libkernel,libkernel,external_unresolved,scePthreadEqual,name_only,[]
+libc.elf,43,aI+OeCz8xrQ,libkernel,libkernel,external_unresolved,scePthreadSelf,name_only,[]
+libc.elf,44,upoVrzMHFeE,libkernel,libkernel,external_unresolved,scePthreadMutexTrylock,candidate_found,[]
+libc.elf,45,14bOACANTBo,libkernel,libkernel,external_unresolved,scePthreadOnce,candidate_found,[]
+libc.elf,46,geDaqgH9lTg,libkernel,libkernel,external_unresolved,scePthreadKeyCreate,candidate_found,[]
+libc.elf,47,PrdHuuDekhY,libkernel,libkernel,external_unresolved,scePthreadKeyDelete,candidate_found,[]
+libc.elf,48,+BzXYkqYeLE,libkernel,libkernel,external_unresolved,scePthreadSetspecific,candidate_found,[]
+libc.elf,49,eoht7mQOCmo,libkernel,libkernel,external_unresolved,scePthreadGetspecific,candidate_found,[]
+libc.elf,50,n88vx3C5nW8,libkernel,libkernel,external_unresolved,gettimeofday,candidate_found,[]
+libc.elf,51,iMp8QpE+XO4,libkernel,libkernel,external_unresolved,scePthreadMutexattrSettype,candidate_found,[]
+libc.elf,52,VADc3MNQ3cM,libkernel,libkernel,external_unresolved,signal,candidate_found,[]
+libc.elf,53,hHlZQUnlxSM,libkernel,libkernel,external_unresolved,getrusage,candidate_found,[]
+libc.elf,54,4J2sUJmuHZQ,libkernel,libkernel,external_unresolved,sceKernelGetProcessTime,candidate_found,[]
+libc.elf,55,djxxOmW6-aw,libkernel,libkernel,external_unresolved,__progname,candidate_found,[]
+libc.elf,56,lLMT9vJAck0,libkernel,libkernel,external_unresolved,clock_gettime,candidate_found,[]
+libc.elf,57,f7KBOafysXo,libkernel,libkernel,external_unresolved,sceKernelGetModuleInfoFromAddr,candidate_found,[]
+libc.elf,58,Fjc4-n1+y2g,libkernel,libkernel,external_unresolved,__elf_phdr_match_addr,candidate_found,[]
+libc.elf,59,kbw4UHHSYy0,libkernel,libkernel,external_unresolved,__pthread_cxa_finalize,candidate_found,[]
+libc.elf,60,6Z83sYWFlA8,libkernel,libkernel,external_unresolved,_exit,candidate_found,[]
+libc.elf,61,6xVpy0Fdq+I,libkernel,libkernel,external_unresolved,_sigprocmask,candidate_found,[]
+libc.elf,62,6XG4B33N09g,libkernel,libkernel,external_unresolved,sched_yield,candidate_found,[]
+libc.elf,63,DFmMT80xcNI,libkernel,libkernel,external_unresolved,sysctl,candidate_found,[]
+libc.elf,64,BPE9s9vQQXo,libkernel,libkernel,external_unresolved,mmap,candidate_found,[]
+libc.elf,65,mqQMh1zPPT8,libkernel,libkernel,external_unresolved,fstat,candidate_found,[]
+libc.elf,66,UqDGjXA5yUM,libkernel,libkernel,external_unresolved,munmap,candidate_found,[]
+libc.elf,67,VkTAsrZDcJ0,libkernel,libkernel,external_unresolved,sigfillset,candidate_found,[]
+libc.elf,68,aPcyptbOiZs,libkernel,libkernel,external_unresolved,sigprocmask,candidate_found,[]
+libc.elf,69,tZY4+SZNFhA,libkernel,libkernel,external_unresolved,msync,candidate_found,[]
+libc.elf,70,HoLVWNanBBc,libkernel,libkernel,external_unresolved,getpid,candidate_found,[]
+libc.elf,71,crb5j7mkk1c,libkernel,libkernel,external_unresolved,_is_signal_return,candidate_found,[]
+libc.elf,72,mo0bFmWppIw,libkernel,libkernel,external_unresolved,sigreturn,candidate_found,[]
+libc.elf,73,OjWstbIRPUo,libkernel,libkernel,external_unresolved,__Ux86_64_setcontext,candidate_found,[]
+libc.elf,74,k+AXqu2-eBc,libkernel,libkernel,external_unresolved,getpagesize,candidate_found,[]
+libc.elf,2170,compilerrt_abort_impl,,,external_unresolved,,not_found,[]
+libSceFios2.elf,2,ioKMruft1ek,libSceDiscMap,libSceDiscMap,external_unresolved,sceDiscMap_8A828CAEE7EDD5E9,candidate_found,[]
+libSceFios2.elf,3,lbQKqsERhtE,libSceDiscMap,libSceDiscMap,external_unresolved,sceDiscMapIsRequestOnHDD,candidate_found,[]
+libSceFios2.elf,4,H2e8t5ScQGc,libSceLibcInternal,libSceLibcInternal,external_unresolved,,not_found,[]
+libSceFios2.elf,5,ZT4ODD2Ts9o,libSceLibcInternal,libSceLibcInternal,external_unresolved,Need_sceLibcInternal,candidate_found,[]
+libSceFios2.elf,6,hcuQgD53UxM,libSceLibcInternal,libSceLibcInternal,external_unresolved,,not_found,[]
+libSceFios2.elf,7,Q2V+iqvjgC0,libSceLibcInternal,libSceLibcInternal,external_unresolved,,not_found,[]
+libSceFios2.elf,8,Q3VBxCXhUHs,libSceLibcInternal,libSceLibcInternal,external_unresolved,,not_found,[]
+libSceFios2.elf,9,8zTFvBIAIN8,libSceLibcInternal,libSceLibcInternal,external_unresolved,,not_found,[]
+libSceFios2.elf,10,GMpvxPFW924,libSceLibcInternal,libSceLibcInternal,external_unresolved,,not_found,[]
+libSceFios2.elf,11,2sWzhYqFH4E,libSceLibcInternal,libSceLibcInternal,external_unresolved,,not_found,[]
+libSceFios2.elf,12,MUjC4lbHrK4,libSceLibcInternal,libSceLibcInternal,external_unresolved,,not_found,[]
+libSceFios2.elf,13,n7AepwR0s34,libSceLibcInternal,libSceLibcInternal,external_unresolved,,not_found,[]
+libSceFios2.elf,14,wLlFkwG9UcQ,libSceLibcInternal,libSceLibcInternal,external_unresolved,,not_found,[]
+libSceFios2.elf,15,efhK-YSUYYQ,libSceLibcInternal,libSceLibcInternal,external_unresolved,,not_found,[]
+libSceFios2.elf,16,1mecP7RgI2A,libSceLibcInternal,libSceLibcInternal,external_unresolved,,not_found,[]
+libSceFios2.elf,17,5bBacGLyLOs,libSceLibcInternal,libSceLibcInternal,external_unresolved,,not_found,[]
+libSceFios2.elf,18,gQX+4GDQjpM,libSceLibcInternal,libSceLibcInternal,external_unresolved,,not_found,[]
+libSceFios2.elf,19,tIhsqj0qsFE,libSceLibcInternal,libSceLibcInternal,external_unresolved,,not_found,[]
+libSceFios2.elf,20,f7uOxY9mM1U,libkernel,libkernel,external_unresolved,__stack_chk_guard,candidate_found,[]
+libSceFios2.elf,21,Ou3iL1abvng,libkernel,libkernel,external_unresolved,__stack_chk_fail,candidate_found,[]
+libSceFios2.elf,22,vNe1w4diLCs,libkernel,libkernel,external_unresolved,__tls_get_addr,candidate_found,[]
+libSceFios2.elf,23,QBi7HCK03hw,libkernel,libkernel,external_unresolved,sceKernelClockGettime,candidate_found,[]
+libSceFios2.elf,24,ejekcaNQNq0,libkernel,libkernel,external_unresolved,sceKernelGettimeofday,candidate_found,[]
+libSceFios2.elf,25,9BcDykPmo1I,libkernel,libkernel,external_unresolved,__error,name_only,[]
+libSceFios2.elf,26,1G3lF1Gg1k8,libkernel,libkernel,external_unresolved,sceKernelOpen,candidate_found,[]
+libSceFios2.elf,27,oib76F-12fk,libkernel,libkernel,external_unresolved,sceKernelLseek,candidate_found,[]
+libSceFios2.elf,28,Cg4srZ6TKbU,libkernel,libkernel,external_unresolved,sceKernelRead,candidate_found,[]
+libSceFios2.elf,29,4wSze92BhLI,libkernel,libkernel,external_unresolved,sceKernelWrite,candidate_found,[]
+libSceFios2.elf,30,+r3rMFwItV4,libkernel,libkernel,external_unresolved,sceKernelPread,candidate_found,[]
+libSceFios2.elf,31,nKWi-N2HBV4,libkernel,libkernel,external_unresolved,sceKernelPwrite,candidate_found,[]
+libSceFios2.elf,32,UK2Tl2DWUns,libkernel,libkernel,external_unresolved,sceKernelClose,candidate_found,[]
+libSceFios2.elf,33,kBwCPsYX-m4,libkernel,libkernel,external_unresolved,sceKernelFstat,candidate_found,[]
+libSceFios2.elf,34,fTx66l5iWIA,libkernel,libkernel,external_unresolved,sceKernelFsync,candidate_found,[]
+libSceFios2.elf,35,eV9wAD2riIA,libkernel,libkernel,external_unresolved,sceKernelStat,candidate_found,[]
+libSceFios2.elf,36,taRWhTJFTgE,libkernel,libkernel,external_unresolved,sceKernelGetdirentries,candidate_found,[]
+libSceFios2.elf,37,1-LFLmRFxxM,libkernel,libkernel,external_unresolved,sceKernelMkdir,candidate_found,[]
+libSceFios2.elf,38,naInUjYt3so,libkernel,libkernel,external_unresolved,sceKernelRmdir,candidate_found,[]
+libSceFios2.elf,39,AUXVxWeJU-A,libkernel,libkernel,external_unresolved,sceKernelUnlink,candidate_found,[]
+libSceFios2.elf,40,WlyEA-sLDf0,libkernel,libkernel,external_unresolved,sceKernelTruncate,candidate_found,[]
+libSceFios2.elf,41,VW3TVZiM4-E,libkernel,libkernel,external_unresolved,sceKernelFtruncate,candidate_found,[]
+libSceFios2.elf,42,52NcYU9+lEo,libkernel,libkernel,external_unresolved,sceKernelRename,candidate_found,[]
+libSceFios2.elf,43,2Tb92quprl0,libkernel,libkernel,external_unresolved,scePthreadCondInit,candidate_found,[]
+libSceFios2.elf,44,g+PZd2hiacg,libkernel,libkernel,external_unresolved,scePthreadCondDestroy,candidate_found,[]
+libSceFios2.elf,45,WKAXJ4XBPQ4,libkernel,libkernel,external_unresolved,scePthreadCondWait,candidate_found,[]
+libSceFios2.elf,46,BmMjYxmew1w,libkernel,libkernel,external_unresolved,scePthreadCondTimedwait,candidate_found,[]
+libSceFios2.elf,47,kDh-NfxgMtE,libkernel,libkernel,external_unresolved,scePthreadCondSignal,candidate_found,[]
+libSceFios2.elf,48,JGgj7Uvrl+A,libkernel,libkernel,external_unresolved,scePthreadCondBroadcast,candidate_found,[]
+libSceFios2.elf,49,F8bUHwAG284,libkernel,libkernel,external_unresolved,scePthreadMutexattrInit,candidate_found,[]
+libSceFios2.elf,50,iMp8QpE+XO4,libkernel,libkernel,external_unresolved,scePthreadMutexattrSettype,candidate_found,[]
+libSceFios2.elf,51,1FGvU0i9saQ,libkernel,libkernel,external_unresolved,scePthreadMutexattrSetprotocol,candidate_found,[]
+libSceFios2.elf,52,cmo1RIYva9o,libkernel,libkernel,external_unresolved,scePthreadMutexInit,candidate_found,[]
+libSceFios2.elf,53,smWEktiyyG0,libkernel,libkernel,external_unresolved,scePthreadMutexattrDestroy,candidate_found,[]
+libSceFios2.elf,54,2Of0f+3mhhE,libkernel,libkernel,external_unresolved,scePthreadMutexDestroy,candidate_found,[]
+libSceFios2.elf,55,9UK1vLZQft4,libkernel,libkernel,external_unresolved,scePthreadMutexLock,candidate_found,[]
+libSceFios2.elf,56,upoVrzMHFeE,libkernel,libkernel,external_unresolved,scePthreadMutexTrylock,candidate_found,[]
+libSceFios2.elf,57,tn3VlD0hG60,libkernel,libkernel,external_unresolved,scePthreadMutexUnlock,candidate_found,[]
+libSceFios2.elf,58,6ULAa0fq4jA,libkernel,libkernel,external_unresolved,scePthreadRwlockInit,candidate_found,[]
+libSceFios2.elf,59,BB+kb08Tl9A,libkernel,libkernel,external_unresolved,scePthreadRwlockDestroy,candidate_found,[]
+libSceFios2.elf,60,Ox9i0c7L5w0,libkernel,libkernel,external_unresolved,scePthreadRwlockRdlock,candidate_found,[]
+libSceFios2.elf,61,XD3mDeybCnk,libkernel,libkernel,external_unresolved,scePthreadRwlockTryrdlock,candidate_found,[]
+libSceFios2.elf,62,+L98PIbGttk,libkernel,libkernel,external_unresolved,scePthreadRwlockUnlock,candidate_found,[]
+libSceFios2.elf,63,mqdNorrB+gI,libkernel,libkernel,external_unresolved,scePthreadRwlockWrlock,candidate_found,[]
+libSceFios2.elf,64,bIHoZCTomsI,libkernel,libkernel,external_unresolved,scePthreadRwlockTrywrlock,candidate_found,[]
+libSceFios2.elf,65,1jfXLRVzisc,libkernel,libkernel,external_unresolved,sceKernelUsleep,candidate_found,[]
+libSceFios2.elf,66,nsYoNRywwNg,libkernel,libkernel,external_unresolved,scePthreadAttrInit,name_only,[]
+libSceFios2.elf,67,-Wreprtu0Qs,libkernel,libkernel,external_unresolved,scePthreadAttrSetdetachstate,name_only,[]
+libSceFios2.elf,68,eXbUSpEaTsA,libkernel,libkernel,external_unresolved,scePthreadAttrSetinheritsched,name_only,[]
+libSceFios2.elf,69,DzES9hQF4f4,libkernel,libkernel,external_unresolved,scePthreadAttrSetschedparam,name_only,[]
+libSceFios2.elf,70,3qxgM4ezETA,libkernel,libkernel,external_unresolved,scePthreadAttrSetaffinity,name_only,[]
+libSceFios2.elf,71,UTXzJbWhhTE,libkernel,libkernel,external_unresolved,scePthreadAttrSetstacksize,name_only,[]
+libSceFios2.elf,72,6UgtwV+0zb4,libkernel,libkernel,external_unresolved,scePthreadCreate,name_only,[]
+libSceFios2.elf,73,62KCwEMmzcM,libkernel,libkernel,external_unresolved,scePthreadAttrDestroy,name_only,[]
+libSceFios2.elf,74,aI+OeCz8xrQ,libkernel,libkernel,external_unresolved,scePthreadSelf,name_only,[]
+libSceFios2.elf,75,onNY9Byn-W8,libkernel,libkernel,external_unresolved,scePthreadJoin,name_only,[]
+libSceFios2.elf,76,3PtV6p3QNX4,libkernel,libkernel,external_unresolved,scePthreadEqual,name_only,[]
+libSceFios2.elf,77,W0Hpm2X0uPE,libkernel,libkernel,external_unresolved,scePthreadSetprio,name_only,[]
+libSceFios2.elf,78,1tKyG7RlMJo,libkernel,libkernel,external_unresolved,scePthreadGetprio,name_only,[]
+libSceFios2.elf,79,bt3CTBKmGyI,libkernel,libkernel,external_unresolved,scePthreadSetaffinity,name_only,[]
+libSceFios2.elf,80,rcrVFJsQWRY,libkernel,libkernel,external_unresolved,scePthreadGetaffinity,name_only,[]
+libSceFios2.elf,246,module_stop,,,external_unresolved,,not_found,[]
+libSceFios2.elf,247,module_start,,,external_unresolved,,not_found,[]

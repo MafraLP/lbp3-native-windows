@@ -1,0 +1,270 @@
+﻿
+out\modules\lbp3\libc.elf:	file format elf64-x86-64
+
+Disassembly of section PT_LOAD#0:
+
+0000000000000000 <PT_LOAD#0>:
+    a140: 31 c0                        	xorl	%eax, %eax
+    a142: c3                           	retq
+    a143: 66 66 66 66 2e 0f 1f 84 00 00 00 00 00       	nopw	%cs:(%rax,%rax)
+    a150: 31 c0                        	xorl	%eax, %eax
+    a152: c3                           	retq
+    a153: 66 66 66 66 2e 0f 1f 84 00 00 00 00 00       	nopw	%cs:(%rax,%rax)
+    a160: 48 89 d0                     	movq	%rdx, %rax
+    a163: 48 85 c0                     	testq	%rax, %rax
+    a166: 74 11                        	je	0xa179 <PT_LOAD#0+0xa179>
+    a168: 48 8d 15 62 1b 08 00         	leaq	0x81b62(%rip), %rdx     # 0x8bcd1 <PT_LOAD#0+0x8bcd1>
+    a16f: 48 89 c1                     	movq	%rax, %rcx
+    a172: 30 c0                        	xorb	%al, %al
+    a174: e9 17 a5 00 00               	jmp	0x14690 <PT_LOAD#0+0x14690>
+    a179: 48 8d 15 5c 1b 08 00         	leaq	0x81b5c(%rip), %rdx     # 0x8bcdc <PT_LOAD#0+0x8bcdc>
+    a180: 30 c0                        	xorb	%al, %al
+    a182: e9 09 a5 00 00               	jmp	0x14690 <PT_LOAD#0+0x14690>
+    a187: 66 0f 1f 84 00 00 00 00 00   	nopw	(%rax,%rax)
+    a190: 85 ff                        	testl	%edi, %edi
+    a192: 74 0c                        	je	0xa1a0 <PT_LOAD#0+0xa1a0>
+    a194: bf 02 00 02 a0               	movl	$0xa0020002, %edi       # imm = 0xA0020002
+    a199: 31 f6                        	xorl	%esi, %esi
+    a19b: e9 10 60 ff ff               	jmp	0x1b0 <PT_LOAD#0+0x1b0>
+    a1a0: bf 01 00 02 a0               	movl	$0xa0020001, %edi       # imm = 0xA0020001
+    a1a5: 31 f6                        	xorl	%esi, %esi
+    a1a7: e9 04 60 ff ff               	jmp	0x1b0 <PT_LOAD#0+0x1b0>
+    a1ac: 90                           	nop
+    a1ad: 90                           	nop
+    a1ae: 90                           	nop
+    a1af: 90                           	nop
+    a1b0: 8d 0c 3f                     	leal	(%rdi,%rdi), %ecx
+    a1b3: 83 e1 02                     	andl	$0x2, %ecx
+    a1b6: 89 f8                        	movl	%edi, %eax
+    a1b8: d1 e8                        	shrl	%eax
+    a1ba: 83 e0 04                     	andl	$0x4, %eax
+    a1bd: 09 c8                        	orl	%ecx, %eax
+    a1bf: 89 f9                        	movl	%edi, %ecx
+    a1c1: c1 e9 06                     	shrl	$0x6, %ecx
+    a1c4: 89 ca                        	movl	%ecx, %edx
+    a1c6: 83 e2 08                     	andl	$0x8, %edx
+    a1c9: 09 c2                        	orl	%eax, %edx
+    a1cb: 83 e1 10                     	andl	$0x10, %ecx
+    a1ce: 09 d1                        	orl	%edx, %ecx
+    a1d0: 89 c8                        	movl	%ecx, %eax
+    a1d2: 83 c8 03                     	orl	$0x3, %eax
+    a1d5: 40 f6 c7 02                  	testb	$0x2, %dil
+    a1d9: 0f 44 c1                     	cmovel	%ecx, %eax
+    a1dc: c3                           	retq
+    a1dd: 0f 1f 00                     	nopl	(%rax)
+    a1e0: 55                           	pushq	%rbp
+    a1e1: 48 89 e5                     	movq	%rsp, %rbp
+    a1e4: 41 57                        	pushq	%r15
+    a1e6: 41 56                        	pushq	%r14
+    a1e8: 53                           	pushq	%rbx
+    a1e9: 50                           	pushq	%rax
+    a1ea: 49 89 d6                     	movq	%rdx, %r14
+    a1ed: 49 89 f7                     	movq	%rsi, %r15
+    a1f0: 89 fb                        	movl	%edi, %ebx
+    a1f2: 85 db                        	testl	%ebx, %ebx
+    a1f4: 74 4f                        	je	0xa245 <PT_LOAD#0+0xa245>
+    a1f6: 89 df                        	movl	%ebx, %edi
+    a1f8: e8 c3 5f ff ff               	callq	0x1c0 <PT_LOAD#0+0x1c0>
+    a1fd: 88 c1                        	movb	%al, %cl
+    a1ff: b8 9c ff ff ff               	movl	$0xffffff9c, %eax       # imm = 0xFFFFFF9C
+    a204: 84 c9                        	testb	%cl, %cl
+    a206: 0f 84 9c 00 00 00            	je	0xa2a8 <PT_LOAD#0+0xa2a8>
+    a20c: 31 ff                        	xorl	%edi, %edi
+    a20e: 89 de                        	movl	%ebx, %esi
+    a210: 4c 89 fa                     	movq	%r15, %rdx
+    a213: 4c 89 f1                     	movq	%r14, %rcx
+    a216: e8 b5 5f ff ff               	callq	0x1d0 <PT_LOAD#0+0x1d0>
+    a21b: 85 c0                        	testl	%eax, %eax
+    a21d: 0f 89 85 00 00 00            	jns	0xa2a8 <PT_LOAD#0+0xa2a8>
+    a223: 8d 88 00 00 7e 7f            	leal	0x7f7e0000(%rax), %ecx
+    a229: 83 f9 17                     	cmpl	$0x17, %ecx
+    a22c: 77 59                        	ja	0xa287 <PT_LOAD#0+0xa287>
+    a22e: 48 8d 15 7f 00 00 00         	leaq	0x7f(%rip), %rdx        # 0xa2b4 <PT_LOAD#0+0xa2b4>
+    a235: 48 63 0c 8a                  	movslq	(%rdx,%rcx,4), %rcx
+    a239: 48 01 d1                     	addq	%rdx, %rcx
+    a23c: ff e1                        	jmpq	*%rcx
+    a23e: b8 05 00 02 80               	movl	$0x80020005, %eax       # imm = 0x80020005
+    a243: eb 42                        	jmp	0xa287 <PT_LOAD#0+0xa287>
+    a245: 31 ff                        	xorl	%edi, %edi
+    a247: 4c 89 fe                     	movq	%r15, %rsi
+    a24a: 4c 89 f2                     	movq	%r14, %rdx
+    a24d: e8 8e 5f ff ff               	callq	0x1e0 <PT_LOAD#0+0x1e0>
+    a252: 85 c0                        	testl	%eax, %eax
+    a254: 79 52                        	jns	0xa2a8 <PT_LOAD#0+0xa2a8>
+    a256: eb 2f                        	jmp	0xa287 <PT_LOAD#0+0xa287>
+    a258: b8 02 00 02 80               	movl	$0x80020002, %eax       # imm = 0x80020002
+    a25d: eb 28                        	jmp	0xa287 <PT_LOAD#0+0xa287>
+    a25f: b8 09 00 02 80               	movl	$0x80020009, %eax       # imm = 0x80020009
+    a264: eb 21                        	jmp	0xa287 <PT_LOAD#0+0xa287>
+    a266: b8 14 00 02 80               	movl	$0x80020014, %eax       # imm = 0x80020014
+    a26b: eb 1a                        	jmp	0xa287 <PT_LOAD#0+0xa287>
+    a26d: b8 22 00 02 80               	movl	$0x80020022, %eax       # imm = 0x80020022
+    a272: eb 13                        	jmp	0xa287 <PT_LOAD#0+0xa287>
+    a274: b8 01 00 02 80               	movl	$0x80020001, %eax       # imm = 0x80020001
+    a279: eb 0c                        	jmp	0xa287 <PT_LOAD#0+0xa287>
+    a27b: b8 1e 00 02 80               	movl	$0x8002001e, %eax       # imm = 0x8002001E
+    a280: eb 05                        	jmp	0xa287 <PT_LOAD#0+0xa287>
+    a282: b8 13 00 02 80               	movl	$0x80020013, %eax       # imm = 0x80020013
+    a287: 0f b7 c8                     	movzwl	%ax, %ecx
+    a28a: 25 00 00 ff 0f               	andl	$0xfff0000, %eax        # imm = 0xFFF0000
+    a28f: bb 05 00 00 00               	movl	$0x5, %ebx
+    a294: 3d 00 00 02 00               	cmpl	$0x20000, %eax          # imm = 0x20000
+    a299: 0f 44 d9                     	cmovel	%ecx, %ebx
+    a29c: e8 4f 5f ff ff               	callq	0x1f0 <PT_LOAD#0+0x1f0>
+    a2a1: 89 18                        	movl	%ebx, (%rax)
+    a2a3: b8 ff ff ff ff               	movl	$0xffffffff, %eax       # imm = 0xFFFFFFFF
+    a2a8: 48 83 c4 08                  	addq	$0x8, %rsp
+    a2ac: 5b                           	popq	%rbx
+    a2ad: 41 5e                        	popq	%r14
+    a2af: 41 5f                        	popq	%r15
+    a2b1: 5d                           	popq	%rbp
+    a2b2: c3                           	retq
+    a2b3: 90                           	nop
+    a2b4: 8a ff                        	movb	%bh, %bh
+    a2b6: ff ff                        	<unknown>
+    a2b8: 8a ff                        	movb	%bh, %bh
+    a2ba: ff ff                        	<unknown>
+    a2bc: 8a ff                        	movb	%bh, %bh
+    a2be: ff ff                        	<unknown>
+    a2c0: 8a ff                        	movb	%bh, %bh
+    a2c2: ff ff                        	<unknown>
+    a2c4: 8a ff                        	movb	%bh, %bh
+    a2c6: ff ff                        	<unknown>
+    a2c8: a4                           	movsb	(%rsi), %es:(%rdi)
+    a2c9: ff ff                        	<unknown>
+    a2cb: ff 8a ff ff ff 8a            	decl	-0x75000001(%rdx)
+    a2d1: ff ff                        	<unknown>
+    a2d3: ff 8a ff ff ff 8a            	decl	-0x75000001(%rdx)
+    a2d9: ff ff                        	<unknown>
+    a2db: ff 8a ff ff ff ab            	decl	-0x54000001(%rdx)
+    a2e1: ff ff                        	<unknown>
+    a2e3: ff 8a ff ff ff 8a            	decl	-0x75000001(%rdx)
+    a2e9: ff ff                        	<unknown>
+    a2eb: ff d3                        	callq	*%rbx
+    a2ed: ff ff                        	<unknown>
+    a2ef: ff b2 ff ff ff b9            	pushq	-0x46000001(%rdx)
+    a2f5: ff ff                        	<unknown>
+    a2f7: ff d3                        	callq	*%rbx
+    a2f9: ff ff                        	<unknown>
+    a2fb: ff d3                        	callq	*%rbx
+    a2fd: ff ff                        	<unknown>
+    a2ff: ff c0                        	incl	%eax
+    a301: ff ff                        	<unknown>
+    a303: ff 8a ff ff ff c7            	decl	-0x38000001(%rdx)
+    a309: ff ff                        	<unknown>
+    a30b: ff d3                        	callq	*%rbx
+    a30d: ff ff                        	<unknown>
+    a30f: ff ce                        	decl	%esi
+    a311: ff ff                        	<unknown>
+    a313: ff 66 66                     	jmpq	*0x66(%rsi)
+    a316: 66 2e 0f 1f 84 00 00 00 00 00	nopw	%cs:(%rax,%rax)
+    a320: 55                           	pushq	%rbp
+    a321: 48 89 e5                     	movq	%rsp, %rbp
+    a324: 41 57                        	pushq	%r15
+    a326: 41 56                        	pushq	%r14
+    a328: 53                           	pushq	%rbx
+    a329: 50                           	pushq	%rax
+    a32a: 49 89 d6                     	movq	%rdx, %r14
+    a32d: 49 89 f7                     	movq	%rsi, %r15
+    a330: 89 fb                        	movl	%edi, %ebx
+    a332: 8d 43 ff                     	leal	-0x1(%rbx), %eax
+    a335: 83 f8 01                     	cmpl	$0x1, %eax
+    a338: 77 13                        	ja	0xa34d <PT_LOAD#0+0xa34d>
+    a33a: 89 df                        	movl	%ebx, %edi
+    a33c: 4c 89 fe                     	movq	%r15, %rsi
+    a33f: 4c 89 f2                     	movq	%r14, %rdx
+    a342: e8 b9 5e ff ff               	callq	0x200 <PT_LOAD#0+0x200>
+    a347: 85 c0                        	testl	%eax, %eax
+    a349: 79 68                        	jns	0xa3b3 <PT_LOAD#0+0xa3b3>
+    a34b: eb 45                        	jmp	0xa392 <PT_LOAD#0+0xa392>
+    a34d: 89 df                        	movl	%ebx, %edi
+    a34f: e8 6c 5e ff ff               	callq	0x1c0 <PT_LOAD#0+0x1c0>
+    a354: 88 c1                        	movb	%al, %cl
+    a356: b8 9c ff ff ff               	movl	$0xffffff9c, %eax       # imm = 0xFFFFFF9C
+    a35b: 84 c9                        	testb	%cl, %cl
+    a35d: 74 54                        	je	0xa3b3 <PT_LOAD#0+0xa3b3>
+    a35f: 31 ff                        	xorl	%edi, %edi
+    a361: 89 de                        	movl	%ebx, %esi
+    a363: 4c 89 fa                     	movq	%r15, %rdx
+    a366: 4c 89 f1                     	movq	%r14, %rcx
+    a369: e8 a2 5e ff ff               	callq	0x210 <PT_LOAD#0+0x210>
+    a36e: 85 c0                        	testl	%eax, %eax
+    a370: 79 41                        	jns	0xa3b3 <PT_LOAD#0+0xa3b3>
+    a372: 8d 88 00 00 7e 7f            	leal	0x7f7e0000(%rax), %ecx
+    a378: 83 f9 17                     	cmpl	$0x17, %ecx
+    a37b: 77 15                        	ja	0xa392 <PT_LOAD#0+0xa392>
+    a37d: 48 8d 15 6c 00 00 00         	leaq	0x6c(%rip), %rdx        # 0xa3f0 <PT_LOAD#0+0xa3f0>
+    a384: 48 63 0c 8a                  	movslq	(%rdx,%rcx,4), %rcx
+    a388: 48 01 d1                     	addq	%rdx, %rcx
+    a38b: ff e1                        	jmpq	*%rcx
+    a38d: b8 05 00 02 80               	movl	$0x80020005, %eax       # imm = 0x80020005
+    a392: 0f b7 c8                     	movzwl	%ax, %ecx
+    a395: 25 00 00 ff 0f               	andl	$0xfff0000, %eax        # imm = 0xFFF0000
+    a39a: bb 05 00 00 00               	movl	$0x5, %ebx
+    a39f: 3d 00 00 02 00               	cmpl	$0x20000, %eax          # imm = 0x20000
+    a3a4: 0f 44 d9                     	cmovel	%ecx, %ebx
+    a3a7: e8 44 5e ff ff               	callq	0x1f0 <PT_LOAD#0+0x1f0>
+    a3ac: 89 18                        	movl	%ebx, (%rax)
+    a3ae: b8 ff ff ff ff               	movl	$0xffffffff, %eax       # imm = 0xFFFFFFFF
+    a3b3: 48 83 c4 08                  	addq	$0x8, %rsp
+    a3b7: 5b                           	popq	%rbx
+    a3b8: 41 5e                        	popq	%r14
+    a3ba: 41 5f                        	popq	%r15
+    a3bc: 5d                           	popq	%rbp
+    a3bd: c3                           	retq
+    a3be: b8 02 00 02 80               	movl	$0x80020002, %eax       # imm = 0x80020002
+    a3c3: eb cd                        	jmp	0xa392 <PT_LOAD#0+0xa392>
+    a3c5: b8 09 00 02 80               	movl	$0x80020009, %eax       # imm = 0x80020009
+    a3ca: eb c6                        	jmp	0xa392 <PT_LOAD#0+0xa392>
+    a3cc: b8 14 00 02 80               	movl	$0x80020014, %eax       # imm = 0x80020014
+    a3d1: eb bf                        	jmp	0xa392 <PT_LOAD#0+0xa392>
+    a3d3: b8 22 00 02 80               	movl	$0x80020022, %eax       # imm = 0x80020022
+    a3d8: eb b8                        	jmp	0xa392 <PT_LOAD#0+0xa392>
+    a3da: b8 01 00 02 80               	movl	$0x80020001, %eax       # imm = 0x80020001
+    a3df: eb b1                        	jmp	0xa392 <PT_LOAD#0+0xa392>
+    a3e1: b8 1e 00 02 80               	movl	$0x8002001e, %eax       # imm = 0x8002001E
+    a3e6: eb aa                        	jmp	0xa392 <PT_LOAD#0+0xa392>
+    a3e8: b8 13 00 02 80               	movl	$0x80020013, %eax       # imm = 0x80020013
+    a3ed: eb a3                        	jmp	0xa392 <PT_LOAD#0+0xa392>
+    a3ef: 90                           	nop
+    a3f0: 9d                           	popfq
+    a3f1: ff ff                        	<unknown>
+    a3f3: ff 9d ff ff ff 9d            	lcalll	*-0x62000001(%rbp)
+    a3f9: ff ff                        	<unknown>
+    a3fb: ff 9d ff ff ff 9d            	lcalll	*-0x62000001(%rbp)
+    a401: ff ff                        	<unknown>
+    a403: ff ce                        	decl	%esi
+    a405: ff ff                        	<unknown>
+    a407: ff 9d ff ff ff 9d            	lcalll	*-0x62000001(%rbp)
+    a40d: ff ff                        	<unknown>
+    a40f: ff 9d ff ff ff 9d            	lcalll	*-0x62000001(%rbp)
+    a415: ff ff                        	<unknown>
+    a417: ff 9d ff ff ff d5            	lcalll	*-0x2a000001(%rbp)
+    a41d: ff ff                        	<unknown>
+    a41f: ff 9d ff ff ff 9d            	lcalll	*-0x62000001(%rbp)
+    a425: ff ff                        	<unknown>
+    a427: ff a2 ff ff ff dc            	jmpq	*-0x23000001(%rdx)
+    a42d: ff ff                        	<unknown>
+    a42f: ff e3                        	jmpq	*%rbx
+    a431: ff ff                        	<unknown>
+    a433: ff a2 ff ff ff a2            	jmpq	*-0x5d000001(%rdx)
+    a439: ff ff                        	<unknown>
+    a43b: ff ea                        	<unknown>
+    a43d: ff ff                        	<unknown>
+    a43f: ff 9d ff ff ff f1            	lcalll	*-0xe000001(%rbp)
+    a445: ff ff                        	<unknown>
+    a447: ff a2 ff ff ff f8            	jmpq	*-0x7000001(%rdx)
+    a44d: ff ff                        	<unknown>
+    a44f: ff 55 48                     	callq	*0x48(%rbp)
+    a452: 89 e5                        	movl	%esp, %ebp
+    a454: 41 56                        	pushq	%r14
+    a456: 53                           	pushq	%rbx
+    a457: 48 81 ec 00 01 00 00         	subq	$0x100, %rsp            # imm = 0x100
+    a45e: 89 f3                        	movl	%esi, %ebx
+    a460: 49 89 fa                     	movq	%rdi, %r10
+    a463: 84 c0                        	testb	%al, %al
+    a465: 74 3a                        	je	0xa4a1 <PT_LOAD#0+0xa4a1>
+    a467: c5 f8 29 85 20 ff ff ff      	vmovaps	%xmm0, -0xe0(%rbp)
+    a46f: c5 f8 29 8d 30 ff ff ff      	vmovaps	%xmm1, -0xd0(%rbp)
+    a477: c5 f8 29 95 40 ff ff ff      	vmovaps	%xmm2, -0xc0(%rbp)
+    a47f: c5 f8 29 9d 50 ff ff ff      	vmovaps	%xmm3, -0xb0(%rbp)

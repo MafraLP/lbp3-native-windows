@@ -1,0 +1,49 @@
+{
+  "version": 5,
+  "cmakeMinimumRequired": { "major": 3, "minor": 24, "patch": 0 },
+  "configurePresets": [
+    {
+      "name": "win-clang-base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "architecture": { "value": "x64", "strategy": "external" },
+      "condition": { "type": "equals", "lhs": "${hostSystemName}", "rhs": "Windows" },
+      "cacheVariables": {
+        "CMAKE_CXX_COMPILER": "clang-cl",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": true,
+        "BUILD_TESTING": true
+      }
+    },
+    {
+      "name": "win-clang-debug",
+      "displayName": "Windows x64 / clang-cl / Debug",
+      "inherits": "win-clang-base",
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Debug" }
+    },
+    {
+      "name": "win-clang-relwithdebinfo",
+      "displayName": "Windows x64 / clang-cl / RelWithDebInfo",
+      "inherits": "win-clang-base",
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "RelWithDebInfo" }
+    }
+  ],
+  "buildPresets": [
+    { "name": "win-clang-debug", "configurePreset": "win-clang-debug" },
+    { "name": "win-clang-relwithdebinfo", "configurePreset": "win-clang-relwithdebinfo" }
+  ],
+  "testPresets": [
+    {
+      "name": "win-clang-debug",
+      "configurePreset": "win-clang-debug",
+      "output": { "outputOnFailure": true },
+      "execution": { "noTestsAction": "error" }
+    },
+    {
+      "name": "win-clang-relwithdebinfo",
+      "configurePreset": "win-clang-relwithdebinfo",
+      "output": { "outputOnFailure": true },
+      "execution": { "noTestsAction": "error" }
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+﻿
+out\modules\lbp3\libc.elf:	file format elf64-x86-64
+
+Disassembly of section PT_LOAD#0:
+
+0000000000000000 <PT_LOAD#0>:
+   30180: 55                           	pushq	%rbp
+   30181: 48 89 e5                     	movq	%rsp, %rbp
+   30184: 41 56                        	pushq	%r14
+   30186: 53                           	pushq	%rbx
+   30187: 48 83 ec 30                  	subq	$0x30, %rsp
+   3018b: 4c 8b 35 06 43 08 00         	movq	0x84306(%rip), %r14     # 0xb4498 <PT_LOAD#0+0xb4498>
+   30192: 49 8b 06                     	movq	(%r14), %rax
+   30195: 48 89 45 e8                  	movq	%rax, -0x18(%rbp)
+   30199: 48 8d 5d c0                  	leaq	-0x40(%rbp), %rbx
+   3019d: 48 8d 15 7c dc 05 00         	leaq	0x5dc7c(%rip), %rdx     # 0x8de20 <PT_LOAD#0+0x8de20>
+   301a4: 48 89 df                     	movq	%rbx, %rdi
+   301a7: be 20 00 00 00               	movl	$0x20, %esi
+   301ac: e8 af 9f fd ff               	callq	0xa160 <PT_LOAD#0+0xa160>
+   301b1: 48 8d 3d 70 b8 08 00         	leaq	0x8b870(%rip), %rdi     # 0xbba28 <PT_LOAD#0+0xbba28>
+   301b8: 31 f6                        	xorl	%esi, %esi
+   301ba: 48 89 da                     	movq	%rbx, %rdx
+   301bd: e8 6e ff fc ff               	callq	0x130 <PT_LOAD#0+0x130>
+   301c2: 85 c0                        	testl	%eax, %eax
+   301c4: 0f 95 c0                     	setne	%al
+   301c7: 49 8b 0e                     	movq	(%r14), %rcx
+   301ca: 48 3b 4d e8                  	cmpq	-0x18(%rbp), %rcx
+   301ce: 75 0c                        	jne	0x301dc <PT_LOAD#0+0x301dc>
+   301d0: 0f b6 c0                     	movzbl	%al, %eax
+   301d3: 48 83 c4 30                  	addq	$0x30, %rsp
+   301d7: 5b                           	popq	%rbx
+   301d8: 41 5e                        	popq	%r14
+   301da: 5d                           	popq	%rbp
+   301db: c3                           	retq
+   301dc: e8 2f ff fc ff               	callq	0x110 <PT_LOAD#0+0x110>
+   301e1: 90                           	nop
+   301e2: 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00    	nopw	%cs:(%rax,%rax)
+   301f0: 55                           	pushq	%rbp
+   301f1: 48 89 e5                     	movq	%rsp, %rbp
+   301f4: 53                           	pushq	%rbx
+   301f5: 48 83 ec 28                  	subq	$0x28, %rsp
+   301f9: 48 8b 1d 98 42 08 00         	movq	0x84298(%rip), %rbx     # 0xb4498 <PT_LOAD#0+0xb4498>
+   30200: 48 8b 03                     	movq	(%rbx), %rax
+   30203: 48 89 45 f0                  	movq	%rax, -0x10(%rbp)
+   30207: c7 45 d0 01 00 00 00         	movl	$0x1, -0x30(%rbp)
+   3020e: 48 89 7d d8                  	movq	%rdi, -0x28(%rbp)
+   30212: 48 c7 45 e8 00 00 00 00      	movq	$0x0, -0x18(%rbp)
+   3021a: 48 c7 45 e0 00 00 00 00      	movq	$0x0, -0x20(%rbp)
+   30222: 48 8d 7d d0                  	leaq	-0x30(%rbp), %rdi
+   30226: e8 25 00 00 00               	callq	0x30250 <PT_LOAD#0+0x30250>
+   3022b: 48 8b 0b                     	movq	(%rbx), %rcx
+   3022e: 48 3b 4d f0                  	cmpq	-0x10(%rbp), %rcx
+   30232: 75 07                        	jne	0x3023b <PT_LOAD#0+0x3023b>
+   30234: 48 83 c4 28                  	addq	$0x28, %rsp
+   30238: 5b                           	popq	%rbx
+   30239: 5d                           	popq	%rbp
+   3023a: c3                           	retq
+   3023b: e8 d0 fe fc ff               	callq	0x110 <PT_LOAD#0+0x110>
+   30240: 90                           	nop
+   30241: 66 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 	nopw	%cs:(%rax,%rax)
+   30250: 55                           	pushq	%rbp
+   30251: 48 89 e5                     	movq	%rsp, %rbp
+   30254: 41 57                        	pushq	%r15
+   30256: 41 56                        	pushq	%r14
+   30258: 41 55                        	pushq	%r13
+   3025a: 41 54                        	pushq	%r12
+   3025c: 53                           	pushq	%rbx
+   3025d: 50                           	pushq	%rax
+   3025e: 48 89 7d d0                  	movq	%rdi, -0x30(%rbp)
+   30262: 4c 8d 2d df bf 08 00         	leaq	0x8bfdf(%rip), %r13     # 0xbc248 <PT_LOAD#0+0xbc248>
+   30269: 41 83 7d 00 00               	cmpl	$0x0, (%r13)
+   3026e: 74 0c                        	je	0x3027c <PT_LOAD#0+0x3027c>

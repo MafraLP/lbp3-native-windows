@@ -1,0 +1,53 @@
+﻿
+out/modules/lbp3/libc.elf:	file format elf64-x86-64
+
+Disassembly of section PT_LOAD#0:
+
+0000000000000000 <PT_LOAD#0>:
+     883: 48 8d 3d 2e 42 0b 00         	leaq	0xb422e(%rip), %rdi     # 0xb4ab8 <PT_LOAD#0+0xb4ab8>
+     88a: e8 61 f8 ff ff               	callq	0xf0 <PT_LOAD#0+0xf0>
+     88f: 48 83 3d f9 3b 0b 00 00      	cmpq	$0x0, 0xb3bf9(%rip)     # 0xb4490 <PT_LOAD#0+0xb4490>
+     897: 74 15                        	je	0x8ae <PT_LOAD#0+0x8ae>
+     899: 48 89 df                     	movq	%rbx, %rdi
+     89c: e8 2f b1 05 00               	callq	0x5b9d0 <PT_LOAD#0+0x5b9d0>
+     8a1: 89 c3                        	movl	%eax, %ebx
+     8a3: 85 db                        	testl	%ebx, %ebx
+     8a5: 74 07                        	je	0x8ae <PT_LOAD#0+0x8ae>
+     8a7: bf 11 00 02 a0               	movl	$0xa0020011, %edi       # imm = 0xA0020011
+     8ac: eb 20                        	jmp	0x8ce <PT_LOAD#0+0x8ce>
+     8ae: 49 8b 06                     	movq	(%r14), %rax
+     8b1: 48 85 c0                     	testq	%rax, %rax
+     8b4: 74 53                        	je	0x909 <PT_LOAD#0+0x909>
+     8b6: 48 8b 48 10                  	movq	0x10(%rax), %rcx
+     8ba: 48 85 c9                     	testq	%rcx, %rcx
+     8bd: 74 4a                        	je	0x909 <PT_LOAD#0+0x909>
+     8bf: 30 c0                        	xorb	%al, %al
+     8c1: ff d1                        	callq	*%rcx
+     8c3: 89 c3                        	movl	%eax, %ebx
+     8c5: 85 db                        	testl	%ebx, %ebx
+     8c7: 74 40                        	je	0x909 <PT_LOAD#0+0x909>
+     8c9: bf 14 00 02 a0               	movl	$0xa0020014, %edi       # imm = 0xA0020014
+     8ce: 31 f6                        	xorl	%esi, %esi
+     8d0: e8 2b f8 ff ff               	callq	0x100 <PT_LOAD#0+0x100>
+     8d5: eb 2b                        	jmp	0x902 <PT_LOAD#0+0x902>
+     8d7: 48 85 c9                     	testq	%rcx, %rcx
+     8da: 75 15                        	jne	0x8f1 <PT_LOAD#0+0x8f1>
+     8dc: 48 83 78 20 00               	cmpq	$0x0, 0x20(%rax)
+     8e1: 75 0e                        	jne	0x8f1 <PT_LOAD#0+0x8f1>
+     8e3: 48 83 78 30 00               	cmpq	$0x0, 0x30(%rax)
+     8e8: 75 07                        	jne	0x8f1 <PT_LOAD#0+0x8f1>
+     8ea: 48 83 78 28 00               	cmpq	$0x0, 0x28(%rax)
+     8ef: 74 92                        	je	0x883 <PT_LOAD#0+0x883>
+     8f1: bf 12 00 02 a0               	movl	$0xa0020012, %edi       # imm = 0xA0020012
+     8f6: 31 f6                        	xorl	%esi, %esi
+     8f8: e8 03 f8 ff ff               	callq	0x100 <PT_LOAD#0+0x100>
+     8fd: bb 01 00 00 00               	movl	$0x1, %ebx
+     902: 89 d8                        	movl	%ebx, %eax
+     904: 5b                           	popq	%rbx
+     905: 41 5e                        	popq	%r14
+     907: 5d                           	popq	%rbp
+     908: c3                           	retq
+     909: 5b                           	popq	%rbx
+     90a: 41 5e                        	popq	%r14
+     90c: 5d                           	popq	%rbp
+     90d: ff 25 45 41 0b 00            	jmpq	*0xb4145(%rip)          # 0xb4a58 <PT_LOAD#0+0xb4a58>

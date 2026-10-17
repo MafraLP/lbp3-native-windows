@@ -1,0 +1,110 @@
+﻿
+out/modules/lbp3/libc.elf:	file format elf64-x86-64
+
+Disassembly of section PT_LOAD#0:
+
+0000000000000000 <PT_LOAD#0>:
+     fc0: 55                           	pushq	%rbp
+     fc1: 48 89 e5                     	movq	%rsp, %rbp
+     fc4: 41 57                        	pushq	%r15
+     fc6: 41 56                        	pushq	%r14
+     fc8: 53                           	pushq	%rbx
+     fc9: 48 83 ec 38                  	subq	$0x38, %rsp
+     fcd: 48 8b 05 c4 34 0b 00         	movq	0xb34c4(%rip), %rax     # 0xb4498 <PT_LOAD#0+0xb4498>
+     fd4: 48 8b 00                     	movq	(%rax), %rax
+     fd7: 48 89 45 e0                  	movq	%rax, -0x20(%rbp)
+     fdb: 48 8b 1d 36 9f 0b 00         	movq	0xb9f36(%rip), %rbx     # 0xbaf18 <PT_LOAD#0+0xbaf18>
+     fe2: 48 85 db                     	testq	%rbx, %rbx
+     fe5: 75 0a                        	jne	0xff1 <PT_LOAD#0+0xff1>
+     fe7: 48 89 3d 2a 9f 0b 00         	movq	%rdi, 0xb9f2a(%rip)     # 0xbaf18 <PT_LOAD#0+0xbaf18>
+     fee: 48 89 fb                     	movq	%rdi, %rbx
+     ff1: 4c 8d 75 c0                  	leaq	-0x40(%rbp), %r14
+     ff5: 48 8d 35 d0 a9 08 00         	leaq	0x8a9d0(%rip), %rsi     # 0x8b9cc <PT_LOAD#0+0x8b9cc>
+     ffc: 4c 89 f7                     	movq	%r14, %rdi
+     fff: ba 1f 00 00 00               	movl	$0x1f, %edx
+    1004: e8 67 3c 01 00               	callq	0x14c70 <PT_LOAD#0+0x14c70>
+    1009: 4c 89 f7                     	movq	%r14, %rdi
+    100c: e8 cf fa 02 00               	callq	0x30ae0 <PT_LOAD#0+0x30ae0>
+    1011: 48 8d 44 05 c0               	leaq	-0x40(%rbp,%rax), %rax
+    1016: b9 3c 00 00 00               	movl	$0x3c, %ecx
+    101b: 48 8d 3d 9e ac 08 00         	leaq	0x8ac9e(%rip), %rdi     # 0x8bcc0 <PT_LOAD#0+0x8bcc0>
+    1022: 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00    	nopw	%cs:(%rax,%rax)
+    1030: 48 89 de                     	movq	%rbx, %rsi
+    1033: 48 d3 ee                     	shrq	%cl, %rsi
+    1036: 48 83 e6 0f                  	andq	$0xf, %rsi
+    103a: 8a 14 3e                     	movb	(%rsi,%rdi), %dl
+    103d: 88 10                        	movb	%dl, (%rax)
+    103f: 48 ff c0                     	incq	%rax
+    1042: 48 83 c1 fc                  	addq	$-0x4, %rcx
+    1046: 83 f9 fc                     	cmpl	$-0x4, %ecx
+    1049: 75 e5                        	jne	0x1030 <PT_LOAD#0+0x1030>
+    104b: c6 45 df 00                  	movb	$0x0, -0x21(%rbp)
+    104f: 48 8b 1d c2 9e 0b 00         	movq	0xb9ec2(%rip), %rbx     # 0xbaf18 <PT_LOAD#0+0xbaf18>
+    1056: 48 8d 7d b8                  	leaq	-0x48(%rbp), %rdi
+    105a: e8 c1 f0 ff ff               	callq	0x120 <PT_LOAD#0+0x120>
+    105f: 41 be 01 00 00 00            	movl	$0x1, %r14d
+    1065: 85 c0                        	testl	%eax, %eax
+    1067: 0f 85 88 03 00 00            	jne	0x13f5 <PT_LOAD#0+0x13f5>
+    106d: 48 81 c3 78 03 00 00         	addq	$0x378, %rbx            # imm = 0x378
+    1074: 48 8d 75 b8                  	leaq	-0x48(%rbp), %rsi
+    1078: 48 8d 55 c0                  	leaq	-0x40(%rbp), %rdx
+    107c: 48 89 df                     	movq	%rbx, %rdi
+    107f: e8 ac f0 ff ff               	callq	0x130 <PT_LOAD#0+0x130>
+    1084: 85 c0                        	testl	%eax, %eax
+    1086: 0f 85 69 03 00 00            	jne	0x13f5 <PT_LOAD#0+0x13f5>
+    108c: 48 8b 03                     	movq	(%rbx), %rax
+    108f: 81 48 20 00 01 00 00         	orl	$0x100, 0x20(%rax)      # imm = 0x100
+    1096: 48 8d 7d b8                  	leaq	-0x48(%rbp), %rdi
+    109a: e8 a1 f0 ff ff               	callq	0x140 <PT_LOAD#0+0x140>
+    109f: 85 c0                        	testl	%eax, %eax
+    10a1: 0f 85 4e 03 00 00            	jne	0x13f5 <PT_LOAD#0+0x13f5>
+    10a7: 80 3d 73 9e 0b 00 01         	cmpb	$0x1, 0xb9e73(%rip)     # 0xbaf21 <PT_LOAD#0+0xbaf21>
+    10ae: 75 32                        	jne	0x10e2 <PT_LOAD#0+0x10e2>
+    10b0: b9 07 00 00 00               	movl	$0x7, %ecx
+    10b5: 31 c0                        	xorl	%eax, %eax
+    10b7: 8a 15 67 9e 0b 00            	movb	0xb9e67(%rip), %dl      # 0xbaf24 <PT_LOAD#0+0xbaf24>
+    10bd: 84 d2                        	testb	%dl, %dl
+    10bf: 0f 45 c1                     	cmovnel	%ecx, %eax
+    10c2: ba 58 58 58 58               	movl	$0x58585858, %edx       # imm = 0x58585858
+    10c7: 31 c9                        	xorl	%ecx, %ecx
+    10c9: 8a 1d 51 9e 0b 00            	movb	0xb9e51(%rip), %bl      # 0xbaf20 <PT_LOAD#0+0xbaf20>
+    10cf: 84 db                        	testb	%bl, %bl
+    10d1: 48 0f 45 ca                  	cmovneq	%rdx, %rcx
+    10d5: 0f b6 15 46 9e 0b 00         	movzbl	0xb9e46(%rip), %edx     # 0xbaf22 <PT_LOAD#0+0xbaf22>
+    10dc: 48 c1 e2 10                  	shlq	$0x10, %rdx
+    10e0: eb 32                        	jmp	0x1114 <PT_LOAD#0+0x1114>
+    10e2: c6 05 37 9e 0b 00 01         	movb	$0x1, 0xb9e37(%rip)     # 0xbaf20 <PT_LOAD#0+0xbaf20>
+    10e9: c6 05 33 9e 0b 00 01         	movb	$0x1, 0xb9e33(%rip)     # 0xbaf23 <PT_LOAD#0+0xbaf23>
+    10f0: c6 05 2a 9e 0b 00 01         	movb	$0x1, 0xb9e2a(%rip)     # 0xbaf21 <PT_LOAD#0+0xbaf21>
+    10f7: c6 05 24 9e 0b 00 01         	movb	$0x1, 0xb9e24(%rip)     # 0xbaf22 <PT_LOAD#0+0xbaf22>
+    10fe: c6 05 1f 9e 0b 00 01         	movb	$0x1, 0xb9e1f(%rip)     # 0xbaf24 <PT_LOAD#0+0xbaf24>
+    1105: b9 58 58 58 58               	movl	$0x58585858, %ecx       # imm = 0x58585858
+    110a: b8 07 00 00 00               	movl	$0x7, %eax
+    110f: ba 00 00 01 00               	movl	$0x10000, %edx          # imm = 0x10000
+    1114: 48 8b 35 fd 9d 0b 00         	movq	0xb9dfd(%rip), %rsi     # 0xbaf18 <PT_LOAD#0+0xbaf18>
+    111b: 48 89 4e 38                  	movq	%rcx, 0x38(%rsi)
+    111f: 89 86 70 03 00 00            	movl	%eax, 0x370(%rsi)
+    1125: 48 c7 86 a0 03 00 00 00 40 00 00     	movq	$0x4000, 0x3a0(%rsi) # imm = 0x4000
+    1130: 48 89 96 a8 03 00 00         	movq	%rdx, 0x3a8(%rsi)
+    1137: 48 c7 05 e6 9d 0b 00 00 00 04 00     	movq	$0x40000, 0xb9de6(%rip) # imm = 0x40000
+                                                                        # 0xbaf28 <PT_LOAD#0+0xbaf28>
+    1142: 48 8d 3d e7 9d 0b 00         	leaq	0xb9de7(%rip), %rdi     # 0xbaf30 <PT_LOAD#0+0xbaf30>
+    1149: 31 f6                        	xorl	%esi, %esi
+    114b: ba 28 00 00 00               	movl	$0x28, %edx
+    1150: e8 9b ff 02 00               	callq	0x310f0 <PT_LOAD#0+0x310f0>
+    1155: c7 05 d1 9d 0b 00 01 00 00 00	movl	$0x1, 0xb9dd1(%rip)     # 0xbaf30 <PT_LOAD#0+0xbaf30>
+    115f: e8 7c ef ff ff               	callq	0xe0 <PT_LOAD#0+0xe0>
+    1164: 48 85 c0                     	testq	%rax, %rax
+    1167: 0f 84 9c 01 00 00            	je	0x1309 <PT_LOAD#0+0x1309>
+    116d: 48 83 38 40                  	cmpq	$0x40, (%rax)
+    1171: 0f 82 92 01 00 00            	jb	0x1309 <PT_LOAD#0+0x1309>
+    1177: 4c 8b 78 38                  	movq	0x38(%rax), %r15
+    117b: 4d 85 ff                     	testq	%r15, %r15
+    117e: 0f 84 85 01 00 00            	je	0x1309 <PT_LOAD#0+0x1309>
+    1184: 49 83 3f 40                  	cmpq	$0x40, (%r15)
+    1188: 0f 82 7b 01 00 00            	jb	0x1309 <PT_LOAD#0+0x1309>
+    118e: 41 8b 4f 08                  	movl	0x8(%r15), %ecx
+    1192: 83 f9 02                     	cmpl	$0x2, %ecx
+    1195: 0f 82 6e 01 00 00            	jb	0x1309 <PT_LOAD#0+0x1309>
+    119b: 41 8b 47 0c                  	movl	0xc(%r15), %eax
+    119f: 83 f9 09                     	cmpl	$0x9, %ecx

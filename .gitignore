@@ -1,0 +1,16 @@
+/out/
+/.vs/
+/.codex/
+/CMakeUserPresets.json
+/analysis/IMPLEMENTATION_LOG.md
+*.elf
+*.bin
+*.prx
+*.self
+*.pkg
+*.sprx
+*.sav
+*.save
+*.dmp
+__pycache__/
+*.py[cod]
