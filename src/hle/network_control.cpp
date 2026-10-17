@@ -1,12 +1,15 @@
 #include "lbp3_host/network_control.hpp"
 #include "lbp3_host/abi.hpp"
+#include "lbp3_host/filesystem_exports.hpp"
 #include <Windows.h>
 #include <array>
 #include <atomic>
 #include <bit>
+#include <cstdio>
 #include <map>
 #include <mutex>
 #include <stdexcept>
+#include <unordered_set>
 
 namespace lbp3::hle {
 namespace {
@@ -14,8 +17,26 @@ constexpr auto not_connected=std::bit_cast<std::int32_t>(0x80412108u);
 constexpr auto invalid_address=std::bit_cast<std::int32_t>(0x80412107u);
 constexpr auto invalid_handle=std::bit_cast<std::int32_t>(0x80412103u);
 std::atomic<std::int32_t> next_callback{1};
+std::atomic<unsigned> network_trace_count{};
 std::mutex callback_mutex;
 std::map<std::int32_t,std::pair<void*,void*>> callbacks;
+std::mutex epoll_mutex;
+std::unordered_set<std::int32_t> epoll_handles;
+std::atomic<std::int32_t> next_epoll{1};
+thread_local std::int32_t net_errno{};
+constexpr std::uint32_t net_error_base=0x80410100u;
+constexpr auto net_bad_fd=std::bit_cast<std::int32_t>(0x80410109u);
+constexpr auto net_invalid_argument=std::bit_cast<std::int32_t>(0x80410116u);
+std::int32_t net_error(std::int32_t error) noexcept {
+    net_errno=error;
+    return std::bit_cast<std::int32_t>(net_error_base|static_cast<std::uint32_t>(error));
+}
+
+void trace_network(const char* name,std::int32_t a=0,std::int32_t b=0,std::int32_t c=0,std::int32_t d=0) noexcept {
+    static const bool enabled=[] {wchar_t value[2]{};return GetEnvironmentVariableW(L"LBP3_NET_TRACE",value,static_cast<DWORD>(std::size(value)))>0;}();
+    if(enabled){const auto n=network_trace_count.fetch_add(1,std::memory_order_relaxed);if(n<128)
+        std::fprintf(stderr,"[LBP3_NET_TRACE] #%u %s %d %d %d %d\n",n+1,name,a,b,c,d);}
+}
 
 bool writable(void* pointer,std::size_t size) noexcept {
     auto at=reinterpret_cast<std::uintptr_t>(pointer);
@@ -49,6 +70,45 @@ std::int32_t LBP3_GUEST_ABI net_pool_create(const char*,std::int32_t,std::int32_
     return id>0?id:invalid_handle;
 }
 std::int32_t LBP3_GUEST_ABI net_pool_destroy(std::int32_t) noexcept {return 0;}
+std::int32_t LBP3_GUEST_ABI net_epoll_create(const char*,std::int32_t flags) noexcept {
+    trace_network("sceNetEpollCreate",flags);
+    if(flags!=0)return net_error(22);
+    const auto id=next_epoll.fetch_add(1,std::memory_order_relaxed);
+    if(id<=0)return net_error(24);
+    try{std::lock_guard lock(epoll_mutex);epoll_handles.insert(id);return id;}
+    catch(...){return net_error(12);}
+}
+std::int32_t LBP3_GUEST_ABI net_epoll_control(std::int32_t epoll,std::int32_t op,std::int32_t socket,const void* event) noexcept {
+    trace_network("sceNetEpollControl",epoll,op,socket);
+    std::lock_guard lock(epoll_mutex);
+    if(!epoll_handles.contains(epoll))return net_error(9);
+    if(op<1||op>3)return net_error(22);
+    if((op==3)!=(event==nullptr))return net_error(22);
+    // This offline host has no socket object to register with the epoll set.
+    return net_error(9);
+}
+std::int32_t LBP3_GUEST_ABI net_epoll_wait(std::int32_t epoll,void* events,std::int32_t max_events,std::int32_t timeout_us) noexcept {
+    trace_network("sceNetEpollWait",epoll,max_events,timeout_us);
+    {std::lock_guard lock(epoll_mutex);if(!epoll_handles.contains(epoll))return net_error(9);}
+    if(!events||max_events<=0)return net_error(22);
+    // No sockets are registered in the offline implementation, so there can
+    // be no ready events. Preserve finite timeout behavior for polling callers.
+    if(timeout_us>0)Sleep(static_cast<DWORD>(std::min<std::int64_t>((static_cast<std::int64_t>(timeout_us)+999)/1000,INFINITE-1)));
+    return 0;
+}
+std::int32_t LBP3_GUEST_ABI net_epoll_destroy(std::int32_t epoll) noexcept {
+    trace_network("sceNetEpollDestroy",epoll);
+    std::lock_guard lock(epoll_mutex);
+    return epoll_handles.erase(epoll)?0:net_error(9);
+}
+std::int32_t* LBP3_GUEST_ABI net_errno_location() noexcept {return &net_errno;}
+// This native port deliberately has no online service. Match the ISS offline
+// contract for POSIX sockets: fail with FreeBSD ENETDOWN in guest errno.
+std::int32_t LBP3_GUEST_ABI socket_down(std::int32_t,std::int32_t,std::int32_t) noexcept {
+    trace_network("socket");
+    *guest_errno_address()=50;
+    return -1;
+}
 std::int32_t LBP3_GUEST_ABI ssl_init(std::int32_t) noexcept {
     const auto id=next_callback.fetch_add(1,std::memory_order_relaxed);
     return id>0?id:invalid_handle;
@@ -111,12 +171,20 @@ std::int32_t LBP3_GUEST_ABI get_nat_info(std::uint32_t* output) noexcept {
 }
 
 std::optional<std::uintptr_t> resolve_network_control(const HostImport& r){
+    if(r.type==2&&(r.library=="libScePosix"||r.library=="libkernel")&&r.module=="libkernel"&&
+       r.library_version==1&&r.module_version==0x0101&&r.nid=="TU-d9PfIHPM")
+        return reinterpret_cast<std::uintptr_t>(&socket_down);
     if(r.type==2&&r.library=="libSceNet"&&r.module=="libSceNet"&&
        r.library_version==1&&r.module_version==0x0101){
         if(r.nid=="Nlev7Lg8k3A")return reinterpret_cast<std::uintptr_t>(&net_init);
         if(r.nid=="cTGkc6-TBlI")return reinterpret_cast<std::uintptr_t>(&net_term);
         if(r.nid=="dgJBaeJnGpo")return reinterpret_cast<std::uintptr_t>(&net_pool_create);
         if(r.nid=="K7RlrTkI-mw")return reinterpret_cast<std::uintptr_t>(&net_pool_destroy);
+        if(r.nid=="SF47kB2MNTo")return reinterpret_cast<std::uintptr_t>(&net_epoll_create);
+        if(r.nid=="ZVw46bsasAk")return reinterpret_cast<std::uintptr_t>(&net_epoll_control);
+        if(r.nid=="drjIbDbA7UQ")return reinterpret_cast<std::uintptr_t>(&net_epoll_wait);
+        if(r.nid=="Inp1lfL+Jdw")return reinterpret_cast<std::uintptr_t>(&net_epoll_destroy);
+        if(r.nid=="HQOwnfMGipQ")return reinterpret_cast<std::uintptr_t>(&net_errno_location);
     }
     if(r.type==2&&r.library=="libSceSsl"&&r.module=="libSceSsl"&&
        r.library_version==1&&r.module_version==0x0101){
@@ -178,6 +246,42 @@ void network_control_self_test(){
     const auto net_term_address=resolve_network_control({"cTGkc6-TBlI","libSceNet","libSceNet",1,0x0101,2});
     const auto pool_create_address=resolve_network_control({"dgJBaeJnGpo","libSceNet","libSceNet",1,0x0101,2});
     const auto pool_destroy_address=resolve_network_control({"K7RlrTkI-mw","libSceNet","libSceNet",1,0x0101,2});
+    const auto socket_posix=resolve_network_control({"TU-d9PfIHPM","libScePosix","libkernel",1,0x0101,2});
+    const auto socket_kernel=resolve_network_control({"TU-d9PfIHPM","libkernel","libkernel",1,0x0101,2});
+    using PosixSocket=std::int32_t (LBP3_GUEST_ABI *)(std::int32_t,std::int32_t,std::int32_t);
+    const auto socket=reinterpret_cast<PosixSocket>(socket_posix.value_or(0));
+    const auto saved_guest_errno=*guest_errno_address();
+    const auto socket_result=socket?socket(2,1,0):0;
+    const auto socket_errno=*guest_errno_address();
+    *guest_errno_address()=saved_guest_errno;
+    const auto epoll_create=resolve_network_control({"SF47kB2MNTo","libSceNet","libSceNet",1,0x0101,2});
+    const auto epoll_control=resolve_network_control({"ZVw46bsasAk","libSceNet","libSceNet",1,0x0101,2});
+    const auto epoll_wait=resolve_network_control({"drjIbDbA7UQ","libSceNet","libSceNet",1,0x0101,2});
+    const auto epoll_destroy=resolve_network_control({"Inp1lfL+Jdw","libSceNet","libSceNet",1,0x0101,2});
+    using EpollCreate=std::int32_t (LBP3_GUEST_ABI *)(const char*,std::int32_t);
+    using EpollControl=std::int32_t (LBP3_GUEST_ABI *)(std::int32_t,std::int32_t,std::int32_t,const void*);
+    using EpollWait=std::int32_t (LBP3_GUEST_ABI *)(std::int32_t,void*,std::int32_t,std::int32_t);
+    using EpollDestroy=std::int32_t (LBP3_GUEST_ABI *)(std::int32_t);
+    const auto epoll_id=epoll_create?reinterpret_cast<EpollCreate>(*epoll_create)("lbp3-offline",0):0;
+    std::array<std::uint64_t,4> epoll_events{};
+    using NetErrno=std::int32_t* (LBP3_GUEST_ABI *)();
+    const auto errno_address=resolve_network_control({"HQOwnfMGipQ","libSceNet","libSceNet",1,0x0101,2});
+    auto errno_location=errno_address?reinterpret_cast<NetErrno>(*errno_address):nullptr;
+    const auto control_result=epoll_control?reinterpret_cast<EpollControl>(*epoll_control)(epoll_id,1,0x7fffffff,reinterpret_cast<const void*>(epoll_events.data())):0;
+    const auto wait_result=epoll_wait?reinterpret_cast<EpollWait>(*epoll_wait)(epoll_id,epoll_events.data(),1,0):net_bad_fd;
+    const auto invalid_wait=epoll_wait?reinterpret_cast<EpollWait>(*epoll_wait)(epoll_id,nullptr,1,0):0;
+    const auto destroy_result=epoll_destroy?reinterpret_cast<EpollDestroy>(*epoll_destroy)(epoll_id):net_bad_fd;
+    const auto bad_flags_result=epoll_create?reinterpret_cast<EpollCreate>(*epoll_create)("bad-flags",1):0;
+    if(epoll_id<=0||!epoll_control||control_result!=net_bad_fd||!epoll_wait||wait_result!=0||
+       invalid_wait!=net_invalid_argument||!epoll_destroy||destroy_result!=0||
+       reinterpret_cast<EpollDestroy>(*epoll_destroy)(epoll_id)!=net_bad_fd||!errno_location||
+       *errno_location()!=9||!resolve_network_control({"SF47kB2MNTo","libSceNet","libSceNet",1,0x0101,2})||
+       bad_flags_result!=net_invalid_argument)
+        throw std::runtime_error("Offline network epoll lifecycle contract failed.");
+    if(!socket||!socket_kernel||socket_result!=-1||socket_errno!=50||
+       resolve_network_control({"TU-d9PfIHPM","libSceNet","libkernel",1,0x0101,2})||
+       resolve_network_control({"TU-d9PfIHPM","libScePosix","libkernel",1,0x0101,1}))
+        throw std::runtime_error("Offline POSIX socket failure/errno contract failed.");
     if(!net_init_address||!net_term_address||!pool_create_address||!pool_destroy_address||reinterpret_cast<NetLifecycle>(*net_init_address)()!=0||
        reinterpret_cast<NetLifecycle>(*net_term_address)()!=0||
        resolve_network_control({"Nlev7Lg8k3A","libSceNet","libSceNet",1,0x0101,1}))

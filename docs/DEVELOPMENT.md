@@ -27,7 +27,7 @@ O backend GPU é uma integração experimental opcional baseada numa árvore ext
 
 ## Controles locais
 
-Quando nenhum controle XInput está conectado, o host expõe o teclado como um controle virtual conectado. O mapeamento atual é WASD para o analógico esquerdo, setas para o analógico direito, I/J/K/L para o direcional, Espaço para Cross, Shift esquerdo para Circle, E/Q para Square/Triangle, 1/3 para L1/R1, R/F para L2/R2, Z/C para L3/R3 e Enter para Options. Espaço/Cross já avançou o fluxo inicial até a tela de calibração; o menu principal e o gameplay ainda não foram alcançados.
+Quando nenhum controle XInput está conectado, o host expõe o teclado como um controle virtual conectado. O mapeamento atual é WASD para o analógico esquerdo, setas para o analógico direito, I/J/K/L para o direcional, Espaço para Cross, Shift esquerdo para Circle, E/Q para Square/Triangle, 1/3 para L1/R1, R/F para L2/R2, Z/C para L3/R3 e Enter para Options. Espaço/Cross já avançou o fluxo inicial até “Connecting to LittleBigPlanet 3 Online…”; o menu principal e o gameplay ainda não foram alcançados.
 
 ## Relatórios
 

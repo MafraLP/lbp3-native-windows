@@ -12,8 +12,18 @@ namespace {
 // succeeds and reports no work, as the API's callback pump contract requires.
 std::int32_t LBP3_GUEST_ABI check_callback() noexcept {return 0;}
 constexpr std::int32_t signed_out=static_cast<std::int32_t>(0x80550006u);
+constexpr std::int32_t invalid_argument=static_cast<std::int32_t>(0x80550003u);
+constexpr std::int32_t np_state_signed_out=1;
 std::atomic<std::int32_t> next_callback{1};
 std::int32_t LBP3_GUEST_ABI get_np_id(void*) noexcept {return signed_out;}
+std::int32_t LBP3_GUEST_ABI get_np_state(std::int32_t, std::int32_t* state) noexcept {
+    if(!state)return invalid_argument;
+    const std::int32_t value=np_state_signed_out;
+    SIZE_T written{};
+    if(!WriteProcessMemory(GetCurrentProcess(),state,&value,sizeof(value),&written)||written!=sizeof(value))
+        return invalid_argument;
+    return 0;
+}
 std::int32_t LBP3_GUEST_ABI set_np_title_id(const char*) noexcept {return 0;}
 // The title uses this only to announce its content-rating policy to NP
 // services. The ISS offline compatibility layer treats it as a no-op; there
@@ -45,6 +55,7 @@ std::optional<std::uintptr_t> resolve_np_manager(const HostImport& r){
        r.library_version!=1||r.module_version!=0x0101)return std::nullopt;
     if(r.nid=="3Zl8BePTh9Y")return reinterpret_cast<std::uintptr_t>(&check_callback);
     if(r.nid=="p-o74CnoNzY")return reinterpret_cast<std::uintptr_t>(&get_np_id);
+    if(r.nid=="eQH7nWPcAgc")return reinterpret_cast<std::uintptr_t>(&get_np_state);
     if(r.nid=="Ec63y59l9tw")return reinterpret_cast<std::uintptr_t>(&set_np_title_id);
     if(r.nid=="A2CQ3kgSopQ")return reinterpret_cast<std::uintptr_t>(&set_content_restriction);
     if(r.nid=="VfRSmPmj8Q8")return reinterpret_cast<std::uintptr_t>(&register_state_callback);
@@ -93,6 +104,14 @@ void np_manager_self_test(){
     if(!npid||reinterpret_cast<GetNpId>(*npid)(nullptr)!=signed_out||
        resolve_np_manager({"p-o74CnoNzY","libSceNpManager","libSceNpManager",1,0x0101,1}))
         throw std::runtime_error("Offline NP identity contract failed.");
+    const auto state=resolve_np_manager({"eQH7nWPcAgc","libSceNpManager","libSceNpManager",1,0x0101,2});
+    using GetNpState=std::int32_t (LBP3_GUEST_ABI *)(std::int32_t,std::int32_t*) noexcept;
+    std::int32_t np_state{};
+    if(!state||reinterpret_cast<GetNpState>(*state)(0x10000001,&np_state)!=0||np_state!=np_state_signed_out||
+       reinterpret_cast<GetNpState>(*state)(0x10000001,nullptr)!=invalid_argument||
+       reinterpret_cast<GetNpState>(*state)(0x10000001,reinterpret_cast<std::int32_t*>(1))!=invalid_argument||
+       resolve_np_manager({"eQH7nWPcAgc","libSceNpManager","libSceNpManager",1,0x0101,1}))
+        throw std::runtime_error("Offline NP state query contract failed.");
     const auto title=resolve_np_manager({"Ec63y59l9tw","libSceNpManager","libSceNpManager",1,0x0101,2});
     using SetTitle=std::int32_t (LBP3_GUEST_ABI *)(const char*);
     if(!title||reinterpret_cast<SetTitle>(*title)("CUSA00000")||
