@@ -1,4 +1,4 @@
-# Live pad input check
+# Live pad input and startup progression
 
 Date: 2026-10-17
 
@@ -15,7 +15,8 @@ Date: 2026-10-17
 - While Space was held, it returned `buttons=0x4000` (Cross), `connected=1`, and neutral axes.
 - After release, it returned to `buttons=0` while remaining connected.
 - The GPU backend continued submitting frames successfully (`submit_result=0`).
+- Delayed Cross input advanced the rendered startup flow through the “Health Warning” and software-terms screens to the brightness calibration screen. A later capture showed the calibration instructions and controller image.
 
 ## Conclusion and limit
 
-The host keyboard fallback and pad ABI deliver a pressed Cross state to the guest. This does not establish that the game accepted the button or advanced beyond the Health Warning screen; the bounded diagnostic session did not capture a confirmed screen transition. The generated logs and game files remain local under ignored `out/` paths and are not part of this repository.
+The host keyboard fallback and pad ABI deliver a pressed Cross state to the guest, and the game advanced to brightness calibration. The attempt to adjust the slider and confirm “Done” did not yield a later frame, so the title menu and gameplay remain unverified. The generated logs, frame dumps, and game files remain local under ignored `out/` paths and are not part of this repository.

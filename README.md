@@ -6,7 +6,7 @@
 
 **Experimental, incomplete research project. This is not a playable release or a console emulator.** The project explores running the PS4 x86-64 game code in a native Windows process, reimplementing required Orbis interfaces, and translating graphics to PC APIs. It is not affiliated with, approved, or endorsed by Sony Interactive Entertainment, Media Molecule, or Sony XDev.
 
-The latest visual milestone is the game's “Health Warning” screen rendered by an experimental Vulkan backend in a local development setup. This shows an early graphics path, but does not prove that input can advance the screen or that the game is playable. That optional GPU integration depends on an external source tree associated with [HayatoG/iss_pc](https://github.com/HayatoG/iss_pc), which is not included here. The ISS port [declares its `port/` code under GNU GPL v2 or later](https://github.com/HayatoG/iss_pc/blob/main/port/UPSTREAM.md); reuse and redistribution are permitted under those license terms. The GPU tree and its dependencies carry additional notices that must be preserved. See [project status](docs/STATUS.md) and [licensing](docs/LEGAL.md).
+The latest local Vulkan capture shows keyboard Cross input moving the startup flow from the “Health Warning” through the software terms to the brightness calibration screen. This confirms an early input-to-render path, but does not prove that the title menu or gameplay works. That optional GPU integration depends on an external source tree associated with [HayatoG/iss_pc](https://github.com/HayatoG/iss_pc), which is not included here. The ISS port [declares its `port/` code under GNU GPL v2 or later](https://github.com/HayatoG/iss_pc/blob/main/port/UPSTREAM.md); reuse and redistribution are permitted under those license terms. The GPU tree and its dependencies carry additional notices that must be preserved. See [project status](docs/STATUS.md) and [licensing](docs/LEGAL.md).
 
 **No game, firmware, keys, dumps, saves, or other protected game files are included.** This project does not download or decrypt the game. Only use files you are legally entitled to use, and do not publish or share them.
 
@@ -35,7 +35,7 @@ This builds the host and tests. It does not include the external GPU backend or 
 
 ### Project status
 
-The host maps ELF64 modules, prepares relocations and TLS, and implements host services covered by synthetic tests. In a local experimental build with the external GPU backend, the game's initial health warning was captured. Automated tests validate individual components and contracts; they do **not** establish compatibility or full-game playability.
+The host maps ELF64 modules, prepares relocations and TLS, and implements host services covered by synthetic tests. In a local experimental build with the external GPU backend, keyboard Cross input advanced the startup flow to brightness calibration. Automated tests validate individual components and contracts; they do **not** establish compatibility or full-game playability.
 
 Important runtime APIs, input, audio, stability, and GPU compatibility remain under investigation. There is no player release or promise of support for any particular game build.
 
@@ -53,7 +53,7 @@ This project is unofficial and is not endorsed by Sony Interactive Entertainment
 
 **Projeto experimental e incompleto. Não é uma versão jogável nem um emulador de console.** O projeto pesquisa como executar o código x86-64 do build PS4 em um processo Windows nativo, reimplementar interfaces necessárias do Orbis e traduzir a saída gráfica para APIs de PC. Não é afiliado, aprovado ou endossado pela Sony Interactive Entertainment, Media Molecule ou Sony XDev.
 
-O marco visual mais recente é a tela “Health Warning” do jogo, renderizada por um backend Vulkan experimental numa configuração local de desenvolvimento. Isso mostra um caminho gráfico inicial, mas não prova que a entrada avance a tela nem que o jogo seja jogável. Essa integração GPU opcional depende de uma árvore externa de código associada ao [HayatoG/iss_pc](https://github.com/HayatoG/iss_pc), que não está incluída aqui. O port ISS [declara o código em `port/` sob GNU GPL v2 ou posterior](https://github.com/HayatoG/iss_pc/blob/main/port/UPSTREAM.md); é permitido reutilizá-lo e redistribuí-lo cumprindo os termos da licença. A árvore GPU e suas dependências têm avisos adicionais que devem ser preservados. Veja o [status do projeto](docs/STATUS.md) e o guia de [licenças](docs/LEGAL.md).
+A captura Vulkan local mais recente mostra a entrada Espaço/Cross avançando o fluxo inicial da tela “Health Warning”, passando pelos termos de uso até a calibração de brilho. Isso confirma um caminho inicial de entrada e renderização, mas não prova que o menu principal ou o jogo funcionem. Essa integração GPU opcional depende de uma árvore externa de código associada ao [HayatoG/iss_pc](https://github.com/HayatoG/iss_pc), que não está incluída aqui. O port ISS [declara o código em `port/` sob GNU GPL v2 ou posterior](https://github.com/HayatoG/iss_pc/blob/main/port/UPSTREAM.md); é permitido reutilizá-lo e redistribuí-lo cumprindo os termos da licença. A árvore GPU e suas dependências têm avisos adicionais que devem ser preservados. Veja o [status do projeto](docs/STATUS.md) e o guia de [licenças](docs/LEGAL.md).
 
 **Nenhum jogo, firmware, chave, dump, save ou outro arquivo protegido está incluído.** O projeto não baixa nem descriptografa o jogo. Use apenas arquivos que você tenha direito de usar e não os publique nem compartilhe.
 
@@ -82,7 +82,7 @@ Isso compila o host e os testes. Não inclui o backend GPU externo nem arquivos 
 
 ### Estado do projeto
 
-O host mapeia módulos ELF64, prepara relocations e TLS, e implementa serviços host cobertos por testes sintéticos. Em um build experimental local com o backend GPU externo, foi possível capturar o aviso inicial de saúde do jogo. Os testes automatizados validam componentes e contratos isolados; eles **não** demonstram compatibilidade nem jogabilidade completa.
+O host mapeia módulos ELF64, prepara relocations e TLS, e implementa serviços host cobertos por testes sintéticos. Em um build experimental local com o backend GPU externo, a entrada Espaço/Cross avançou o fluxo inicial até a calibração de brilho. Os testes automatizados validam componentes e contratos isolados; eles **não** demonstram compatibilidade nem jogabilidade completa.
 
 APIs importantes do runtime, entrada, áudio, estabilidade e compatibilidade de GPU seguem em investigação. Ainda não há uma versão para jogadores nem promessa de suporte a um build específico do jogo.
 
