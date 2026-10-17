@@ -42,6 +42,16 @@ constexpr std::int32_t savedata_already_mounted=std::bit_cast<std::int32_t>(0x80
 constexpr std::int32_t savedata_invalid_user=std::bit_cast<std::int32_t>(0x809f0011u);
 std::atomic<bool> savedata_initialized{};
 std::atomic<bool> savedata_mount_active{};
+constexpr std::int32_t dialog_not_initialized=std::bit_cast<std::int32_t>(0x80b80003u);
+constexpr std::int32_t dialog_already_initialized=std::bit_cast<std::int32_t>(0x80b80004u);
+constexpr std::int32_t dialog_not_finished=std::bit_cast<std::int32_t>(0x80b80005u);
+constexpr std::int32_t dialog_parameter_error=std::bit_cast<std::int32_t>(0x80b8000au);
+constexpr std::int32_t dialog_not_running=std::bit_cast<std::int32_t>(0x80b8000bu);
+constexpr std::int32_t dialog_bad_pointer=std::bit_cast<std::int32_t>(0x80b8000du);
+constexpr std::int32_t dialog_running=2,dialog_finished=3,save_dialog_canceled=1;
+struct SaveDialogState {bool initialized{};std::int32_t status{};std::uint32_t mode{},result{},button{};std::uint64_t user_data{};};
+SaveDialogState save_dialog_state{};
+std::mutex save_dialog_mutex;
 constexpr std::int32_t user_invalid_argument=std::bit_cast<std::int32_t>(0x80960005u);
 constexpr std::int32_t user_no_event=std::bit_cast<std::int32_t>(0x80960007u);
 constexpr std::int32_t user_name_too_short=std::bit_cast<std::int32_t>(0x8096000au);
@@ -252,6 +262,63 @@ std::int32_t LBP3_GUEST_ABI savedata_save_icon(const SaveMountPoint* point,const
     if(value.data_size>value.buffer_size)return savedata_parameter_error;
     return savedata_busy; // Metadata persistence is not backed by the mounted host save yet.
 }
+std::int32_t LBP3_GUEST_ABI savedata_dialog_initialize() noexcept {
+    std::lock_guard guard(save_dialog_mutex);
+    if(save_dialog_state.initialized)return dialog_already_initialized;
+    save_dialog_state={true,1,0,0,0,0};return 0;
+}
+std::int32_t LBP3_GUEST_ABI savedata_dialog_open(const void* input) noexcept {
+    std::array<std::byte,120> param{};
+    if(!copy_in(param.data(),input,param.size()))return dialog_bad_pointer;
+    std::uint32_t mode{},display_type{};std::uint64_t user_data{};
+    std::memcpy(&mode,param.data()+52,sizeof(mode));
+    std::memcpy(&display_type,param.data()+56,sizeof(display_type));
+    std::memcpy(&user_data,param.data()+112,sizeof(user_data));
+    if(mode<1||mode>5||display_type<1||display_type>3)return dialog_parameter_error;
+    std::lock_guard guard(save_dialog_mutex);
+    if(!save_dialog_state.initialized)return dialog_not_initialized;
+    save_dialog_state.mode=mode;save_dialog_state.result=0;save_dialog_state.button=1;save_dialog_state.user_data=user_data;
+    if(mode==1){save_dialog_state.result=save_dialog_canceled;save_dialog_state.button=0;save_dialog_state.status=dialog_finished;}
+    else if(mode==5)save_dialog_state.status=dialog_running;
+    else save_dialog_state.status=dialog_finished; // No modal UI: report its default OK completion.
+    return 0;
+}
+std::int32_t LBP3_GUEST_ABI savedata_dialog_status() noexcept {
+    std::lock_guard guard(save_dialog_mutex);
+    return save_dialog_state.initialized?save_dialog_state.status:dialog_not_initialized;
+}
+std::int32_t LBP3_GUEST_ABI savedata_dialog_terminate() noexcept {
+    std::lock_guard guard(save_dialog_mutex);
+    if(!save_dialog_state.initialized)return dialog_not_initialized;
+    save_dialog_state={};return 0;
+}
+std::int32_t LBP3_GUEST_ABI savedata_dialog_close() noexcept {
+    std::lock_guard guard(save_dialog_mutex);
+    if(!save_dialog_state.initialized)return dialog_not_initialized;
+    if(save_dialog_state.status!=dialog_running)return dialog_not_running;
+    save_dialog_state.status=dialog_finished;save_dialog_state.result=save_dialog_canceled;save_dialog_state.button=0;return 0;
+}
+std::int32_t LBP3_GUEST_ABI savedata_dialog_progress(std::uint32_t target,std::uint32_t) noexcept {
+    std::lock_guard guard(save_dialog_mutex);
+    if(!save_dialog_state.initialized)return dialog_not_initialized;
+    if(save_dialog_state.status!=dialog_running)return dialog_not_running;
+    return target?dialog_parameter_error:0;
+}
+std::int32_t LBP3_GUEST_ABI savedata_dialog_result(void* output) noexcept {
+    std::lock_guard guard(save_dialog_mutex);
+    if(!save_dialog_state.initialized)return dialog_not_initialized;
+    if(save_dialog_state.status!=dialog_finished)return dialog_not_finished;
+    struct Result {std::uint32_t mode,result,button,pad;char* dir;void* param;std::uint64_t user_data;};
+    static_assert(sizeof(Result)==40);
+    Result result{};
+    if(!copy_in(&result,output,sizeof(result)))return dialog_bad_pointer;
+    result.mode=save_dialog_state.mode;result.result=save_dialog_state.result;result.button=save_dialog_state.button;
+    result.user_data=save_dialog_state.user_data;
+    if(!copy_out(output,&result,sizeof(result)))return dialog_bad_pointer;
+    if(result.dir){std::array<char,32> empty{};if(!copy_out(result.dir,empty.data(),empty.size()))return dialog_bad_pointer;}
+    return 0;
+}
+std::int32_t LBP3_GUEST_ABI savedata_dialog_ready() noexcept {return 1;}
 std::int32_t LBP3_GUEST_ABI sysmodule_is_loaded(std::uint16_t id) noexcept {
     if(!id)return sysmodule_invalid_id;
     std::lock_guard guard(sysmodule_mutex);
@@ -408,6 +475,17 @@ std::optional<std::uintptr_t> resolve_system_service(const HostImport& r){
         if(r.nid=="BMR4F-Uek3E")return reinterpret_cast<std::uintptr_t>(&savedata_unmount);
         if(r.nid=="85zul--eGXs")return reinterpret_cast<std::uintptr_t>(&savedata_set_param);
         if(r.nid=="c88Yy54Mx0w")return reinterpret_cast<std::uintptr_t>(&savedata_save_icon);
+    }
+    if(r.type==2&&r.library=="libSceSaveDataDialog"&&r.module=="libSceSaveDataDialog"&&
+       r.library_version==1&&r.module_version==0x0101){
+        if(r.nid=="s9e3+YpRnzw")return reinterpret_cast<std::uintptr_t>(&savedata_dialog_initialize);
+        if(r.nid=="4tPhsP6FpDI")return reinterpret_cast<std::uintptr_t>(&savedata_dialog_open);
+        if(r.nid=="KK3Bdg1RWK0")return reinterpret_cast<std::uintptr_t>(&savedata_dialog_status);
+        if(r.nid=="YuH2FA7azqQ")return reinterpret_cast<std::uintptr_t>(&savedata_dialog_terminate);
+        if(r.nid=="yEiJ-qqr6Cg")return reinterpret_cast<std::uintptr_t>(&savedata_dialog_result);
+        if(r.nid=="en7gNVnh878")return reinterpret_cast<std::uintptr_t>(&savedata_dialog_ready);
+        if(r.nid=="fH46Lag88XY")return reinterpret_cast<std::uintptr_t>(&savedata_dialog_close);
+        if(r.nid=="hay1CfTmLyA")return reinterpret_cast<std::uintptr_t>(&savedata_dialog_progress);
     }
     if(r.type==2&&r.library=="libSceAppContent"&&r.module=="libSceAppContentUtil"&&
        r.library_version==1&&r.module_version==0x0101){
@@ -639,6 +717,57 @@ void system_service_self_test(){
        reinterpret_cast<SaveTerm>(*save_term)()!=0||reinterpret_cast<SaveTerm>(*save_term)()!=savedata_not_initialized||
        resolve_system_service({"ZkZhskCPXFw","libSceSaveData","libSceSaveData",1,0x0101,1}))
         throw std::runtime_error("SaveData offline mount/lifecycle contract failed.");
+    const auto dialog_get=[](const char* nid){return resolve_system_service({nid,"libSceSaveDataDialog","libSceSaveDataDialog",1,0x0101,2});};
+    using DialogInit=std::int32_t (LBP3_GUEST_ABI *)();
+    using DialogOpen=std::int32_t (LBP3_GUEST_ABI *)(const void*);
+    using DialogStatus=std::int32_t (LBP3_GUEST_ABI *)();
+    using DialogTerm=std::int32_t (LBP3_GUEST_ABI *)();
+    using DialogResult=std::int32_t (LBP3_GUEST_ABI *)(void*);
+    using DialogClose=std::int32_t (LBP3_GUEST_ABI *)();
+    using DialogProgress=std::int32_t (LBP3_GUEST_ABI *)(std::uint32_t,std::uint32_t);
+    using DialogReady=std::int32_t (LBP3_GUEST_ABI *)();
+    const auto dialog_init=dialog_get("s9e3+YpRnzw"),dialog_open=dialog_get("4tPhsP6FpDI"),
+        dialog_status=dialog_get("KK3Bdg1RWK0"),dialog_term=dialog_get("YuH2FA7azqQ"),
+        dialog_result=dialog_get("yEiJ-qqr6Cg"),dialog_ready=dialog_get("en7gNVnh878"),
+        dialog_close=dialog_get("fH46Lag88XY"),dialog_progress=dialog_get("hay1CfTmLyA");
+    std::array<std::byte,120> dialog_param{};std::uint32_t dialog_mode=1,dialog_display=1;std::uint64_t dialog_user=0x12345678;
+    std::memcpy(dialog_param.data()+52,&dialog_mode,4);std::memcpy(dialog_param.data()+56,&dialog_display,4);
+    std::memcpy(dialog_param.data()+112,&dialog_user,8);
+    struct DialogResultFixture {std::uint32_t mode,result,button,pad;char* dir;void* param;std::uint64_t user_data;};
+    static_assert(sizeof(DialogResultFixture)==40);
+    std::array<char,32> selected_dir{};DialogResultFixture dialog_output{};dialog_output.dir=selected_dir.data();
+    if(!dialog_init||!dialog_open||!dialog_status||!dialog_term||!dialog_result||!dialog_ready||!dialog_close||!dialog_progress||
+       reinterpret_cast<DialogInit>(*dialog_init)()||reinterpret_cast<DialogInit>(*dialog_init)()!=dialog_already_initialized||
+       reinterpret_cast<DialogStatus>(*dialog_status)()!=1||reinterpret_cast<DialogReady>(*dialog_ready)()!=1||
+       reinterpret_cast<DialogOpen>(*dialog_open)(nullptr)!=dialog_bad_pointer||
+       reinterpret_cast<DialogOpen>(*dialog_open)(dialog_param.data())||reinterpret_cast<DialogStatus>(*dialog_status)()!=dialog_finished||
+       reinterpret_cast<DialogResult>(*dialog_result)(nullptr)!=dialog_bad_pointer||
+       reinterpret_cast<DialogResult>(*dialog_result)(&dialog_output)||dialog_output.mode!=1||dialog_output.result!=save_dialog_canceled||
+       dialog_output.button!=0||dialog_output.user_data!=dialog_user||selected_dir[0]!='\0'||
+       reinterpret_cast<DialogClose>(*dialog_close)()!=dialog_not_running)
+        throw std::runtime_error("SaveDataDialog empty-list lifecycle contract failed.");
+    for(dialog_mode=2;dialog_mode<=4;++dialog_mode){
+        std::memcpy(dialog_param.data()+52,&dialog_mode,4);dialog_output={};dialog_output.dir=selected_dir.data();
+        if(reinterpret_cast<DialogOpen>(*dialog_open)(dialog_param.data())||
+           reinterpret_cast<DialogStatus>(*dialog_status)()!=dialog_finished||
+           reinterpret_cast<DialogResult>(*dialog_result)(&dialog_output)||dialog_output.mode!=dialog_mode||
+           dialog_output.result||dialog_output.button!=1||dialog_output.user_data!=dialog_user)
+            throw std::runtime_error("SaveDataDialog headless message completion contract failed.");
+    }
+    dialog_mode=5;std::memcpy(dialog_param.data()+52,&dialog_mode,4);
+    if(reinterpret_cast<DialogOpen>(*dialog_open)(dialog_param.data())||reinterpret_cast<DialogStatus>(*dialog_status)()!=dialog_running||
+       reinterpret_cast<DialogResult>(*dialog_result)(&dialog_output)!=dialog_not_finished||
+       reinterpret_cast<DialogProgress>(*dialog_progress)(0,50)||
+       reinterpret_cast<DialogProgress>(*dialog_progress)(1,50)!=dialog_parameter_error||
+       reinterpret_cast<DialogClose>(*dialog_close)()||reinterpret_cast<DialogStatus>(*dialog_status)()!=dialog_finished||
+       reinterpret_cast<DialogResult>(*dialog_result)(&dialog_output)||dialog_output.result!=save_dialog_canceled||
+       reinterpret_cast<DialogClose>(*dialog_close)()!=dialog_not_running||reinterpret_cast<DialogTerm>(*dialog_term)()||
+       reinterpret_cast<DialogStatus>(*dialog_status)()!=dialog_not_initialized||
+       reinterpret_cast<DialogTerm>(*dialog_term)()!=dialog_not_initialized)
+        throw std::runtime_error("SaveDataDialog progress/close lifecycle contract failed.");
+    dialog_mode=6;std::memcpy(dialog_param.data()+52,&dialog_mode,4);
+    if(reinterpret_cast<DialogOpen>(*dialog_open)(dialog_param.data())!=dialog_parameter_error)
+        throw std::runtime_error("SaveDataDialog mode validation failed.");
     const auto playgo=resolve_system_service({"ts6GlZOKRrE","libScePlayGo","libScePlayGo",1,0x0100,2});
     using PlayGoInit=std::int32_t (LBP3_GUEST_ABI *)(const void*);
     if(!playgo||reinterpret_cast<PlayGoInit>(*playgo)(nullptr)!=0||
