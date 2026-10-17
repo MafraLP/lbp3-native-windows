@@ -8,8 +8,10 @@
 #include <cstdint>
 #include <cstring>
 #include <mutex>
+#include <new>
 #include <stdexcept>
 #include <string_view>
+#include <unordered_set>
 #include <utility>
 
 namespace lbp3::hle {
@@ -52,6 +54,23 @@ constexpr std::int32_t dialog_running=2,dialog_finished=3,save_dialog_canceled=1
 struct SaveDialogState {bool initialized{};std::int32_t status{};std::uint32_t mode{},result{},button{};std::uint64_t user_data{};};
 SaveDialogState save_dialog_state{};
 std::mutex save_dialog_mutex;
+constexpr std::int32_t avplayer_invalid_params=std::bit_cast<std::int32_t>(0x806a0001u);
+constexpr std::int32_t avplayer_operation_failed=std::bit_cast<std::int32_t>(0x806a0002u);
+constexpr std::int32_t avplayer_not_supported=std::bit_cast<std::int32_t>(0x806a0004u);
+struct AvPlayerInitData {
+    std::array<std::uintptr_t,5> allocator;
+    std::array<std::uintptr_t,5> file;
+    std::array<std::uintptr_t,2> event;
+    std::uint32_t debug_level,base_priority;
+    std::int32_t output_framebuffers;
+    std::uint8_t auto_start;
+    std::array<std::uint8_t,3> reserved;
+    const char* default_language;
+};
+static_assert(sizeof(AvPlayerInitData)==120);
+struct AvPlayerContext {};
+std::unordered_set<AvPlayerContext*> avplayer_contexts;
+std::mutex avplayer_mutex;
 constexpr std::int32_t user_invalid_argument=std::bit_cast<std::int32_t>(0x80960005u);
 constexpr std::int32_t user_no_event=std::bit_cast<std::int32_t>(0x80960007u);
 constexpr std::int32_t user_name_too_short=std::bit_cast<std::int32_t>(0x8096000au);
@@ -319,6 +338,68 @@ std::int32_t LBP3_GUEST_ABI savedata_dialog_result(void* output) noexcept {
     return 0;
 }
 std::int32_t LBP3_GUEST_ABI savedata_dialog_ready() noexcept {return 1;}
+void* LBP3_GUEST_ABI avplayer_initialize(const AvPlayerInitData* input) noexcept {
+    AvPlayerInitData data{};
+    if(!copy_in(&data,input,sizeof(data))||!data.allocator[1]||!data.allocator[2]||
+       !data.allocator[3]||!data.allocator[4])return nullptr;
+    auto* context=new(std::nothrow) AvPlayerContext{};
+    if(!context)return nullptr;
+    try {std::lock_guard guard(avplayer_mutex);avplayer_contexts.insert(context);}
+    catch(...) {delete context;return nullptr;}
+    return context;
+}
+bool avplayer_valid(void* handle) noexcept {
+    std::lock_guard guard(avplayer_mutex);
+    return handle&&avplayer_contexts.contains(static_cast<AvPlayerContext*>(handle));
+}
+std::int32_t LBP3_GUEST_ABI avplayer_add_source(void* handle,const char* path) noexcept {
+    if(!avplayer_valid(handle)||!readable(path,1))return avplayer_invalid_params;
+    if(!*path)return avplayer_invalid_params;
+    return avplayer_not_supported; // FFmpeg decode/output is not integrated with the guest VideoOut yet.
+}
+std::int32_t LBP3_GUEST_ABI avplayer_stream_count(void* handle) noexcept {
+    return avplayer_valid(handle)?-1:avplayer_invalid_params;
+}
+std::int32_t LBP3_GUEST_ABI avplayer_stream_info(void* handle,std::uint32_t,void* output) noexcept {
+    if(!avplayer_valid(handle)||!writable(output,56))return avplayer_invalid_params;
+    return avplayer_operation_failed;
+}
+std::int32_t LBP3_GUEST_ABI avplayer_enable_stream(void* handle,std::uint32_t) noexcept {
+    return avplayer_valid(handle)?avplayer_operation_failed:avplayer_invalid_params;
+}
+std::int32_t LBP3_GUEST_ABI avplayer_start(void* handle) noexcept {
+    return avplayer_valid(handle)?avplayer_operation_failed:avplayer_invalid_params;
+}
+std::int32_t LBP3_GUEST_ABI avplayer_close(void* handle) noexcept {
+    std::lock_guard guard(avplayer_mutex);
+    auto* context=static_cast<AvPlayerContext*>(handle);
+    if(!context||!avplayer_contexts.erase(context))return avplayer_invalid_params;
+    delete context;return 0;
+}
+std::int32_t LBP3_GUEST_ABI avplayer_set_looping(void* handle,bool) noexcept {
+    return avplayer_valid(handle)?avplayer_operation_failed:avplayer_invalid_params;
+}
+bool LBP3_GUEST_ABI avplayer_video_data_ex(void* handle,void* output) noexcept {
+    if(!avplayer_valid(handle)||!writable(output,104))return false;
+    return false;
+}
+bool LBP3_GUEST_ABI avplayer_audio_data(void* handle,void* output) noexcept {
+    if(!avplayer_valid(handle)||!writable(output,40))return false;
+    return false;
+}
+bool LBP3_GUEST_ABI avplayer_is_active(void* handle) noexcept {return avplayer_valid(handle)&&false;}
+std::uint64_t LBP3_GUEST_ABI avplayer_current_time(void* handle) noexcept {
+    return avplayer_valid(handle)?0:static_cast<std::uint32_t>(avplayer_invalid_params);
+}
+std::int32_t LBP3_GUEST_ABI avplayer_resume(void* handle) noexcept {
+    return avplayer_valid(handle)?avplayer_operation_failed:avplayer_invalid_params;
+}
+std::int32_t LBP3_GUEST_ABI avplayer_pause(void* handle) noexcept {
+    return avplayer_valid(handle)?avplayer_operation_failed:avplayer_invalid_params;
+}
+std::int32_t LBP3_GUEST_ABI avplayer_jump_to_time(void* handle,std::uint64_t) noexcept {
+    return avplayer_valid(handle)?avplayer_not_supported:avplayer_invalid_params;
+}
 std::int32_t LBP3_GUEST_ABI sysmodule_is_loaded(std::uint16_t id) noexcept {
     if(!id)return sysmodule_invalid_id;
     std::lock_guard guard(sysmodule_mutex);
@@ -486,6 +567,24 @@ std::optional<std::uintptr_t> resolve_system_service(const HostImport& r){
         if(r.nid=="en7gNVnh878")return reinterpret_cast<std::uintptr_t>(&savedata_dialog_ready);
         if(r.nid=="fH46Lag88XY")return reinterpret_cast<std::uintptr_t>(&savedata_dialog_close);
         if(r.nid=="hay1CfTmLyA")return reinterpret_cast<std::uintptr_t>(&savedata_dialog_progress);
+    }
+    if(r.type==2&&r.library=="libSceAvPlayer"&&r.module=="libSceAvPlayer"&&
+       r.library_version==1&&r.module_version==0x0100){
+        if(r.nid=="hdTyRzCXQeQ")return reinterpret_cast<std::uintptr_t>(&avplayer_stream_count);
+        if(r.nid=="d8FcbzfAdQw")return reinterpret_cast<std::uintptr_t>(&avplayer_stream_info);
+        if(r.nid=="ODJK2sn9w4A")return reinterpret_cast<std::uintptr_t>(&avplayer_enable_stream);
+        if(r.nid=="ET4Gr-Uu07s")return reinterpret_cast<std::uintptr_t>(&avplayer_start);
+        if(r.nid=="NkJwDzKmIlw")return reinterpret_cast<std::uintptr_t>(&avplayer_close);
+        if(r.nid=="aS66RI0gGgo")return reinterpret_cast<std::uintptr_t>(&avplayer_initialize);
+        if(r.nid=="KMcEa+rHsIo")return reinterpret_cast<std::uintptr_t>(&avplayer_add_source);
+        if(r.nid=="OVths0xGfho")return reinterpret_cast<std::uintptr_t>(&avplayer_set_looping);
+        if(r.nid=="JdksQu8pNdQ")return reinterpret_cast<std::uintptr_t>(&avplayer_video_data_ex);
+        if(r.nid=="Wnp1OVcrZgk")return reinterpret_cast<std::uintptr_t>(&avplayer_audio_data);
+        if(r.nid=="UbQoYawOsfY")return reinterpret_cast<std::uintptr_t>(&avplayer_is_active);
+        if(r.nid=="wwM99gjFf1Y")return reinterpret_cast<std::uintptr_t>(&avplayer_current_time);
+        if(r.nid=="w5moABNwnRY")return reinterpret_cast<std::uintptr_t>(&avplayer_resume);
+        if(r.nid=="9y5v+fGN4Wk")return reinterpret_cast<std::uintptr_t>(&avplayer_pause);
+        if(r.nid=="XC9wM+xULz8")return reinterpret_cast<std::uintptr_t>(&avplayer_jump_to_time);
     }
     if(r.type==2&&r.library=="libSceAppContent"&&r.module=="libSceAppContentUtil"&&
        r.library_version==1&&r.module_version==0x0101){
@@ -768,6 +867,48 @@ void system_service_self_test(){
     dialog_mode=6;std::memcpy(dialog_param.data()+52,&dialog_mode,4);
     if(reinterpret_cast<DialogOpen>(*dialog_open)(dialog_param.data())!=dialog_parameter_error)
         throw std::runtime_error("SaveDataDialog mode validation failed.");
+    const auto avp=[](const char* nid){return resolve_system_service({nid,"libSceAvPlayer","libSceAvPlayer",1,0x0100,2});};
+    using AvInit=void* (LBP3_GUEST_ABI *)(const AvPlayerInitData*);
+    using AvAdd=std::int32_t (LBP3_GUEST_ABI *)(void*,const char*);
+    using AvCount=std::int32_t (LBP3_GUEST_ABI *)(void*);
+    using AvInfo=std::int32_t (LBP3_GUEST_ABI *)(void*,std::uint32_t,void*);
+    using AvStream=std::int32_t (LBP3_GUEST_ABI *)(void*,std::uint32_t);
+    using AvHandleOp=std::int32_t (LBP3_GUEST_ABI *)(void*);
+    using AvClose=AvHandleOp;
+    using AvLoop=std::int32_t (LBP3_GUEST_ABI *)(void*,bool);
+    using AvFrame=bool (LBP3_GUEST_ABI *)(void*,void*);
+    using AvActive=bool (LBP3_GUEST_ABI *)(void*);
+    using AvTime=std::uint64_t (LBP3_GUEST_ABI *)(void*);
+    using AvJump=std::int32_t (LBP3_GUEST_ABI *)(void*,std::uint64_t);
+    const auto av_count=avp("hdTyRzCXQeQ"),av_info=avp("d8FcbzfAdQw"),av_enable=avp("ODJK2sn9w4A"),
+        av_start=avp("ET4Gr-Uu07s"),av_close=avp("NkJwDzKmIlw"),av_init=avp("aS66RI0gGgo"),
+        av_add=avp("KMcEa+rHsIo"),av_loop=avp("OVths0xGfho"),av_video=avp("JdksQu8pNdQ"),
+        av_audio=avp("Wnp1OVcrZgk"),av_active=avp("UbQoYawOsfY"),av_time=avp("wwM99gjFf1Y"),
+        av_resume=avp("w5moABNwnRY"),av_pause=avp("9y5v+fGN4Wk"),av_jump=avp("XC9wM+xULz8");
+    AvPlayerInitData av_init_data{};for(std::size_t i=1;i<=4;++i)av_init_data.allocator[i]=1;
+    AvPlayerInitData av_invalid_data{};
+    const auto av_handle=reinterpret_cast<AvInit>(*av_init)(&av_init_data);
+    std::array<std::byte,56> av_stream_info{};std::array<std::byte,104> av_video_info{};
+    std::array<std::byte,40> av_audio_info{};
+    if(!av_count||!av_info||!av_enable||!av_start||!av_close||!av_init||!av_add||!av_loop||!av_video||!av_audio||!av_active||!av_time||!av_resume||!av_pause||!av_jump||
+       !av_handle||reinterpret_cast<AvInit>(*av_init)(nullptr)||
+       reinterpret_cast<AvInit>(*av_init)(&av_invalid_data)||
+       reinterpret_cast<AvAdd>(*av_add)(av_handle,"intro_001.farc")!=avplayer_not_supported||
+       reinterpret_cast<AvAdd>(*av_add)(av_handle,nullptr)!=avplayer_invalid_params||
+       reinterpret_cast<AvCount>(*av_count)(av_handle)!=-1||
+       reinterpret_cast<AvInfo>(*av_info)(av_handle,0,av_stream_info.data())!=avplayer_operation_failed||
+       reinterpret_cast<AvStream>(*av_enable)(av_handle,0)!=avplayer_operation_failed||
+       reinterpret_cast<AvHandleOp>(*av_start)(av_handle)!=avplayer_operation_failed||
+       reinterpret_cast<AvLoop>(*av_loop)(av_handle,true)!=avplayer_operation_failed||
+       reinterpret_cast<AvFrame>(*av_video)(av_handle,av_video_info.data())||
+       reinterpret_cast<AvFrame>(*av_audio)(av_handle,av_audio_info.data())||
+       reinterpret_cast<AvActive>(*av_active)(av_handle)||reinterpret_cast<AvTime>(*av_time)(av_handle)!=0||
+       reinterpret_cast<AvHandleOp>(*av_pause)(av_handle)!=avplayer_operation_failed||
+       reinterpret_cast<AvHandleOp>(*av_resume)(av_handle)!=avplayer_operation_failed||
+       reinterpret_cast<AvJump>(*av_jump)(av_handle,0)!=avplayer_not_supported||
+       reinterpret_cast<AvClose>(*av_close)(av_handle)||reinterpret_cast<AvClose>(*av_close)(av_handle)!=avplayer_invalid_params||
+       resolve_system_service({"aS66RI0gGgo","libSceAvPlayer","libSceAvPlayer",1,0x0101,2}))
+        throw std::runtime_error("AVPlayer unsupported-media ABI contract failed.");
     const auto playgo=resolve_system_service({"ts6GlZOKRrE","libScePlayGo","libScePlayGo",1,0x0100,2});
     using PlayGoInit=std::int32_t (LBP3_GUEST_ABI *)(const void*);
     if(!playgo||reinterpret_cast<PlayGoInit>(*playgo)(nullptr)!=0||
