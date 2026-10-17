@@ -15,6 +15,8 @@ constexpr std::int32_t signed_out=static_cast<std::int32_t>(0x80550006u);
 constexpr std::int32_t invalid_argument=static_cast<std::int32_t>(0x80550003u);
 constexpr std::int32_t np_state_signed_out=1;
 std::atomic<std::int32_t> next_callback{1};
+constexpr std::int32_t invalid_webapi=static_cast<std::int32_t>(0x80558003u);
+constexpr std::int32_t webapi_signed_out=static_cast<std::int32_t>(0x80558011u);
 constexpr std::int32_t request_id_offset=0x20000000;
 constexpr std::size_t request_limit=0x20;
 enum class RequestState { empty, ready, aborted, complete };
@@ -23,6 +25,14 @@ std::mutex request_mutex;
 std::vector<NpRequest> requests;
 std::size_t active_requests{};
 std::atomic<unsigned> np_trace_count{};
+std::mutex webapi_mutex;
+bool webapi_initialized{};
+std::int32_t webapi_context{};
+std::int32_t webapi_user_context{};
+std::int32_t webapi_filter{};
+struct WebApiRequest {std::int64_t id{};bool active{};};
+std::array<WebApiRequest,32> webapi_requests{};
+std::int64_t next_webapi_request{1};
 void trace_np(const char* name,std::int32_t a=0,std::uintptr_t b=0) noexcept {
     static const bool enabled=[] {wchar_t value[2]{};return GetEnvironmentVariableW(L"LBP3_NP_TRACE",value,static_cast<DWORD>(std::size(value)))>0;}();
     if(enabled){const auto n=np_trace_count.fetch_add(1,std::memory_order_relaxed);if(n<128)
@@ -105,8 +115,53 @@ std::int32_t LBP3_GUEST_ABI set_np_title_id(const char* title) noexcept {trace_n
 // is no PSN account or network policy service in this host process.
 std::int32_t LBP3_GUEST_ABI set_content_restriction(const void*) noexcept {return 0;}
 std::int32_t LBP3_GUEST_ABI register_state_callback(void* callback,void* user) noexcept {trace_np("sceNpRegisterStateCallback",static_cast<std::int32_t>(reinterpret_cast<std::uintptr_t>(callback)&0x7fffffff),reinterpret_cast<std::uintptr_t>(user));return next_callback.fetch_add(1,std::memory_order_relaxed);}
-std::int32_t LBP3_GUEST_ABI webapi_initialize() noexcept {return next_callback.fetch_add(1,std::memory_order_relaxed);}
-std::int32_t LBP3_GUEST_ABI webapi_terminate(std::int32_t) noexcept {return 0;}
+std::int32_t LBP3_GUEST_ABI webapi_initialize(std::int32_t http_context,std::uint64_t pool_size) noexcept {
+    (void)pool_size;std::lock_guard lock(webapi_mutex);if(http_context<=0)return invalid_webapi;webapi_initialized=true;webapi_context=http_context;return 0;
+}
+std::int32_t LBP3_GUEST_ABI webapi_terminate() noexcept {
+    std::lock_guard lock(webapi_mutex);if(!webapi_initialized)return invalid_webapi;webapi_initialized=false;webapi_context=0;webapi_user_context=0;webapi_filter=0;webapi_requests={};return 0;
+}
+std::int32_t LBP3_GUEST_ABI webapi_create_context(std::int32_t library_context,const void* online_id) noexcept {
+    if(!online_id)return invalid_argument;std::array<unsigned char,16> ignored{};SIZE_T read{};
+    if(!ReadProcessMemory(GetCurrentProcess(),online_id,ignored.data(),ignored.size(),&read)||read!=ignored.size())return invalid_argument;
+    std::lock_guard lock(webapi_mutex);if(!webapi_initialized||library_context!=webapi_context||webapi_user_context)return invalid_webapi;
+    webapi_user_context=next_callback.fetch_add(1,std::memory_order_relaxed);return webapi_user_context;
+}
+std::int32_t LBP3_GUEST_ABI webapi_delete_context(std::int32_t context) noexcept {
+    std::lock_guard lock(webapi_mutex);if(!webapi_user_context||context!=webapi_user_context)return invalid_webapi;webapi_user_context=0;webapi_filter=0;webapi_requests={};return 0;
+}
+std::int32_t LBP3_GUEST_ABI webapi_create_filter(std::int32_t context,const void* filter,std::uint64_t count) noexcept {
+    if(!filter||count==0)return invalid_argument;unsigned char probe{};SIZE_T read{};
+    if(!ReadProcessMemory(GetCurrentProcess(),filter,&probe,1,&read)||read!=1)return invalid_argument;
+    std::lock_guard lock(webapi_mutex);if(!webapi_user_context||context!=webapi_user_context)return invalid_webapi;
+    if(webapi_filter)return static_cast<std::int32_t>(0x80558010u);webapi_filter=next_callback.fetch_add(1,std::memory_order_relaxed);return webapi_filter;
+}
+std::int32_t LBP3_GUEST_ABI webapi_register_push(std::int32_t context,std::int32_t filter,void* callback,void*) noexcept {
+    std::lock_guard lock(webapi_mutex);if(!callback)return invalid_argument;if(context!=webapi_user_context||!webapi_filter||filter!=webapi_filter)return invalid_webapi;return webapi_signed_out;
+}
+std::int32_t LBP3_GUEST_ABI webapi_unregister_push(std::int32_t context,std::int32_t callback) noexcept {
+    std::lock_guard lock(webapi_mutex);if(context!=webapi_user_context)return invalid_webapi;(void)callback;return 0;
+}
+std::int32_t LBP3_GUEST_ABI webapi_request(std::int32_t context,const char* group,const char* path,std::int32_t method,const void*,std::int64_t* output) noexcept {
+    if(!group||!path||method<0||method>5||!output)return invalid_argument;
+    char probe{};SIZE_T read{};if(!ReadProcessMemory(GetCurrentProcess(),group,&probe,1,&read)||read!=1||!ReadProcessMemory(GetCurrentProcess(),path,&probe,1,&read)||read!=1)return invalid_argument;
+    std::lock_guard lock(webapi_mutex);if(!webapi_user_context||context!=webapi_user_context)return invalid_webapi;
+    for(auto& request:webapi_requests)if(!request.active){request={next_webapi_request++,true};SIZE_T written{};
+        if(!WriteProcessMemory(GetCurrentProcess(),output,&request.id,sizeof(request.id),&written)||written!=sizeof(request.id)){request={};return invalid_argument;}return 0;}
+    return static_cast<std::int32_t>(0x80558004u);
+}
+bool webapi_request_exists(std::int64_t id) noexcept {for(const auto& request:webapi_requests)if(request.active&&request.id==id)return true;return false;}
+std::int32_t LBP3_GUEST_ABI webapi_send_request(std::int64_t id) noexcept {std::lock_guard lock(webapi_mutex);return webapi_request_exists(id)?webapi_signed_out:invalid_webapi;}
+std::int32_t LBP3_GUEST_ABI webapi_read_data(std::int64_t id,void* data,std::uint64_t size) noexcept {
+    if(!data||!size)return invalid_argument;std::lock_guard lock(webapi_mutex);return webapi_request_exists(id)?webapi_signed_out:invalid_webapi;
+}
+std::int32_t LBP3_GUEST_ABI webapi_get_status(std::int64_t id,std::int32_t* output) noexcept {
+    if(!output)return invalid_argument;std::lock_guard lock(webapi_mutex);return webapi_request_exists(id)?webapi_signed_out:invalid_webapi;
+}
+std::int32_t LBP3_GUEST_ABI webapi_get_error() noexcept {return webapi_signed_out;}
+std::int32_t LBP3_GUEST_ABI webapi_abort_request(std::int64_t id) noexcept {std::lock_guard lock(webapi_mutex);return webapi_request_exists(id)?0:invalid_webapi;}
+std::int32_t LBP3_GUEST_ABI webapi_delete_request(std::int64_t id) noexcept {std::lock_guard lock(webapi_mutex);for(auto& request:webapi_requests)if(request.active&&request.id==id){request={};return 0;}return invalid_webapi;}
+std::int32_t LBP3_GUEST_ABI webapi_utility_parse_id(const void* input,void* output) noexcept {(void)input;(void)output;return webapi_signed_out;}
 std::int32_t LBP3_GUEST_ABI signaling_ok() noexcept {return 0;}
 std::int32_t LBP3_GUEST_ABI signaling_signed_out() noexcept {return signed_out;}
 std::int32_t LBP3_GUEST_ABI compare_online_id(const void* left,const void* right) noexcept {
@@ -149,6 +204,19 @@ std::optional<std::uintptr_t> resolve_np_webapi(const HostImport& r){
        r.library_version!=1||r.module_version!=0x0101)return std::nullopt;
     if(r.nid=="G3AnLNdRBjE")return reinterpret_cast<std::uintptr_t>(&webapi_initialize);
     if(r.nid=="asz3TtIqGF8")return reinterpret_cast<std::uintptr_t>(&webapi_terminate);
+    if(r.nid=="x1Y7yiYSk7c")return reinterpret_cast<std::uintptr_t>(&webapi_create_context);
+    if(r.nid=="XUjdsSTTZ3U")return reinterpret_cast<std::uintptr_t>(&webapi_delete_context);
+    if(r.nid=="y5Ta5JCzQHY")return reinterpret_cast<std::uintptr_t>(&webapi_create_filter);
+    if(r.nid=="PfSTDCgNMgc")return reinterpret_cast<std::uintptr_t>(&webapi_register_push);
+    if(r.nid=="qK4o2656W4w")return reinterpret_cast<std::uintptr_t>(&webapi_unregister_push);
+    if(r.nid=="CQtPRSF6Ds8")return reinterpret_cast<std::uintptr_t>(&webapi_read_data);
+    if(r.nid=="JzhYTP2fG18")return reinterpret_cast<std::uintptr_t>(&webapi_abort_request);
+    if(r.nid=="or0e885BlXo")return reinterpret_cast<std::uintptr_t>(&webapi_utility_parse_id);
+    if(r.nid=="rdgs5Z1MyFw")return reinterpret_cast<std::uintptr_t>(&webapi_request);
+    if(r.nid=="kVbL4hL3K7w")return reinterpret_cast<std::uintptr_t>(&webapi_send_request);
+    if(r.nid=="k210oKgP80Y")return reinterpret_cast<std::uintptr_t>(&webapi_get_status);
+    if(r.nid=="2qSZ0DgwTsc")return reinterpret_cast<std::uintptr_t>(&webapi_get_error);
+    if(r.nid=="noQgleu+KLE")return reinterpret_cast<std::uintptr_t>(&webapi_delete_request);
     return std::nullopt;
 }
 
@@ -266,12 +334,48 @@ void np_manager_self_test(){
         throw std::runtime_error("Offline NP state callback registration contract failed.");
     const auto web_init=resolve_np_webapi({"G3AnLNdRBjE","libSceNpWebApi","libSceNpWebApi",1,0x0101,2});
     const auto web_term=resolve_np_webapi({"asz3TtIqGF8","libSceNpWebApi","libSceNpWebApi",1,0x0101,2});
-    using WebInit=std::int32_t (LBP3_GUEST_ABI *)();
-    using WebTerm=std::int32_t (LBP3_GUEST_ABI *)(std::int32_t);
-    const auto web_context=web_init?reinterpret_cast<WebInit>(*web_init)():0;
-    if(web_context<=0||!web_term||reinterpret_cast<WebTerm>(*web_term)(web_context)!=0||
+    using WebInit=std::int32_t (LBP3_GUEST_ABI *)(std::int32_t,std::uint64_t) noexcept;
+    using WebTerm=std::int32_t (LBP3_GUEST_ABI *)() noexcept;
+    if(!web_init||!web_term||reinterpret_cast<WebInit>(*web_init)(7,0x4000)!=0||
        resolve_np_webapi({"G3AnLNdRBjE","libSceNpWebApi","libSceNpWebApi",1,0x0101,1}))
         throw std::runtime_error("Offline NP Web API context contract failed.");
+    const HostImport web_identity{"libSceNpWebApi","libSceNpWebApi","libSceNpWebApi",1,0x0101,2};
+    auto web_lookup=[&](const char* nid){auto id=web_identity;id.nid=nid;return resolve_np_webapi(id);};
+    using WebCreateContext=std::int32_t (LBP3_GUEST_ABI *)(std::int32_t,const void*) noexcept;
+    using WebDeleteContext=std::int32_t (LBP3_GUEST_ABI *)(std::int32_t) noexcept;
+    using WebCreateFilter=std::int32_t (LBP3_GUEST_ABI *)(std::int32_t,const void*,std::uint64_t) noexcept;
+    using WebRegisterPush=std::int32_t (LBP3_GUEST_ABI *)(std::int32_t,std::int32_t,void*,void*) noexcept;
+    using WebRequest=std::int32_t (LBP3_GUEST_ABI *)(std::int32_t,const char*,const char*,std::int32_t,const void*,std::int64_t*) noexcept;
+    using WebSend=std::int32_t (LBP3_GUEST_ABI *)(std::int64_t) noexcept;
+    using WebRead=std::int32_t (LBP3_GUEST_ABI *)(std::int64_t,void*,std::uint64_t) noexcept;
+    using WebStatus=std::int32_t (LBP3_GUEST_ABI *)(std::int64_t,std::int32_t*) noexcept;
+    using WebDelete=std::int32_t (LBP3_GUEST_ABI *)(std::int64_t) noexcept;
+    const auto web_create_context=web_lookup("x1Y7yiYSk7c"),web_delete_context=web_lookup("XUjdsSTTZ3U");
+    const auto web_create_filter=web_lookup("y5Ta5JCzQHY"),web_register=web_lookup("PfSTDCgNMgc");
+    const auto web_request=web_lookup("rdgs5Z1MyFw"),web_send=web_lookup("kVbL4hL3K7w");
+    const auto web_read=web_lookup("CQtPRSF6Ds8"),web_status=web_lookup("k210oKgP80Y");
+    const auto web_delete=web_lookup("noQgleu+KLE"),web_abort=web_lookup("JzhYTP2fG18");
+    std::array<unsigned char,16> fake_online_id{};
+    const auto user_context=web_create_context?reinterpret_cast<WebCreateContext>(*web_create_context)(7,fake_online_id.data()):0;
+    if(!web_create_context||!web_delete_context||!web_create_filter||!web_register||!web_request||!web_send||!web_read||!web_status||!web_delete||!web_abort||user_context<=0)
+        throw std::runtime_error("Offline WebAPI user context creation failed.");
+    const std::array<std::uint64_t,2> filter{16,0};
+    const auto filter_id=reinterpret_cast<WebCreateFilter>(*web_create_filter)(user_context,filter.data(),1);
+    if(filter_id<=0||reinterpret_cast<WebCreateFilter>(*web_create_filter)(user_context,filter.data(),1)!=static_cast<std::int32_t>(0x80558010u)||
+       reinterpret_cast<WebRegisterPush>(*web_register)(user_context,filter_id,nullptr,nullptr)!=invalid_argument||
+       reinterpret_cast<WebRegisterPush>(*web_register)(user_context,filter_id,reinterpret_cast<void*>(1),nullptr)!=webapi_signed_out)
+        throw std::runtime_error("Offline WebAPI push-filter contract failed.");
+    std::int64_t web_request_id{};
+    if(reinterpret_cast<WebRequest>(*web_request)(user_context,"lbp","/status",0,nullptr,&web_request_id)!=0||web_request_id<=0||
+       reinterpret_cast<WebSend>(*web_send)(web_request_id)!=webapi_signed_out||
+       reinterpret_cast<WebRead>(*web_read)(web_request_id,fake_online_id.data(),fake_online_id.size())!=webapi_signed_out||
+       reinterpret_cast<WebStatus>(*web_status)(web_request_id,&np_state)!=webapi_signed_out||
+       reinterpret_cast<WebDelete>(*web_abort)(web_request_id)!=0||reinterpret_cast<WebDelete>(*web_delete)(web_request_id)!=0||
+       reinterpret_cast<WebDelete>(*web_delete)(web_request_id)!=invalid_webapi)
+        throw std::runtime_error("Offline WebAPI request lifecycle failed.");
+    if(reinterpret_cast<WebDeleteContext>(*web_delete_context)(user_context)!=0||reinterpret_cast<WebTerm>(*web_term)()!=0||
+       reinterpret_cast<WebTerm>(*web_term)()!=invalid_webapi)
+        throw std::runtime_error("Offline WebAPI termination after context deletion failed.");
     const auto signaling_init=resolve_np_signaling({"3KOuC4RmZZU","libSceNpSignaling","libSceNpSignaling",1,0x0101,2});
     const auto signaling_context=resolve_np_signaling({"5yYjEdd4t8Y","libSceNpSignaling","libSceNpSignaling",1,0x0101,2});
     using OfflineOperation=std::int32_t (LBP3_GUEST_ABI *)();
