@@ -8,7 +8,6 @@
 #include <bit>
 #include <chrono>
 #include <cmath>
-#include <cstdlib>
 #include <cstdint>
 #include <iostream>
 #include <mutex>
@@ -45,6 +44,7 @@ static_assert(sizeof(PadData)==120&&offsetof(PadData,touches)==60&&offsetof(PadD
 static_assert(sizeof(PadTouch)==8&&sizeof(ControllerInfo)==28);
 std::mutex state_mutex;bool initialized{},opened{};
 std::atomic<unsigned> pad_trace_count{};
+std::atomic<std::uint64_t> pad_trace_last_state{UINT64_MAX};
 bool writable(void* pointer,std::size_t length) noexcept {
     auto at=reinterpret_cast<std::uintptr_t>(pointer);if(!at||length>UINTPTR_MAX-at)return false;const auto end=at+length;
     while(at<end){MEMORY_BASIC_INFORMATION info{};if(!VirtualQuery(reinterpret_cast<void*>(at),&info,sizeof(info))||info.State!=MEM_COMMIT||info.Protect&(PAGE_GUARD|PAGE_NOACCESS))return false;
@@ -112,7 +112,20 @@ std::int32_t LBP3_GUEST_ABI pad_close(std::int32_t handle) noexcept {std::lock_g
 std::int32_t LBP3_GUEST_ABI pad_read_state(std::int32_t handle,PadData* output) noexcept {
     {std::lock_guard lock(state_mutex);if(handle!=pad_handle||!opened)return invalid_handle;}if(!output||!writable(output,sizeof(PadData)))return invalid_arg;
     PadData data{};sample(data);
-    if(std::getenv("LBP3_PAD_TRACE")){const auto n=pad_trace_count.fetch_add(1,std::memory_order_relaxed);if(n<128)std::cerr<<"[LBP3_PAD_TRACE] read="<<(n+1)<<" buttons=0x"<<std::hex<<data.buttons<<std::dec<<" connected="<<static_cast<unsigned>(data.connected)<<" axes="<<static_cast<unsigned>(data.left_x)<<','<<static_cast<unsigned>(data.left_y)<<','<<static_cast<unsigned>(data.right_x)<<','<<static_cast<unsigned>(data.right_y)<<"\n";}
+    static const bool trace_enabled=[] {wchar_t value[2]{};return GetEnvironmentVariableW(L"LBP3_PAD_TRACE",value,static_cast<DWORD>(std::size(value)))>0;}();
+    if(trace_enabled){
+        const auto n=pad_trace_count.fetch_add(1,std::memory_order_relaxed);
+        std::uint64_t signature=1469598103934665603ull;
+        const std::uint8_t state[]={
+            static_cast<std::uint8_t>(data.buttons),static_cast<std::uint8_t>(data.buttons>>8),
+            static_cast<std::uint8_t>(data.buttons>>16),static_cast<std::uint8_t>(data.buttons>>24),
+            data.connected,data.left_x,data.left_y,data.right_x,data.right_y,data.l2,data.r2,
+        };
+        for(const auto byte:state){signature^=byte;signature*=1099511628211ull;}
+        const auto previous=pad_trace_last_state.exchange(signature,std::memory_order_relaxed);
+        if(n<8||previous!=signature)
+            std::cerr<<"[LBP3_PAD_TRACE] read="<<(n+1)<<" buttons=0x"<<std::hex<<data.buttons<<std::dec<<" connected="<<static_cast<unsigned>(data.connected)<<" axes="<<static_cast<unsigned>(data.left_x)<<','<<static_cast<unsigned>(data.left_y)<<','<<static_cast<unsigned>(data.right_x)<<','<<static_cast<unsigned>(data.right_y)<<"\n";
+    }
     return write_guest(output,&data,sizeof(data))?0:invalid_arg;
 }
 std::int32_t LBP3_GUEST_ABI pad_info(std::int32_t handle,ControllerInfo* output) noexcept {
