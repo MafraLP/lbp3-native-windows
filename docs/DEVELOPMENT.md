@@ -33,4 +33,4 @@ Quando nenhum controle XInput está conectado, o host expõe o teclado como um c
 
 Inclua Windows/build/compiler, preset e comando, resultado de CTest e erro mínimo reproduzível. Não anexe executáveis, dumps, saves ou capturas com conteúdo protegido. Para o estado conhecido, veja [STATUS.md](STATUS.md); para questões legais e proveniência, veja [LEGAL.md](LEGAL.md).
 
-Nos diagnosticos de startup, diferencie um diretorio de save vazio de um diretorio com dados existentes. O trace NP/rede e opt-in por `LBP3_NP_TRACE=1` e `LBP3_NET_TRACE=1`; registre a tela visivel antes de atribuir um bloqueio a um servico.
+Nos diagnosticos de startup, diferencie um diretorio de save vazio de um diretorio com dados existentes. Os traces sao opt-in: `LBP3_NP_TRACE=1` e `LBP3_NET_TRACE=1`; `LBP3_FS_CALLER_TRACE=1` mostra chamadores de `open` com falha; `LBP3_FS_CALLER_ALL=1` tambem mostra os primeiros 256 `open` bem-sucedidos. Registre a tela visivel antes de atribuir um bloqueio a um servico.

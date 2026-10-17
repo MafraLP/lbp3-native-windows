@@ -4,6 +4,7 @@
 #include "lbp3_host/module_registry.hpp"
 #include <Windows.h>
 #include <algorithm>
+#include <atomic>
 #include <bit>
 #include <cstdio>
 #include <intrin.h>
@@ -16,8 +17,11 @@ std::int64_t posix(std::int64_t result){if(result<0){*guest_errno_address()=stat
     type LBP3_GUEST_ABI sce_##name params noexcept {return static_cast<type>(sce(io::name args));}
 std::int32_t LBP3_GUEST_ABI sce_open(const char* path,int flags,int mode) noexcept {
     const auto result=static_cast<std::int32_t>(sce(io::open(path,flags,mode)));
-    static const bool trace=[] {wchar_t value[2]{};return GetEnvironmentVariableW(L"LBP3_FS_CALLER_TRACE",value,2)>0;}();
-    if(trace&&result<0){
+    static const bool trace=[] {wchar_t value[2]{};return GetEnvironmentVariableW(L"LBP3_FS_CALLER_TRACE",value,2)>0||GetEnvironmentVariableW(L"LBP3_FS_CALLER_ALL",value,2)>0;}();
+    static const bool trace_success=[] {wchar_t value[2]{};return GetEnvironmentVariableW(L"LBP3_FS_CALLER_ALL",value,2)>0;}();
+    static std::atomic<unsigned> success_count{};
+    const bool log_caller=trace&&(result<0||(trace_success&&success_count.fetch_add(1,std::memory_order_relaxed)<256));
+    if(log_caller){
         char guest_path[512]{};std::size_t length{};
         if(path){SIZE_T copied{};ReadProcessMemory(GetCurrentProcess(),path,guest_path,sizeof(guest_path)-1,&copied);length=static_cast<std::size_t>(copied);}
         if(length<sizeof(guest_path))guest_path[length]='\0';else guest_path[sizeof(guest_path)-1]='\0';
