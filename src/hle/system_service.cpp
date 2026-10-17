@@ -37,6 +37,7 @@ std::mutex playgo_mutex;
 constexpr std::int32_t savedata_not_initialized=std::bit_cast<std::int32_t>(0x809f0001u);
 constexpr std::int32_t savedata_parameter_error=std::bit_cast<std::int32_t>(0x809f0000u);
 constexpr std::int32_t savedata_not_mounted=std::bit_cast<std::int32_t>(0x809f0004u);
+constexpr std::int32_t savedata_busy=std::bit_cast<std::int32_t>(0x809f0003u);
 constexpr std::int32_t savedata_already_mounted=std::bit_cast<std::int32_t>(0x809f000du);
 constexpr std::int32_t savedata_invalid_user=std::bit_cast<std::int32_t>(0x809f0011u);
 std::atomic<bool> savedata_initialized{};
@@ -183,6 +184,17 @@ struct SaveMountResult {
     std::int32_t pad;
 };
 static_assert(sizeof(SaveMount1)==80&&sizeof(SaveMountResult)==64);
+struct SaveMountPoint {char data[16];};
+struct SaveDirSearchCond {
+    std::int32_t user,pad;const void* title;const SaveDirName* dir;
+    std::uint32_t key,order;std::array<std::uint8_t,32> reserved;
+};
+struct SaveSearchResult {
+    std::uint32_t hit_count,pad;SaveDirName* names;std::uint32_t name_count,set_count;
+    void* params;void* infos;std::array<std::uint8_t,12> reserved;std::int32_t tail_pad;
+};
+struct SaveIcon {void* buffer;std::uint64_t buffer_size,data_size;std::array<std::uint8_t,32> reserved;};
+static_assert(sizeof(SaveDirSearchCond)==64&&sizeof(SaveSearchResult)==56&&sizeof(SaveIcon)==56);
 bool copy_in(void* destination,const void* source,std::size_t size) noexcept {
     if(!source)return false;
     SIZE_T read{};
@@ -209,6 +221,36 @@ std::int32_t LBP3_GUEST_ABI savedata_unmount(const char* point) noexcept {
     if(!copy_in(mount.data(),point,mount.size()))return savedata_parameter_error;
     if(std::string_view(mount.data())!="/savedata0"||!savedata_mount_active.exchange(false,std::memory_order_acq_rel))return savedata_not_mounted;
     return 0;
+}
+
+std::int32_t LBP3_GUEST_ABI savedata_dirname_search(const SaveDirSearchCond* input,SaveSearchResult* output) noexcept {
+    if(!savedata_initialized.load(std::memory_order_acquire))return savedata_not_initialized;
+    SaveDirSearchCond cond{};SaveSearchResult result{};
+    if(!copy_in(&cond,input,sizeof(cond))||!writable(output,sizeof(result))||cond.key>5||cond.order>1)return savedata_parameter_error;
+    if(cond.user!=1)return savedata_invalid_user;
+    if(!copy_out(output,&result,sizeof(result)))return savedata_parameter_error;
+    return 0; // This host shim has no persistent save catalog to enumerate.
+}
+std::int32_t LBP3_GUEST_ABI savedata_set_param(const SaveMountPoint* point,std::uint32_t type,const void* param,std::uint64_t size) noexcept {
+    if(!savedata_initialized.load(std::memory_order_acquire))return savedata_not_initialized;
+    if(type>4||!point||!param)return savedata_parameter_error;
+    SaveMountPoint mount{};
+    if(!copy_in(&mount,point,sizeof(mount))||std::string_view(mount.data)!="/savedata0")return savedata_parameter_error;
+    if(!savedata_mount_active.load(std::memory_order_acquire))return savedata_not_mounted;
+    if(type==0&&size<sizeof(std::uint64_t))return savedata_parameter_error;
+    unsigned char probe{};SIZE_T read{};
+    if(!ReadProcessMemory(GetCurrentProcess(),param,&probe,1,&read)||read!=1)return savedata_parameter_error;
+    return 0;
+}
+std::int32_t LBP3_GUEST_ABI savedata_save_icon(const SaveMountPoint* point,const SaveIcon* icon) noexcept {
+    if(!savedata_initialized.load(std::memory_order_acquire))return savedata_not_initialized;
+    SaveIcon value{};
+    if(!copy_in(&value,icon,sizeof(value))||!point||!value.buffer)return savedata_parameter_error;
+    SaveMountPoint mount{};
+    if(!copy_in(&mount,point,sizeof(mount))||std::string_view(mount.data)!="/savedata0")return savedata_parameter_error;
+    if(!savedata_mount_active.load(std::memory_order_acquire))return savedata_not_mounted;
+    if(value.data_size>value.buffer_size)return savedata_parameter_error;
+    return savedata_busy; // Metadata persistence is not backed by the mounted host save yet.
 }
 std::int32_t LBP3_GUEST_ABI sysmodule_is_loaded(std::uint16_t id) noexcept {
     if(!id)return sysmodule_invalid_id;
@@ -361,8 +403,11 @@ std::optional<std::uintptr_t> resolve_system_service(const HostImport& r){
        r.library_version==1&&r.module_version==0x0101){
         if(r.nid=="ZkZhskCPXFw")return reinterpret_cast<std::uintptr_t>(&savedata_initialize);
         if(r.nid=="yKDy8S5yLA0")return reinterpret_cast<std::uintptr_t>(&savedata_terminate);
+        if(r.nid=="dyIhnXq-0SM")return reinterpret_cast<std::uintptr_t>(&savedata_dirname_search);
         if(r.nid=="32HQAQdwM2o")return reinterpret_cast<std::uintptr_t>(&savedata_mount);
         if(r.nid=="BMR4F-Uek3E")return reinterpret_cast<std::uintptr_t>(&savedata_unmount);
+        if(r.nid=="85zul--eGXs")return reinterpret_cast<std::uintptr_t>(&savedata_set_param);
+        if(r.nid=="c88Yy54Mx0w")return reinterpret_cast<std::uintptr_t>(&savedata_save_icon);
     }
     if(r.type==2&&r.library=="libSceAppContent"&&r.module=="libSceAppContentUtil"&&
        r.library_version==1&&r.module_version==0x0101){
@@ -560,18 +605,35 @@ void system_service_self_test(){
     const auto save_term=resolve_system_service({"yKDy8S5yLA0","libSceSaveData","libSceSaveData",1,0x0101,2});
     const auto save_mount=resolve_system_service({"32HQAQdwM2o","libSceSaveData","libSceSaveData",1,0x0101,2});
     const auto save_unmount=resolve_system_service({"BMR4F-Uek3E","libSceSaveData","libSceSaveData",1,0x0101,2});
+    const auto save_search=resolve_system_service({"dyIhnXq-0SM","libSceSaveData","libSceSaveData",1,0x0101,2});
+    const auto save_set_param=resolve_system_service({"85zul--eGXs","libSceSaveData","libSceSaveData",1,0x0101,2});
+    const auto save_icon=resolve_system_service({"c88Yy54Mx0w","libSceSaveData","libSceSaveData",1,0x0101,2});
     using SaveInit=std::int32_t (LBP3_GUEST_ABI *)(const void*);
     using SaveTerm=std::int32_t (LBP3_GUEST_ABI *)();
     using SaveMount=std::int32_t (LBP3_GUEST_ABI *)(const SaveMount1*,SaveMountResult*);
     using SaveUnmount=std::int32_t (LBP3_GUEST_ABI *)(const char*);
+    using SaveSearch=std::int32_t (LBP3_GUEST_ABI *)(const SaveDirSearchCond*,SaveSearchResult*);
+    using SaveSetParam=std::int32_t (LBP3_GUEST_ABI *)(const SaveMountPoint*,std::uint32_t,const void*,std::uint64_t);
+    using SaveIconOp=std::int32_t (LBP3_GUEST_ABI *)(const SaveMountPoint*,const SaveIcon*);
     SaveDirName savedir{};std::memcpy(savedir.data,"LBP3",5);
     SaveMount1 mount_request{};mount_request.user=1;mount_request.dir=&savedir;mount_request.mode=4;
     SaveMountResult mount_result{};
-    if(!save_init||!save_term||!save_mount||!save_unmount||reinterpret_cast<SaveInit>(*save_init)(nullptr)!=0||
+    SaveDirSearchCond search_cond{};search_cond.user=1;
+    SaveSearchResult search_result{};
+    if(!save_init||!save_term||!save_mount||!save_unmount||!save_search||!save_set_param||!save_icon||reinterpret_cast<SaveInit>(*save_init)(nullptr)!=0||
        reinterpret_cast<SaveMount>(*save_mount)(&mount_request,&mount_result)||
        std::string_view(mount_result.mount_point)!="/savedata0"||mount_result.status!=1||
        reinterpret_cast<SaveMount>(*save_mount)(&mount_request,&mount_result)!=savedata_already_mounted||
+       reinterpret_cast<SaveSearch>(*save_search)(nullptr,reinterpret_cast<SaveSearchResult*>(1))!=savedata_parameter_error||
+       reinterpret_cast<SaveSearch>(*save_search)(nullptr,reinterpret_cast<SaveSearchResult*>(&mount_result))!=savedata_parameter_error||
+       reinterpret_cast<SaveSearch>(*save_search)(nullptr,nullptr)!=savedata_parameter_error||
+       reinterpret_cast<SaveSearch>(*save_search)(&search_cond,&search_result)!=0||search_result.hit_count!=0||search_result.name_count!=0||search_result.set_count!=0||
+       reinterpret_cast<SaveSetParam>(*save_set_param)(reinterpret_cast<SaveMountPoint*>(mount_result.mount_point),1,"title",6)!=0||
+       reinterpret_cast<SaveSetParam>(*save_set_param)(reinterpret_cast<SaveMountPoint*>(mount_result.mount_point),5,"x",1)!=savedata_parameter_error||
+       reinterpret_cast<SaveSearch>(*save_search)(reinterpret_cast<const SaveDirSearchCond*>(1),reinterpret_cast<SaveSearchResult*>(1))!=savedata_parameter_error||
+       reinterpret_cast<SaveIconOp>(*save_icon)(reinterpret_cast<SaveMountPoint*>(mount_result.mount_point),nullptr)!=savedata_parameter_error||
        reinterpret_cast<SaveUnmount>(*save_unmount)(mount_result.mount_point)||
+       reinterpret_cast<SaveSetParam>(*save_set_param)(reinterpret_cast<SaveMountPoint*>(mount_result.mount_point),1,"title",6)!=savedata_not_mounted||
        reinterpret_cast<SaveUnmount>(*save_unmount)(mount_result.mount_point)!=savedata_not_mounted||
        reinterpret_cast<SaveMount>(*save_mount)(nullptr,&mount_result)!=savedata_parameter_error||
        reinterpret_cast<SaveTerm>(*save_term)()!=0||reinterpret_cast<SaveTerm>(*save_term)()!=savedata_not_initialized||
